@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3329C348D000BAE82F /* BenevolesVew.swift */; };
+		B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3629C34CBA00BAE82F /* JSONHelper.swift */; };
+		B7816A3929C3693000BAE82F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3829C3693000BAE82F /* User.swift */; };
 		B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F21429C06E5400D9B784 /* Befest_mobileApp.swift */; };
 		B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F21629C06E5400D9B784 /* ContentView.swift */; };
 		B7A1F21929C06E5500D9B784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A1F21829C06E5500D9B784 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7816A3329C348D000BAE82F /* BenevolesVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevolesVew.swift; sourceTree = "<group>"; };
+		B7816A3629C34CBA00BAE82F /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		B7816A3829C3693000BAE82F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B7A1F21129C06E5400D9B784 /* Befest_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Befest_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A1F21429C06E5400D9B784 /* Befest_mobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Befest_mobileApp.swift; sourceTree = "<group>"; };
 		B7A1F21629C06E5400D9B784 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7816A3529C34CA800BAE82F /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B7816A3629C34CBA00BAE82F /* JSONHelper.swift */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
 		B7A1F20829C06E5400D9B784 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +73,7 @@
 		B7A1F21329C06E5400D9B784 /* Befest_mobile */ = {
 			isa = PBXGroup;
 			children = (
+				B7816A3529C34CA800BAE82F /* utilities */,
 				B7A1F22729C0794400D9B784 /* views */,
 				B7A1F22229C0757600D9B784 /* models */,
 				B7A1F21429C06E5400D9B784 /* Befest_mobileApp.swift */,
@@ -82,6 +97,7 @@
 			children = (
 				B7A1F22329C075B800D9B784 /* Jeu.swift */,
 				B7A1F22529C0782300D9B784 /* Zone.swift */,
+				B7816A3829C3693000BAE82F /* User.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -91,6 +107,7 @@
 			children = (
 				B7A1F22829C07DB000D9B784 /* NavBar.swift */,
 				B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */,
+				B7816A3329C348D000BAE82F /* BenevolesVew.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -166,9 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */,
+				B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */,
 				B7A1F22929C07DB000D9B784 /* NavBar.swift in Sources */,
 				B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */,
 				B7A1F22629C0782300D9B784 /* Zone.swift in Sources */,
+				B7816A3929C3693000BAE82F /* User.swift in Sources */,
+				B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */,
 				B7A1F22429C075B800D9B784 /* Jeu.swift in Sources */,
 				B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */,
 			);

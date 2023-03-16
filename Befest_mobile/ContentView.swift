@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    //@State var linkSelected : 
+    
+    
     var body: some View {
-        NavBar()
+        /*NavigationStack{
+            Text("ggded")
+            NavigationLink(destination: BenevolesVew()){
+                Text("hdhdhd")
+            }
+            
+        
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar){
+                        NavBar()
+                    }
+                }
+        }*/
+        
+        TabView{
+            NavBar()
+                .tabItem(){
+                    NavBarItem(image: "globe", description: "planete")
+                }
+    
+            BenevolesVew()
+                .tabItem(){
+                    Text("benevole")
+                }
+        }
     }
 }
 

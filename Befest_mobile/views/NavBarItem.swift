@@ -22,9 +22,10 @@ struct NavBarItem: View {
             Image(systemName: image)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 60, height: 70)
+                .frame(width: 50, height: 40)
+                
             Text(description)
-                .font(.system(size: 14))
+                .font(.system(size: 13))
         }
         .frame(maxWidth: 500)
     }

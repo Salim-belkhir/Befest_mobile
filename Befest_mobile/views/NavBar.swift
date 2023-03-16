@@ -34,8 +34,10 @@ struct NavBar: View {
         Page(image: "person.crop.circle", description: "Compte")
     ]
     
+    @State private var navigate : Bool = false
+    
     var body: some View {
-        HStack{
+        HStack(alignment: .bottom){
             ForEach(pages, id: \.image) { item in
                 NavBarItem(image: item.image, description: item.description)
             }
