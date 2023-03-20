@@ -16,6 +16,10 @@
 		6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633129C8EA3E0000DA28 /* AdminAppView.swift */; };
 		6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */; };
 		6F52633629C8EAA70000DA28 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633529C8EAA70000DA28 /* LogView.swift */; };
+		6F52633929C8F6850000DA28 /* ListFestivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633829C8F6850000DA28 /* ListFestivalsView.swift */; };
+		6F52633C29C8F7240000DA28 /* FestivalItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633B29C8F7240000DA28 /* FestivalItemView.swift */; };
+		6F52633E29C8F7880000DA28 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633D29C8F7880000DA28 /* Festival.swift */; };
+		6F52634029C8FD740000DA28 /* FestivalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633F29C8FD740000DA28 /* FestivalService.swift */; };
 		B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3329C348D000BAE82F /* BenevolesVew.swift */; };
 		B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3629C34CBA00BAE82F /* JSONHelper.swift */; };
 		B7816A3929C3693000BAE82F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3829C3693000BAE82F /* User.swift */; };
@@ -36,6 +40,10 @@
 		6F52633129C8EA3E0000DA28 /* AdminAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAppView.swift; sourceTree = "<group>"; };
 		6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleAppView.swift; sourceTree = "<group>"; };
 		6F52633529C8EAA70000DA28 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		6F52633829C8F6850000DA28 /* ListFestivalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFestivalsView.swift; sourceTree = "<group>"; };
+		6F52633B29C8F7240000DA28 /* FestivalItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalItemView.swift; sourceTree = "<group>"; };
+		6F52633D29C8F7880000DA28 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
+		6F52633F29C8FD740000DA28 /* FestivalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalService.swift; sourceTree = "<group>"; };
 		B7816A3329C348D000BAE82F /* BenevolesVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevolesVew.swift; sourceTree = "<group>"; };
 		B7816A3629C34CBA00BAE82F /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B7816A3829C3693000BAE82F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -71,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				6F52632429C8E88D0000DA28 /* AuthService.swift */,
+				6F52633F29C8FD740000DA28 /* FestivalService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -110,9 +119,19 @@
 		6F52633029C8E9FE0000DA28 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				6F52633A29C8F7090000DA28 /* Festival */,
 				6F52633529C8EAA70000DA28 /* LogView.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		6F52633A29C8F7090000DA28 /* Festival */ = {
+			isa = PBXGroup;
+			children = (
+				6F52633829C8F6850000DA28 /* ListFestivalsView.swift */,
+				6F52633B29C8F7240000DA28 /* FestivalItemView.swift */,
+			);
+			path = Festival;
 			sourceTree = "<group>";
 		};
 		B7816A3529C34CA800BAE82F /* utilities */ = {
@@ -170,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				B7816A3829C3693000BAE82F /* User.swift */,
+				6F52633D29C8F7880000DA28 /* Festival.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -259,6 +279,7 @@
 				6F52632B29C8E9720000DA28 /* LogIntent.swift in Sources */,
 				6F52632029C8E7EC0000DA28 /* RequestError.swift in Sources */,
 				B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */,
+				6F52633C29C8F7240000DA28 /* FestivalItemView.swift in Sources */,
 				6F52632229C8E82D0000DA28 /* UserIntentError.swift in Sources */,
 				B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */,
 				6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */,
@@ -266,11 +287,14 @@
 				B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */,
 				B7816A3929C3693000BAE82F /* User.swift in Sources */,
 				6F52632529C8E88D0000DA28 /* AuthService.swift in Sources */,
+				6F52633929C8F6850000DA28 /* ListFestivalsView.swift in Sources */,
 				6F52632829C8E8C90000DA28 /* ConfigAPI.swift in Sources */,
 				B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */,
 				6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */,
 				6F52633629C8EAA70000DA28 /* LogView.swift in Sources */,
 				B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */,
+				6F52633E29C8F7880000DA28 /* Festival.swift in Sources */,
+				6F52634029C8FD740000DA28 /* FestivalService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

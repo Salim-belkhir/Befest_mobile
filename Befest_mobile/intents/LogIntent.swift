@@ -16,9 +16,9 @@ struct LogIntent {
         self.model = model
     }
     
-    func signin(email: String, password: String) async {
+    func signin() async {
         self.model.state = .loading
-        let userDTO : UserDTO = UserDTO(email: email, password: password)
+        let userDTO : UserDTO = UserDTO(email: self.model.email, password: self.model.password)
         do{
             try await AuthService.signin(user: userDTO)
             self.model.state = .success(userDTO)

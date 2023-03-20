@@ -12,11 +12,11 @@ struct UserDTO: Decodable, Encodable {
     static func decodeUser(data : [UserDTO]) -> [UserViewModel]?{
         var users = [UserViewModel]()
         for tdata in data{
-            guard (tdata.id != nil && tdata.firstname != nil && tdata.lastname != nil && tdata.email != nil) else{
+            guard (tdata.id != nil && tdata.firstname != nil && tdata.lastname != nil && tdata.email != nil && tdata.password != nil) else{
                return nil
             }
             let id : String = tdata.id!
-            let user = UserViewModel(id: id, firstname: tdata.firstname! , lastname: tdata.lastname!, email: tdata.email!)
+            let user = UserViewModel(id: id, firstname: tdata.firstname! , lastname: tdata.lastname!, email: tdata.email!, password: tdata.password!)
             users.append(user)
         }
         return users
@@ -55,11 +55,12 @@ class UserViewModel : ObservableObject, Equatable {
         }
     }
     
-    init(id: String, firstname: String, lastname: String, email: String) {
+    init(id: String = "", firstname: String, lastname: String, email: String, password: String) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
+        self.password = password
     }
     
     

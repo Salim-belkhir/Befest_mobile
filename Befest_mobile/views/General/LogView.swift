@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 enum TextButton: String{
     case signin = "Se connecter"
@@ -14,6 +15,8 @@ enum TextButton: String{
 
 
 struct LogView: View {
+    @ObservedObject var userMV : UserViewModel
+    private var intent: LogIntent
     @State var email: String = ""
     @State var password: String = ""
     @State var firstname: String = ""
@@ -32,6 +35,12 @@ struct LogView: View {
         return (self.isLoginPage ? TextButton.signin : TextButton.signup)
     }
     
+    
+    init(){
+        let user : UserViewModel = UserViewModel(firstname: "", lastname: "", email: "", password: "")
+        self.userMV = user
+        self.intent = LogIntent(model: user)
+    }
     
     
     var body: some View {
@@ -87,6 +96,7 @@ struct LogView: View {
                 .background(Color.gray.opacity(0.2))
                 .frame(width: 300, height: 40, alignment: .center)
                 .cornerRadius(10)
+                .autocapitalization(.none)
             
             
             if (!self.isEmailValid) {
@@ -107,7 +117,9 @@ struct LogView: View {
             
             
             Button(textButton.rawValue, action: {
-                print("Login")
+                Task{
+                    await self.intent.signin()
+                }
             })
             .padding(10)
             .frame(width: 130)
@@ -126,6 +138,11 @@ struct LogView: View {
                 self.isLoginPage = !self.isLoginPage
             })
     
+        }
+        .onChange(of: self.userMV.state){
+            newValue in
+            print("Success \(newValue)")
+            self.userMV.email = "C'est fait"
         }
     }
 }
