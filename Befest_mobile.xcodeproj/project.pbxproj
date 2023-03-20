@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F52632029C8E7EC0000DA28 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52631F29C8E7EC0000DA28 /* RequestError.swift */; };
+		6F52632229C8E82D0000DA28 /* UserIntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632129C8E82D0000DA28 /* UserIntentError.swift */; };
+		6F52632529C8E88D0000DA28 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632429C8E88D0000DA28 /* AuthService.swift */; };
+		6F52632829C8E8C90000DA28 /* ConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632729C8E8C90000DA28 /* ConfigAPI.swift */; };
+		6F52632B29C8E9720000DA28 /* LogIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632A29C8E9720000DA28 /* LogIntent.swift */; };
+		6F52632D29C8E9BB0000DA28 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632C29C8E9BB0000DA28 /* EmailValidator.swift */; };
+		6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633129C8EA3E0000DA28 /* AdminAppView.swift */; };
+		6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */; };
+		6F52633629C8EAA70000DA28 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633529C8EAA70000DA28 /* LogView.swift */; };
 		B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3329C348D000BAE82F /* BenevolesVew.swift */; };
 		B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3629C34CBA00BAE82F /* JSONHelper.swift */; };
 		B7816A3929C3693000BAE82F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3829C3693000BAE82F /* User.swift */; };
@@ -14,13 +23,19 @@
 		B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F21629C06E5400D9B784 /* ContentView.swift */; };
 		B7A1F21929C06E5500D9B784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A1F21829C06E5500D9B784 /* Assets.xcassets */; };
 		B7A1F21C29C06E5500D9B784 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A1F21B29C06E5500D9B784 /* Preview Assets.xcassets */; };
-		B7A1F22429C075B800D9B784 /* Jeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F22329C075B800D9B784 /* Jeu.swift */; };
-		B7A1F22629C0782300D9B784 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F22529C0782300D9B784 /* Zone.swift */; };
-		B7A1F22929C07DB000D9B784 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F22829C07DB000D9B784 /* NavBar.swift */; };
 		B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F52631F29C8E7EC0000DA28 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		6F52632129C8E82D0000DA28 /* UserIntentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIntentError.swift; sourceTree = "<group>"; };
+		6F52632429C8E88D0000DA28 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		6F52632729C8E8C90000DA28 /* ConfigAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigAPI.swift; sourceTree = "<group>"; };
+		6F52632A29C8E9720000DA28 /* LogIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIntent.swift; sourceTree = "<group>"; };
+		6F52632C29C8E9BB0000DA28 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		6F52633129C8EA3E0000DA28 /* AdminAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAppView.swift; sourceTree = "<group>"; };
+		6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleAppView.swift; sourceTree = "<group>"; };
+		6F52633529C8EAA70000DA28 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		B7816A3329C348D000BAE82F /* BenevolesVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevolesVew.swift; sourceTree = "<group>"; };
 		B7816A3629C34CBA00BAE82F /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B7816A3829C3693000BAE82F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -29,9 +44,6 @@
 		B7A1F21629C06E5400D9B784 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B7A1F21829C06E5500D9B784 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7A1F21B29C06E5500D9B784 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B7A1F22329C075B800D9B784 /* Jeu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jeu.swift; sourceTree = "<group>"; };
-		B7A1F22529C0782300D9B784 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
-		B7A1F22829C07DB000D9B784 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,10 +58,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F52631E29C8E7CC0000DA28 /* errors */ = {
+			isa = PBXGroup;
+			children = (
+				6F52631F29C8E7EC0000DA28 /* RequestError.swift */,
+				6F52632129C8E82D0000DA28 /* UserIntentError.swift */,
+			);
+			path = errors;
+			sourceTree = "<group>";
+		};
+		6F52632329C8E8510000DA28 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				6F52632429C8E88D0000DA28 /* AuthService.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		6F52632629C8E8A60000DA28 /* configs */ = {
+			isa = PBXGroup;
+			children = (
+				6F52632729C8E8C90000DA28 /* ConfigAPI.swift */,
+			);
+			path = configs;
+			sourceTree = "<group>";
+		};
+		6F52632929C8E9660000DA28 /* intents */ = {
+			isa = PBXGroup;
+			children = (
+				6F52632A29C8E9720000DA28 /* LogIntent.swift */,
+			);
+			path = intents;
+			sourceTree = "<group>";
+		};
+		6F52632E29C8E9E90000DA28 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				6F52633129C8EA3E0000DA28 /* AdminAppView.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		6F52632F29C8E9F10000DA28 /* Benevole */ = {
+			isa = PBXGroup;
+			children = (
+				6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */,
+			);
+			path = Benevole;
+			sourceTree = "<group>";
+		};
+		6F52633029C8E9FE0000DA28 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				6F52633529C8EAA70000DA28 /* LogView.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		B7816A3529C34CA800BAE82F /* utilities */ = {
 			isa = PBXGroup;
 			children = (
 				B7816A3629C34CBA00BAE82F /* JSONHelper.swift */,
+				6F52632C29C8E9BB0000DA28 /* EmailValidator.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -73,6 +143,10 @@
 		B7A1F21329C06E5400D9B784 /* Befest_mobile */ = {
 			isa = PBXGroup;
 			children = (
+				6F52632929C8E9660000DA28 /* intents */,
+				6F52632629C8E8A60000DA28 /* configs */,
+				6F52632329C8E8510000DA28 /* services */,
+				6F52631E29C8E7CC0000DA28 /* errors */,
 				B7816A3529C34CA800BAE82F /* utilities */,
 				B7A1F22729C0794400D9B784 /* views */,
 				B7A1F22229C0757600D9B784 /* models */,
@@ -95,8 +169,6 @@
 		B7A1F22229C0757600D9B784 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				B7A1F22329C075B800D9B784 /* Jeu.swift */,
-				B7A1F22529C0782300D9B784 /* Zone.swift */,
 				B7816A3829C3693000BAE82F /* User.swift */,
 			);
 			path = models;
@@ -105,7 +177,9 @@
 		B7A1F22729C0794400D9B784 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				B7A1F22829C07DB000D9B784 /* NavBar.swift */,
+				6F52633029C8E9FE0000DA28 /* General */,
+				6F52632F29C8E9F10000DA28 /* Benevole */,
+				6F52632E29C8E9E90000DA28 /* Admin */,
 				B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */,
 				B7816A3329C348D000BAE82F /* BenevolesVew.swift */,
 			);
@@ -182,14 +256,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F52632B29C8E9720000DA28 /* LogIntent.swift in Sources */,
+				6F52632029C8E7EC0000DA28 /* RequestError.swift in Sources */,
 				B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */,
+				6F52632229C8E82D0000DA28 /* UserIntentError.swift in Sources */,
 				B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */,
-				B7A1F22929C07DB000D9B784 /* NavBar.swift in Sources */,
+				6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */,
+				6F52632D29C8E9BB0000DA28 /* EmailValidator.swift in Sources */,
 				B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */,
-				B7A1F22629C0782300D9B784 /* Zone.swift in Sources */,
 				B7816A3929C3693000BAE82F /* User.swift in Sources */,
+				6F52632529C8E88D0000DA28 /* AuthService.swift in Sources */,
+				6F52632829C8E8C90000DA28 /* ConfigAPI.swift in Sources */,
 				B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */,
-				B7A1F22429C075B800D9B784 /* Jeu.swift in Sources */,
+				6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */,
+				6F52633629C8EAA70000DA28 /* LogView.swift in Sources */,
 				B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
