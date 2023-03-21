@@ -20,9 +20,12 @@ extension URLSession{
 }
 
 class FestivalService {
+    static var urlFestival: String = ConfigAPI.apiUrl + "/festivals/"
+    
     static func getAllFestivals() async -> [FestivalViewModel]? {
         do{
-            let festivals: [FestivalDTO] = try await URLSession.shared.getJSON(from: ConfigAPI.apiUrl)
+            let urlApi : URL = URL(string: urlFestival)!
+            let festivals: [FestivalDTO] = try await URLSession.shared.getJSON(from: urlApi)
             return FestivalDTO.decodeFestival(data: festivals)
         }
         catch {

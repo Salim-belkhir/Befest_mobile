@@ -22,6 +22,7 @@ struct JSONHelper{
       }
       return decoded
    }
+    
    static func encode<T: Encodable>(data: T) async -> Data?{
       let encoder = JSONEncoder()
       return try? encoder.encode(data)

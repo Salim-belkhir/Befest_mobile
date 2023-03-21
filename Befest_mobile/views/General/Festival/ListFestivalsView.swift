@@ -19,9 +19,9 @@ struct ListFestivalsView: View {
                 FestivalItemView(festivalVM: item)
             }
         }
-        .onAppear(perform: {
+        /*.onAppear(perform: {
             self.listFestival = try await FestivalService.getAllFestivals()
-        })
+        })*/
     }
 }
 

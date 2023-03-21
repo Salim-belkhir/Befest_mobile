@@ -65,11 +65,32 @@ class FestivalViewModel: Equatable, ObservableObject{
 
 
 
-enum FestivalState{
+enum FestivalState: Equatable{
+    static func == (lhs: FestivalState, rhs: FestivalState) -> Bool {
+        switch(lhs, rhs){
+        case (.loading, .loading):
+            return true
+        case (.closingFestival, .closingFestival):
+            return true
+        case (.ready, .ready):
+            return true
+        case (.update, .update):
+            return true
+        case (.error, .error):
+            return true
+        case (.success(_), .success(_)):
+            return true
+        default:
+            return false
+        }
+    }
+    
     case loading
     case success(FestivalDTO)
     case closingFestival
     case ready
     case update
     case error
+    
+    
 }

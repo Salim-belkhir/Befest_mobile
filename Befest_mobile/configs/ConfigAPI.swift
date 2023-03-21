@@ -8,5 +8,5 @@
 import Foundation
 
 class ConfigAPI {
-    public static var apiUrl : URL = URL(string: "https://befest-api-2.onrender.com/api")!
+    public static var apiUrl : String = "https://befest-api-2.onrender.com/api"
 }

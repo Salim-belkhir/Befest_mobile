@@ -12,35 +12,42 @@ struct UserDTO: Decodable, Encodable {
     static func decodeUser(data : [UserDTO]) -> [UserViewModel]?{
         var users = [UserViewModel]()
         for tdata in data{
-            guard (tdata.id != nil && tdata.firstname != nil && tdata.lastname != nil && tdata.email != nil && tdata.password != nil) else{
+            guard (tdata.id != "" && tdata.firstname != "" && tdata.lastname != "" && tdata.email != "" && tdata.password != "") else{
                return nil
             }
-            let id : String = tdata.id!
-            let user = UserViewModel(id: id, firstname: tdata.firstname! , lastname: tdata.lastname!, email: tdata.email!, password: tdata.password!)
+            let id : String = tdata.id
+            let user = UserViewModel(id: id, firstname: tdata.firstname, lastname: tdata.lastname, email: tdata.email, password: tdata.password ?? "")
             users.append(user)
         }
         return users
     }
     
-    var email: String?
-    var id: String?
-    var firstname: String?
-    var lastname: String?
-    var password: String?
-    
-    
+    var email: String
+    var id: String
+    var firstname: String
+    var lastname: String
+    var password: String? = nil
+    var token: String? = nil
+    var role: String? = nil
+}
+
+
+struct LogDTO: Decodable{
+    var token: String
 }
 
 class UserViewModel : ObservableObject, Equatable {
-    @Published var id : String?;
-    @Published var firstname : String?;
-    @Published var lastname : String?;
-    @Published var email : String?;
-    @Published var password : String?;
+    @Published var id : String = "";
+    @Published var firstname : String = "";
+    @Published var lastname : String = "";
+    @Published var email : String = "";
+    @Published var password : String = "";
     
     @Published var state : UserState = .ready {
         didSet{
             switch state {
+            case .changeEmail(let email):
+                self.email = email
             case .success(let user):
                 self.lastname = user.lastname
                 self.firstname = user.firstname
@@ -55,13 +62,15 @@ class UserViewModel : ObservableObject, Equatable {
         }
     }
     
-    init(id: String = "", firstname: String, lastname: String, email: String, password: String) {
+    init(id: String, firstname: String, lastname: String, email: String, password: String) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
         self.password = password
     }
+    
+    init() {}
     
     
     static func == (lhs: UserViewModel, rhs: UserViewModel) -> Bool {
@@ -71,40 +80,28 @@ class UserViewModel : ObservableObject, Equatable {
 }
 
 
-enum UserState : Equatable {
-    static func == (lhs: UserState, rhs: UserState) -> Bool {
-        switch(lhs, rhs){
-        case (.ready, .ready):
-            return true
-        case (.ready, .loading):
-            return false
-        case(.success(let lhsSuccess), .success(let rhsSuccess)):
-            return lhsSuccess.id == rhsSuccess.id
-        case (.loading, _):
-            return false
-        case (.error(_), .ready):
-            return false
-        case (.error(_), .loading):
-            return false
-        case (.error(_), .success(_)):
-            return false
-        case (.success(_), .ready):
-            return false
-        case (.success(_), .loading):
-            return false
-        case (.success(_), .error(_)):
-            return false
-        case (.ready, .success(_)):
-            return false
-        case (.ready, .error(_)):
-            return false
-        case (.error(_), .error(_)):
-            return true
-        }
-    }
-    
+enum UserState: Equatable {
     case ready
     case loading
     case success(UserDTO)
     case error(UserIntentError)
+    case changeEmail(String)
+    
+    
+    static func == (lhs: UserState, rhs: UserState) -> Bool {
+        switch(lhs, rhs){
+        case (.ready, .ready):
+            return true
+        case (.loading, .loading):
+            return true
+        case (.success(_), .success(_)):
+            return true
+        case (.error(_), .error(_)):
+            return true
+        case (.changeEmail(_), .changeEmail(_)):
+            return true
+        default:
+            return false
+        }
+    }
 }

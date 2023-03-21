@@ -16,15 +16,22 @@ struct LogIntent {
         self.model = model
     }
     
+    func changeEmail(email: String){
+        if(self.model.state == .ready){
+            self.model.state = .changeEmail(email)
+        }
+    }
+    
     func signin() async {
         self.model.state = .loading
-        let userDTO : UserDTO = UserDTO(email: self.model.email, password: self.model.password)
+        let userDTO : UserDTO = UserDTO(email: self.model.email, id:"", firstname: "", lastname: "", password: self.model.password)
         do{
             try await AuthService.signin(user: userDTO)
             self.model.state = .success(userDTO)
+            debugPrint("J\'ai recuperer les données")
         }
         catch{
-            print("An error occured")
+            debugPrint("An error occured")
             self.model.state = .error(.errorLoading)
         }
         
