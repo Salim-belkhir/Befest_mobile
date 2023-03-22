@@ -23,41 +23,54 @@ struct LogIntent {
         }
     }
     
-    func signin() async {
+    func clearInformations(){
+        if(self.model.state == .ready){
+            self.model.state = .clearInformations
+            self.model.state = .ready
+        }
+    }
+    
+    
+    func signin() async -> Bool{
         if(self.model.state != .ready){
-            return
+            debugPrint("Je peux pas me connecter car le VM n'est pas ready")
+            return false
         }
         self.model.state = .loading
         let userDTO : UserDTO = UserDTO(email: self.model.email, id:"", firstname: "", lastname: "", password: self.model.password)
         do{
+            debugPrint("Je lance la requête")
             try await AuthService.signin(user: userDTO)
             self.model.state = .success(userDTO)
-            debugPrint("J\'ai recuperer les données")
+            self.model.state = .ready
+            return true
         }
         catch{
-            debugPrint("An error occured")
             debugPrint(error)
             self.model.state = .error(.errorLoading)
+            self.model.state = .ready
+            return false
         }
-        
     }
     
     
-    func signup() async{
+    func signup() async -> Bool{
         if(self.model.state != .ready){
-            return
+            return false
         }
         self.model.state = .loading
-        let userDTO : UserDTO = UserDTO(email: self.model.email, id:"", firstname: self.model.firstname, lastname: self.model.lastname, password: self.model.password)
+        let userDTO : UserDTO = UserDTO(email: self.model.email, id:"", firstname: self.model.firstname, lastname: self.model.lastname, password: self.model.password, role: "benevole")
         do{
             try await AuthService.signup(user: userDTO)
             self.model.state = .success(userDTO)
-            debugPrint("J\'ai recuperer les données")
+            self.model.state = .ready
+            return true
         }
         catch{
-            debugPrint("An error occured")
             debugPrint(error)
             self.model.state = .error(.errorLoading)
+            self.model.state = .ready
+            return false
         }
     }
     

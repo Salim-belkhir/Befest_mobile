@@ -11,7 +11,7 @@ import SwiftUI
 struct Befest_mobileApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LogView()
         }
     }
 }

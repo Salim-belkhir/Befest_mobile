@@ -13,12 +13,12 @@ struct ContentView: View {
     
     var body: some View {
         //TODO : En fonction du rôle display la bonne page
-        if(true){
-            LogView()
-            //BenevoleAppView()
+        
+        if(userVM.role == "admin"){
+            AdminAppView()
         }
         else{
-            AdminAppView()
+            BenevoleAppView()
         }
     }
 }

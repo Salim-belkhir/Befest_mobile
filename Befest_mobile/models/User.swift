@@ -54,6 +54,12 @@ class UserViewModel : ObservableObject, Equatable {
                 self.firstname = user.firstname
                 self.email = user.email
                 self.id = user.id
+            case .clearInformations:
+                self.lastname = ""
+                self.firstname = ""
+                self.email = ""
+                self.password = ""
+                self.role = ""
                 
             case .error:
                 debugPrint("An error occured")
@@ -88,6 +94,7 @@ enum UserState: Equatable {
     case success(UserDTO)
     case error(UserIntentError)
     case changeEmail(String)
+    case clearInformations
     
     
     static func == (lhs: UserState, rhs: UserState) -> Bool {
@@ -101,6 +108,8 @@ enum UserState: Equatable {
         case (.error(_), .error(_)):
             return true
         case (.changeEmail(_), .changeEmail(_)):
+            return true
+        case (.clearInformations, .clearInformations):
             return true
         default:
             return false

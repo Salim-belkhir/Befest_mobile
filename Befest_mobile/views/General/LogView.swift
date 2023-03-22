@@ -123,7 +123,12 @@ struct LogView: View {
                     
                     Button(textButton.rawValue, action: {
                         Task{
-                            await self.intent.signin()
+                            if(isLoginPage){
+                                if (await self.intent.signin()) { self.navigate = true }
+                            }
+                            else{
+                                if(await self.intent.signup()) { self.isLoginPage = true }
+                            }
                         }
                     })
                     .padding(10)
@@ -149,6 +154,7 @@ struct LogView: View {
                     newValue in
                     switch newValue{
                     case .error(_):
+                        debugPrint("Erreur sur le Model View")
                         self.isError = true
                     default:
                         break
@@ -157,7 +163,7 @@ struct LogView: View {
                 
                 Spacer().frame(height: 100)
                 
-                NavigationLink(destination: AdminAppView().navigationBarBackButtonHidden(true), isActive: $navigate){
+                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true).environmentObject(userMV), isActive: $navigate){
                     EmptyView()
                 }
                 .hidden()

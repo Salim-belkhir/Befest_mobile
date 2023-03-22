@@ -26,22 +26,29 @@ class AuthService{
             throw RequestError.encodageProblem("GoRest: pb encodage")
         }
         let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
-        guard let decoded: LogDTO = await JSONHelper.decode(data: data) else {
+        guard let decoded: UserDTO = await JSONHelper.decode(data: data) else {
             throw RequestError.requestFailed("Erreur dans le décodage")
         }
+        debugPrint(decoded.id)
         UserDefaults.standard.set(decoded.token, forKey: "token")
         let httpresponse = response as! HTTPURLResponse
         
         if httpresponse.statusCode != 200{
             throw RequestError.requestError("Error \(httpresponse.statusCode): \(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
         }
-        debugPrint("Réussi !")
     }
     
     
     static func signup(user: UserDTO) async throws {
-        do{
-            var request : URLRequest = createRequest(urlStr: "/auth/signup")
+        let request : URLRequest = createRequest(urlStr: "/auth/signup")
+        guard let encoded = await JSONHelper.encode(data: user) else {
+            throw RequestError.encodageProblem("Erreur dans l'encodage")
+        }
+        let (_, response) = try await URLSession.shared.upload(for: request, from: encoded)
+        let httpresponse = response as! HTTPURLResponse
+        
+        if(httpresponse.statusCode != 201){
+            throw RequestError.requestError("Error \(httpresponse.statusCode): \(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
         }
     }
 }
