@@ -16,7 +16,7 @@ struct UserDTO: Decodable, Encodable {
                return nil
             }
             let id : String = tdata.id
-            let user = UserViewModel(id: id, firstname: tdata.firstname, lastname: tdata.lastname, email: tdata.email, password: tdata.password ?? "")
+            let user = UserViewModel(id: id, firstname: tdata.firstname, lastname: tdata.lastname, email: tdata.email, password: tdata.password ?? "", role: tdata.role ?? "")
             users.append(user)
         }
         return users
@@ -37,11 +37,12 @@ struct LogDTO: Decodable{
 }
 
 class UserViewModel : ObservableObject, Equatable {
-    @Published var id : String = "";
+    public var id : String = "";
     @Published var firstname : String = "";
     @Published var lastname : String = "";
     @Published var email : String = "";
     @Published var password : String = "";
+    public var role : String = "";
     
     @Published var state : UserState = .ready {
         didSet{
@@ -62,12 +63,13 @@ class UserViewModel : ObservableObject, Equatable {
         }
     }
     
-    init(id: String, firstname: String, lastname: String, email: String, password: String) {
+    init(id: String, firstname: String, lastname: String, email: String, password: String, role: String) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
         self.password = password
+        self.role = role
     }
     
     init() {}

@@ -19,10 +19,14 @@ struct LogIntent {
     func changeEmail(email: String){
         if(self.model.state == .ready){
             self.model.state = .changeEmail(email)
+            self.model.state = .ready
         }
     }
     
     func signin() async {
+        if(self.model.state != .ready){
+            return
+        }
         self.model.state = .loading
         let userDTO : UserDTO = UserDTO(email: self.model.email, id:"", firstname: "", lastname: "", password: self.model.password)
         do{
@@ -32,14 +36,29 @@ struct LogIntent {
         }
         catch{
             debugPrint("An error occured")
+            debugPrint(error)
             self.model.state = .error(.errorLoading)
         }
         
     }
     
     
-    func signup(firstname: String, lastname: String, email: String, password: String){
-        
+    func signup() async{
+        if(self.model.state != .ready){
+            return
+        }
+        self.model.state = .loading
+        let userDTO : UserDTO = UserDTO(email: self.model.email, id:"", firstname: self.model.firstname, lastname: self.model.lastname, password: self.model.password)
+        do{
+            try await AuthService.signup(user: userDTO)
+            self.model.state = .success(userDTO)
+            debugPrint("J\'ai recuperer les données")
+        }
+        catch{
+            debugPrint("An error occured")
+            debugPrint(error)
+            self.model.state = .error(.errorLoading)
+        }
     }
     
 }
