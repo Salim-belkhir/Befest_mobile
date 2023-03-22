@@ -37,7 +37,7 @@ struct LogIntent {
             return false
         }
         self.model.state = .loading
-        let userDTO : UserDTO = UserDTO(email: self.model.email, id:"", firstname: "", lastname: "", password: self.model.password)
+        let userDTO : UserDTO = UserDTO(email: self.model.email, id:0, firstname: "", lastname: "", password: self.model.password)
         do{
             debugPrint("Je lance la requête")
             try await AuthService.signin(user: userDTO)
@@ -59,7 +59,7 @@ struct LogIntent {
             return false
         }
         self.model.state = .loading
-        let userDTO : UserDTO = UserDTO(email: self.model.email, id:"", firstname: self.model.firstname, lastname: self.model.lastname, password: self.model.password, role: "benevole")
+        let userDTO : UserDTO = UserDTO(email: self.model.email, id:0, firstname: self.model.firstname, lastname: self.model.lastname, password: self.model.password, role: "benevole")
         do{
             try await AuthService.signup(user: userDTO)
             self.model.state = .success(userDTO)

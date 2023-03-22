@@ -12,10 +12,10 @@ struct UserDTO: Decodable, Encodable {
     static func decodeUser(data : [UserDTO]) -> [UserViewModel]?{
         var users = [UserViewModel]()
         for tdata in data{
-            guard (tdata.id != "" && tdata.firstname != "" && tdata.lastname != "" && tdata.email != "" && tdata.password != "") else{
+            guard (tdata.id != 0 && tdata.firstname != "" && tdata.lastname != "" && tdata.email != "" && tdata.password != "") else{
                return nil
             }
-            let id : String = tdata.id
+            let id : Int = tdata.id
             let user = UserViewModel(id: id, firstname: tdata.firstname, lastname: tdata.lastname, email: tdata.email, password: tdata.password ?? "", role: tdata.role ?? "")
             users.append(user)
         }
@@ -23,7 +23,7 @@ struct UserDTO: Decodable, Encodable {
     }
     
     var email: String
-    var id: String
+    var id: Int
     var firstname: String
     var lastname: String
     var password: String? = nil
@@ -37,7 +37,7 @@ struct LogDTO: Decodable{
 }
 
 class UserViewModel : ObservableObject, Equatable {
-    public var id : String = "";
+    public var id : Int = 0;
     @Published var firstname : String = "";
     @Published var lastname : String = "";
     @Published var email : String = "";
@@ -69,7 +69,7 @@ class UserViewModel : ObservableObject, Equatable {
         }
     }
     
-    init(id: String, firstname: String, lastname: String, email: String, password: String, role: String) {
+    init(id: Int, firstname: String, lastname: String, email: String, password: String, role: String) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname

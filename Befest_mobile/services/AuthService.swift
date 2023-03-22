@@ -29,8 +29,8 @@ class AuthService{
         guard let decoded: UserDTO = await JSONHelper.decode(data: data) else {
             throw RequestError.requestFailed("Erreur dans le décodage")
         }
-        debugPrint(decoded.id)
         UserDefaults.standard.set(decoded.token, forKey: "token")
+        //UserDefaults.standard.set(decoded, forKey: "user")
         let httpresponse = response as! HTTPURLResponse
         
         if httpresponse.statusCode != 200{
