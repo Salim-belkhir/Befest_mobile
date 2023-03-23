@@ -9,28 +9,24 @@ import Foundation
 
 
 
-extension URLSession{
-  func getJSON<T: Decodable>(
-    from url: URL) async throws -> T {
-        let (data, _) = try await data(from: url)
-        let decoder = JSONDecoder() // création d'un décodeur
-        let decoded = try decoder.decode(T.self, from: data)
-        return decoded
-    }
-}
-
 class FestivalService {
     static var urlFestival: String = ConfigAPI.apiUrl + "/festivals/"
     
-    static func getAllFestivals() async -> [FestivalViewModel]? {
-        do{
-            let urlApi : URL = URL(string: urlFestival)!
-            let festivals: [FestivalDTO] = try await URLSession.shared.getJSON(from: urlApi)
-            return FestivalDTO.decodeFestival(data: festivals)
-        }
-        catch {
-            print(error)
-            return nil
+    static func getAllFestivals() async throws -> [FestivalViewModel]? {
+        let urlApi : URL = URL(string: urlFestival)!
+        let festivals: [FestivalDTO] = try await URLSession.shared.getJSON(from: urlApi)
+        debugPrint(festivals)
+        return FestivalDTO.decodeFestival(data: festivals)
+    }
+    
+    
+    static func deleteFestival(id: Int) async throws{
+        let request: URLRequest = URLRequest.createRequest(urlStr: "/festivals/"+String(id), method: "DELETE")
+        let (_, response) = try await URLSession.shared.data(for: request)
+        let httpresponse = response as! HTTPURLResponse
+        
+        if(httpresponse.statusCode != 200){
+            throw RequestError.requestFailed("Request Failed")
         }
     }
 }

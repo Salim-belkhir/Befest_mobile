@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AdminAppView: View {
     private var token: String;
-    private var userDTO: UserDTO;
+    @EnvironmentObject var userMV: UserViewModel
     
     
     var body: some View {
@@ -30,13 +30,13 @@ struct AdminAppView: View {
             VStack{
                 Text("Token")
                 Text(self.token)
-                Text(self.userDTO.firstname)
+                Text(self.userMV.firstname)
             }
                 .tabItem(){
                     NavBarItem(image: "calendar", description: "Jours")
                 }
             
-            BenevolesVew()
+            ListFestivalsView()
                 .tabItem() {
                     NavBarItem(image: "info.circle.fill", description: "festival")
                 }
@@ -45,6 +45,6 @@ struct AdminAppView: View {
     
     init(){
         self.token = UserDefaults.standard.string(forKey: "token") ?? "Null j'ai pas trouvé"
-        self.userDTO = UserDefaults.standard.object(forKey: "user") as! UserDTO
+        //self.userDTO = UserDefaults.standard.object(forKey: "user") as! UserDTO
     }
 }

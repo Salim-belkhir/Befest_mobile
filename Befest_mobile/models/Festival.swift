@@ -9,11 +9,12 @@ import Foundation
 import Combine
 
 
+//DTO to use to communicate Data with the API
 struct FestivalDTO: Decodable, Encodable{
     static func decodeFestival(data: [FestivalDTO]) -> [FestivalViewModel]?{
         var festivals = [FestivalViewModel]()
         for tdata in data{
-            guard(tdata.id != "") else{
+            guard(tdata.id != 0) else{
                 return nil
             }
             let festival = FestivalViewModel(id: tdata.id, name: tdata.name, year: tdata.year, nbOfDays: tdata.nbOfDays, closed: tdata.closed, numberOfBenevoles: tdata.countBenevoles)
@@ -22,7 +23,7 @@ struct FestivalDTO: Decodable, Encodable{
         return festivals
     }
     
-    var id: String
+    var id: Int
     var name: String
     var year: String
     var nbOfDays: Int
@@ -31,8 +32,9 @@ struct FestivalDTO: Decodable, Encodable{
 }
 
 
+//The ViewModel
 class FestivalViewModel: Equatable, ObservableObject{
-    public var id: String
+    public var id: Int
     @Published var name: String
     @Published var year: String
     @Published var nbOfDays: Int
@@ -43,13 +45,21 @@ class FestivalViewModel: Equatable, ObservableObject{
             switch state{
             case .closingFestival:
                 self.closed = true
+                notifyAll()
+            case .success(let festival):
+                self.name = festival.name
+                self.id = festival.id
+                self.year = festival.year
+                notifyAll()
             default:
                 break
             }
         }
     }
     
-    init(id: String, name: String, year: String, nbOfDays: Int, closed: Bool, numberOfBenevoles: Int) {
+    private var observers : [ViewModelObserver] = []
+    
+    init(id: Int, name: String, year: String, nbOfDays: Int, closed: Bool, numberOfBenevoles: Int) {
         self.id = id
         self.name = name
         self.year = year
@@ -60,6 +70,13 @@ class FestivalViewModel: Equatable, ObservableObject{
     
     static func == (lhs: FestivalViewModel, rhs: FestivalViewModel) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    
+    func notifyAll(){
+        for o in self.observers{
+            o.updated(id: self.id, model: self)
+        }
     }
 }
 
@@ -91,6 +108,4 @@ enum FestivalState: Equatable{
     case ready
     case update
     case error
-    
-    
 }

@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct BenevolesVew: View {
+    @EnvironmentObject var userMV: UserViewModel
+    
     var body: some View {
-        Text("Bienvenue sur la page des bénévoles")
+        VStack{
+            Text("Bienvenue sur la page des bénévoles")
+            Text("Voici ton role: \(userMV.role)")
+        }
     }
 }
 

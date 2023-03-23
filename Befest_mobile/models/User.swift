@@ -26,9 +26,9 @@ struct UserDTO: Decodable, Encodable {
     var id: Int
     var firstname: String
     var lastname: String
-    var password: String? = nil
-    var token: String? = nil
-    var role: String? = nil
+    var password: String?
+    var token: String?
+    var role: String?
 }
 
 
@@ -44,22 +44,29 @@ class UserViewModel : ObservableObject, Equatable {
     @Published var password : String = "";
     public var role : String = "";
     
+    private var observers: [BenevoleVMObserver] = []
+    
     @Published var state : UserState = .ready {
         didSet{
             switch state {
             case .changeEmail(let email):
                 self.email = email
+                notifyAll()
             case .success(let user):
                 self.lastname = user.lastname
                 self.firstname = user.firstname
                 self.email = user.email
                 self.id = user.id
+                self.password = user.password ?? ""
+                self.role = user.role ?? ""
+                notifyAll()
             case .clearInformations:
                 self.lastname = ""
                 self.firstname = ""
                 self.email = ""
                 self.password = ""
                 self.role = ""
+                notifyAll()
                 
             case .error:
                 debugPrint("An error occured")
@@ -79,6 +86,12 @@ class UserViewModel : ObservableObject, Equatable {
     }
     
     init() {}
+    
+    func notifyAll(){
+        for o in self.observers{
+            o.updated(id: self.id, model: self)
+        }
+    }
     
     
     static func == (lhs: UserViewModel, rhs: UserViewModel) -> Bool {

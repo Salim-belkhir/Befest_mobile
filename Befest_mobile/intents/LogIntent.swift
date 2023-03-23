@@ -40,7 +40,8 @@ struct LogIntent {
         let userDTO : UserDTO = UserDTO(email: self.model.email, id:0, firstname: "", lastname: "", password: self.model.password)
         do{
             debugPrint("Je lance la requête")
-            try await AuthService.signin(user: userDTO)
+            let userDTO = try await AuthService.signin(user: userDTO)
+            debugPrint(userDTO)
             self.model.state = .success(userDTO)
             self.model.state = .ready
             return true
@@ -62,7 +63,7 @@ struct LogIntent {
         let userDTO : UserDTO = UserDTO(email: self.model.email, id:0, firstname: self.model.firstname, lastname: self.model.lastname, password: self.model.password, role: "benevole")
         do{
             try await AuthService.signup(user: userDTO)
-            self.model.state = .success(userDTO)
+            self.model.state = .clearInformations
             self.model.state = .ready
             return true
         }

@@ -9,11 +9,21 @@ import SwiftUI
 
 struct FestivalItemView: View {
     @ObservedObject var festivalVM: FestivalViewModel
+    private var color: Color {
+        return (self.festivalVM.closed ? .blue : .red)
+    }
     
     var body: some View {
         HStack{
-            Text(festivalVM.name)
-                .foregroundColor(.blue)
+            VStack{
+                Text(festivalVM.name)
+                    .foregroundColor(.blue)
+                Text(festivalVM.year)
+            }
+            
+            Button("Choisir"){
+                
+            }
             
         }
         

@@ -11,17 +11,8 @@ import Foundation
 
 class AuthService{
     
-    static func createRequest(urlStr: String) -> URLRequest {
-        let new_url : URL = URL(string: ConfigAPI.apiUrl + urlStr)!
-        var request = URLRequest(url: new_url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return request
-    }
-    
-    
-    static func signin(user: UserDTO) async throws {
-        let request : URLRequest = createRequest(urlStr: "/auth/signin")
+    static func signin(user: UserDTO) async throws -> UserDTO {
+        let request : URLRequest = URLRequest.createRequest(urlStr: "/auth/signin", method: "POST")
         guard let encoded = await JSONHelper.encode(data: user) else {
             throw RequestError.encodageProblem("GoRest: pb encodage")
         }
@@ -30,17 +21,18 @@ class AuthService{
             throw RequestError.requestFailed("Erreur dans le décodage")
         }
         UserDefaults.standard.set(decoded.token, forKey: "token")
-        //UserDefaults.standard.set(decoded, forKey: "user")
+        UserDefaults.standard.set(data, forKey: "user")
         let httpresponse = response as! HTTPURLResponse
         
         if httpresponse.statusCode != 200{
             throw RequestError.requestError("Error \(httpresponse.statusCode): \(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
         }
+        return decoded
     }
     
     
     static func signup(user: UserDTO) async throws {
-        let request : URLRequest = createRequest(urlStr: "/auth/signup")
+        let request : URLRequest = URLRequest.createRequest(urlStr: "/auth/signup", method: "POST")
         guard let encoded = await JSONHelper.encode(data: user) else {
             throw RequestError.encodageProblem("Erreur dans l'encodage")
         }
