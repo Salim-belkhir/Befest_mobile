@@ -20,6 +20,14 @@
 		6F52633C29C8F7240000DA28 /* FestivalItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633B29C8F7240000DA28 /* FestivalItemView.swift */; };
 		6F52633E29C8F7880000DA28 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633D29C8F7880000DA28 /* Festival.swift */; };
 		6F52634029C8FD740000DA28 /* FestivalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633F29C8FD740000DA28 /* FestivalService.swift */; };
+		6F8152B829CCBF2900D3ED2D /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152B729CCBF2900D3ED2D /* Zone.swift */; };
+		6F8152BA29CCBF3B00D3ED2D /* Affectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152B929CCBF3B00D3ED2D /* Affectation.swift */; };
+		6F8152BC29CCBF4900D3ED2D /* Disponibilite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152BB29CCBF4900D3ED2D /* Disponibilite.swift */; };
+		6F8152BE29CCBF5900D3ED2D /* Jour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152BD29CCBF5900D3ED2D /* Jour.swift */; };
+		6F8152C029CCBF6500D3ED2D /* Creneau.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152BF29CCBF6500D3ED2D /* Creneau.swift */; };
+		6F8152C329CCC22500D3ED2D /* ListZonesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152C229CCC22500D3ED2D /* ListZonesView.swift */; };
+		6F8152C629CCC2AC00D3ED2D /* JourDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152C529CCC2AC00D3ED2D /* JourDetailsView.swift */; };
+		6F8152C829CCC2BD00D3ED2D /* ListJoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152C729CCC2BD00D3ED2D /* ListJoursView.swift */; };
 		B758EEED29CC4BBA007051C8 /* FestivalListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEEC29CC4BBA007051C8 /* FestivalListIntent.swift */; };
 		B758EEEF29CC4CFD007051C8 /* ObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEEE29CC4CFD007051C8 /* ObserverProtocol.swift */; };
 		B758EEF129CC5455007051C8 /* ListFestival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEF029CC5455007051C8 /* ListFestival.swift */; };
@@ -50,6 +58,14 @@
 		6F52633B29C8F7240000DA28 /* FestivalItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalItemView.swift; sourceTree = "<group>"; };
 		6F52633D29C8F7880000DA28 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		6F52633F29C8FD740000DA28 /* FestivalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalService.swift; sourceTree = "<group>"; };
+		6F8152B729CCBF2900D3ED2D /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		6F8152B929CCBF3B00D3ED2D /* Affectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affectation.swift; sourceTree = "<group>"; };
+		6F8152BB29CCBF4900D3ED2D /* Disponibilite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disponibilite.swift; sourceTree = "<group>"; };
+		6F8152BD29CCBF5900D3ED2D /* Jour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jour.swift; sourceTree = "<group>"; };
+		6F8152BF29CCBF6500D3ED2D /* Creneau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creneau.swift; sourceTree = "<group>"; };
+		6F8152C229CCC22500D3ED2D /* ListZonesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListZonesView.swift; sourceTree = "<group>"; };
+		6F8152C529CCC2AC00D3ED2D /* JourDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourDetailsView.swift; sourceTree = "<group>"; };
+		6F8152C729CCC2BD00D3ED2D /* ListJoursView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListJoursView.swift; sourceTree = "<group>"; };
 		B758EEEC29CC4BBA007051C8 /* FestivalListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalListIntent.swift; sourceTree = "<group>"; };
 		B758EEEE29CC4CFD007051C8 /* ObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverProtocol.swift; sourceTree = "<group>"; };
 		B758EEF029CC5455007051C8 /* ListFestival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFestival.swift; sourceTree = "<group>"; };
@@ -117,6 +133,8 @@
 		6F52632E29C8E9E90000DA28 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				6F8152C429CCC28800D3ED2D /* Jour */,
+				6F8152C129CCC20800D3ED2D /* Zone */,
 				6F52633129C8EA3E0000DA28 /* AdminAppView.swift */,
 			);
 			path = Admin;
@@ -146,6 +164,23 @@
 				6F52633B29C8F7240000DA28 /* FestivalItemView.swift */,
 			);
 			path = Festival;
+			sourceTree = "<group>";
+		};
+		6F8152C129CCC20800D3ED2D /* Zone */ = {
+			isa = PBXGroup;
+			children = (
+				6F8152C229CCC22500D3ED2D /* ListZonesView.swift */,
+			);
+			path = Zone;
+			sourceTree = "<group>";
+		};
+		6F8152C429CCC28800D3ED2D /* Jour */ = {
+			isa = PBXGroup;
+			children = (
+				6F8152C529CCC2AC00D3ED2D /* JourDetailsView.swift */,
+				6F8152C729CCC2BD00D3ED2D /* ListJoursView.swift */,
+			);
+			path = Jour;
 			sourceTree = "<group>";
 		};
 		B7816A3529C34CA800BAE82F /* utilities */ = {
@@ -208,6 +243,11 @@
 				6F52633D29C8F7880000DA28 /* Festival.swift */,
 				B758EEF029CC5455007051C8 /* ListFestival.swift */,
 				B758EEF429CCA557007051C8 /* ListBenevoles.swift */,
+				6F8152B729CCBF2900D3ED2D /* Zone.swift */,
+				6F8152B929CCBF3B00D3ED2D /* Affectation.swift */,
+				6F8152BB29CCBF4900D3ED2D /* Disponibilite.swift */,
+				6F8152BD29CCBF5900D3ED2D /* Jour.swift */,
+				6F8152BF29CCBF6500D3ED2D /* Creneau.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -294,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F8152BE29CCBF5900D3ED2D /* Jour.swift in Sources */,
 				6F52632B29C8E9720000DA28 /* LogIntent.swift in Sources */,
 				6F52632029C8E7EC0000DA28 /* RequestError.swift in Sources */,
 				B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */,
@@ -302,6 +343,7 @@
 				B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */,
 				6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */,
 				6F52632D29C8E9BB0000DA28 /* EmailValidator.swift in Sources */,
+				6F8152C029CCBF6500D3ED2D /* Creneau.swift in Sources */,
 				B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */,
 				B7816A3929C3693000BAE82F /* User.swift in Sources */,
 				B758EEF729CCA9F7007051C8 /* ZoneService.swift in Sources */,
@@ -309,16 +351,22 @@
 				B758EEF129CC5455007051C8 /* ListFestival.swift in Sources */,
 				B758EEEF29CC4CFD007051C8 /* ObserverProtocol.swift in Sources */,
 				6F52633929C8F6850000DA28 /* ListFestivalsView.swift in Sources */,
+				6F8152C629CCC2AC00D3ED2D /* JourDetailsView.swift in Sources */,
+				6F8152C829CCC2BD00D3ED2D /* ListJoursView.swift in Sources */,
 				6F52632829C8E8C90000DA28 /* ConfigAPI.swift in Sources */,
 				B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */,
+				6F8152C329CCC22500D3ED2D /* ListZonesView.swift in Sources */,
 				6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */,
 				B758EEED29CC4BBA007051C8 /* FestivalListIntent.swift in Sources */,
 				6F52633629C8EAA70000DA28 /* LogView.swift in Sources */,
 				B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */,
+				6F8152BC29CCBF4900D3ED2D /* Disponibilite.swift in Sources */,
+				6F8152BA29CCBF3B00D3ED2D /* Affectation.swift in Sources */,
 				B758EEF329CC6F65007051C8 /* Extensions.swift in Sources */,
 				B758EEF529CCA557007051C8 /* ListBenevoles.swift in Sources */,
 				6F52633E29C8F7880000DA28 /* Festival.swift in Sources */,
 				6F52634029C8FD740000DA28 /* FestivalService.swift in Sources */,
+				6F8152B829CCBF2900D3ED2D /* Zone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +502,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,6 +531,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
