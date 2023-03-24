@@ -51,6 +51,12 @@ class FestivalViewModel: Equatable, ObservableObject{
                 self.id = festival.id
                 self.year = festival.year
                 notifyAll()
+            case .changeNbOfDays(let nb):
+                self.nbOfDays = nb
+            case .changeYear(let year):
+                self.year = year
+            case .changeName(let newName):
+                self.name = newName
             default:
                 break
             }
@@ -97,6 +103,14 @@ enum FestivalState: Equatable{
             return true
         case (.success(_), .success(_)):
             return true
+        case (.changeName(_), .changeName(_)):
+            return true
+        case (.changeYear(_), .changeYear(_)):
+            return true
+        case (.changeNbOfDays(_), .changeNbOfDays(_)):
+            return true
+        case (.successCreate, .successCreate):
+            return true
         default:
             return false
         }
@@ -104,8 +118,12 @@ enum FestivalState: Equatable{
     
     case loading
     case success(FestivalDTO)
+    case successCreate
     case closingFestival
     case ready
     case update
     case error
+    case changeName(String)
+    case changeYear(String)
+    case changeNbOfDays(Int)
 }

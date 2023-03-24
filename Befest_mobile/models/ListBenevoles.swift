@@ -32,14 +32,6 @@ class BenevolesListVM: ObservableObject, BenevoleVMObserver, IteratorProtocol {
     
     init() { }
     
-    func updated(id: Int, model: UserViewModel) {
-        for i in 0..<self.listOfBenevoles.count{
-            if(self.listOfBenevoles[i].id == id){
-                self.listOfBenevoles[i] = model
-            }
-        }
-    }
-    
     
     subscript(index: Int) -> UserViewModel{
         get{

@@ -25,13 +25,16 @@ class ZoneViewModel: ObservableObject{
     var id: Int
     var name: String
     var number_benevoles_needed: Int
+    var observers: [ZoneVMObserver] = []
     @Published var state: ZoneState = .ready {
         didSet{
             switch state{
             case .changeName(let newName):
                 self.name = newName
+                notifyAll()
             case .changeNbBenevolesNeeded(let nb):
                 self.number_benevoles_needed = nb
+                notifyAll()
             default:
                 break
             }
@@ -42,6 +45,13 @@ class ZoneViewModel: ObservableObject{
         self.id = id
         self.name = name
         self.number_benevoles_needed = number_benevoles_needed
+    }
+    
+    
+    public func notifyAll(){
+        for o in self.observers{
+            o.updated(id: self.id, model: self)
+        }
     }
 }
 

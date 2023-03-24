@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+
+/*
 struct ListJoursView: View {
 
-    @State var days: [] = [] // Données de jours à afficher dans la liste
+    @State var days: [JourViewModel] = [] // Données de jours à afficher dans la liste
 
     var body: some View {
         NavigationStack {
@@ -46,4 +48,4 @@ struct ListJoursView: View {
     private func delete(at offsets: IndexSet) {
         days.remove(atOffsets: offsets) // Suppression du jour sélectionné
     }
-}
+}*/

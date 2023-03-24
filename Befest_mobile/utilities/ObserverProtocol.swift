@@ -16,3 +16,29 @@ protocol ViewModelObserver{
 protocol BenevoleVMObserver{
     func updated(id: Int, model: UserViewModel)
 }
+
+
+protocol JourVMObserver{
+    func updated(id: Int, model: JourViewModel)
+}
+
+
+protocol ZoneVMObserver{
+    func updated(id: Int, model: ZoneViewModel)
+}
+
+
+
+protocol CreneauVMObserver{
+    func updated(id: Int, model: CreneauViewModel)
+}
+
+
+protocol AffectationVMObserver{
+    func updated(id: Int, model: AffectationViewModel)
+}
+
+
+protocol DisponibiliteVMObserver{
+    func updated(id: Int, model: DisponibiliteViewModel)
+}

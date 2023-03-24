@@ -10,6 +10,7 @@ import Foundation
 
 
 class FestivalListVM: ObservableObject, ViewModelObserver, IteratorProtocol {
+    
     @Published var listOfFestivals : [FestivalViewModel] = []
     private var index: Int?
     @Published var state: ListFestivalState = .ready {
@@ -65,22 +66,22 @@ class FestivalListVM: ObservableObject, ViewModelObserver, IteratorProtocol {
     
     
     private func nextIndex(for index: Int?) -> Int? {
-            if let index = index, index < self.listOfFestivals.count - 1 {
-                return index + 1
-            }
-            if index == nil, !self.listOfFestivals.isEmpty {
-                return 0
-            }
-            return nil
+        if let index = index, index < self.listOfFestivals.count - 1 {
+            return index + 1
         }
-        
-        func next() -> FestivalViewModel? {
-            if let index = self.nextIndex(for: self.index) {
-                self.index = index
-                return self.listOfFestivals[index]
-            }
-            return nil
+        if index == nil, !self.listOfFestivals.isEmpty {
+            return 0
         }
+        return nil
+    }
+    
+    func next() -> FestivalViewModel? {
+        if let index = self.nextIndex(for: self.index) {
+            self.index = index
+            return self.listOfFestivals[index]
+        }
+        return nil
+    }
     
 }
 
