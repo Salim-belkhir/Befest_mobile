@@ -8,6 +8,7 @@
 import Foundation
 
 struct PostDisponibiliteDTO: Encodable{
+    var id: Int
     var user_dispo: Int
     var creneau_dispo: Int
 }
@@ -20,7 +21,7 @@ struct GetDispoUserDTO: Decodable{
     var lastname: String
 }
 
-struct GetDispoCreneauDTO: Encodable{
+struct GetDispoCreneauDTO: Decodable{
     var id: Int
     var creneau_dispo: Int
     var heureDebut: Date

@@ -15,6 +15,10 @@ class PostAffectationDTO: Encodable, Decodable{
     var id_creneau: Int
 }
 
+class GetAffectationDTO: Decodable{
+    var id: Int
+}
+
 
 
 

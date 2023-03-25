@@ -9,17 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var userMV : UserViewModel
+    @ObservedObject var userMV: UserViewModel
+    
     
     var body: some View {
         //TODO : En fonction du rôle display la bonne page
-        if(userMV.role == "admin"){
-            AdminAppView()
+        if(userMV.id == 0){
+            LogView()
+                .environmentObject(userMV)
         }
         else{
-            BenevoleAppView()
+            if(userMV.role == "admin"){
+                AdminAppView()
+                    .environmentObject(userMV)
+            }
+            else{
+                BenevoleAppView()
+                    .environmentObject(userMV)
+            }
         }
     }
+    
+    
+    init(){
+        self.userMV = UserViewModel()
+    }
+    
     
     
 }

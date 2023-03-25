@@ -43,15 +43,6 @@ struct LogView: View {
     
     
     var body: some View {
-        ZStack{
-            if(isError){
-                VStack{
-                    Text("Erreur cher ami")
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.red.blur(radius: 12))
-            }
-            NavigationView{
                 VStack{
                     Image("Logo-Befest")
                         .resizable()
@@ -160,16 +151,12 @@ struct LogView: View {
                         break
                     }
                 }
-                
-                Spacer().frame(height: 100)
-                
-                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true).environmentObject(userMV), isActive: $navigate){
-                    EmptyView()
+                .alert(isPresented: $isError){
+                    Alert(title: Text("Une erreur s'est produite"), message: Text("Une erreur s'est produite. Veuillez réessayer ultérieurement svp"), dismissButton: .cancel())
                 }
-                .hidden()
-            }
+                
+        
         }
-    }
 }
 
 struct LogView_Previews: PreviewProvider {

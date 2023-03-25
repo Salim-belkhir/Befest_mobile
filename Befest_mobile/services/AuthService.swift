@@ -14,11 +14,11 @@ class AuthService{
     static func signin(user: UserDTO) async throws -> UserDTO {
         let request : URLRequest = URLRequest.createRequest(urlStr: "/auth/signin", method: "POST")
         guard let encoded = await JSONHelper.encode(data: user) else {
-            throw RequestError.encodageProblem("GoRest: pb encodage")
+            throw RequestError.encodageProblem
         }
         let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
         guard let decoded: UserDTO = await JSONHelper.decode(data: data) else {
-            throw RequestError.requestFailed("Erreur dans le décodage")
+            throw RequestError.decodageProblem
         }
         UserDefaults.standard.set(decoded.token, forKey: "token")
         UserDefaults.standard.set(data, forKey: "user")
@@ -34,7 +34,7 @@ class AuthService{
     static func signup(user: UserDTO) async throws {
         let request : URLRequest = URLRequest.createRequest(urlStr: "/auth/signup", method: "POST")
         guard let encoded = await JSONHelper.encode(data: user) else {
-            throw RequestError.encodageProblem("Erreur dans l'encodage")
+            throw RequestError.encodageProblem
         }
         let (_, response) = try await URLSession.shared.upload(for: request, from: encoded)
         let httpresponse = response as! HTTPURLResponse
