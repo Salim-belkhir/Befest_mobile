@@ -18,7 +18,7 @@ struct AddFestivalView: View {
     @State var titleAlert: String = ""
 
     var body: some View {
-        NavigationStack{
+        NavigationView{
             VStack {
                 Form {
                     Section(header: Text("Informations sur le festival")) {
@@ -51,9 +51,9 @@ struct AddFestivalView: View {
                         }
                     }) {
                         Text("Ajouter")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
                     }
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
                     .padding()
                     .background(Color.purple)
                     .cornerRadius(10)

@@ -14,5 +14,5 @@ struct CreneauDTO: Decodable, Encodable{
 
 
 class CreneauViewModel: ObservableObject{
-    
+    public var id: Int
 }

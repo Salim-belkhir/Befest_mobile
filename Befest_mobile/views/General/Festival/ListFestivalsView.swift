@@ -25,7 +25,7 @@ struct ListFestivalsView: View {
     
     var body: some View {
         
-        NavigationStack{
+        NavigationView{
             VStack{
                 Spacer()
                 HStack(alignment: .lastTextBaseline){

@@ -35,7 +35,7 @@ class FestivalService {
         let (_, response) = try await URLSession.shared.data(for: request)
         let httpResponse = response as! HTTPURLResponse
         
-        if(httpresponse.statusCode != 200){
+        if(httpResponse.statusCode != 200){
             throw RequestError.requestFailed("Request Failed")
         }
     }

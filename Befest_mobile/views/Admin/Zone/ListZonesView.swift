@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ListZonesView: View {
+    @ObservedObject var listOfZones: ListZoneVM
+    
     var body: some View {
         VStack{
             
         }
+    }
+    
+    init(){
+        self.listOfZones = ListZoneVM()
     }
 }
 

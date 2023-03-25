@@ -213,6 +213,32 @@
 			path = Jour;
 			sourceTree = "<group>";
 		};
+		6F8152C929CF2F4200D3ED2D /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				B758EEF029CC5455007051C8 /* ListFestival.swift */,
+				B758EEF429CCA557007051C8 /* ListBenevoles.swift */,
+				B7242AC629CDD91200A16851 /* ListJours.swift */,
+				B7242AC829CDDC4700A16851 /* ListZones.swift */,
+				B7242ADA29CE03A800A16851 /* ListCreneaux.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		6F8152CB29CF2F5900D3ED2D /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				B7816A3829C3693000BAE82F /* User.swift */,
+				6F52633D29C8F7880000DA28 /* Festival.swift */,
+				6F8152B729CCBF2900D3ED2D /* Zone.swift */,
+				6F8152B929CCBF3B00D3ED2D /* Affectation.swift */,
+				6F8152BB29CCBF4900D3ED2D /* Disponibilite.swift */,
+				6F8152BD29CCBF5900D3ED2D /* Jour.swift */,
+				6F8152BF29CCBF6500D3ED2D /* Creneau.swift */,
+			);
+			path = Simple;
+			sourceTree = "<group>";
+		};
 		B7816A3529C34CA800BAE82F /* utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,18 +295,8 @@
 		B7A1F22229C0757600D9B784 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				B7816A3829C3693000BAE82F /* User.swift */,
-				6F52633D29C8F7880000DA28 /* Festival.swift */,
-				B758EEF029CC5455007051C8 /* ListFestival.swift */,
-				B758EEF429CCA557007051C8 /* ListBenevoles.swift */,
-				6F8152B729CCBF2900D3ED2D /* Zone.swift */,
-				6F8152B929CCBF3B00D3ED2D /* Affectation.swift */,
-				6F8152BB29CCBF4900D3ED2D /* Disponibilite.swift */,
-				6F8152BD29CCBF5900D3ED2D /* Jour.swift */,
-				B7242AC629CDD91200A16851 /* ListJours.swift */,
-				6F8152BF29CCBF6500D3ED2D /* Creneau.swift */,
-				B7242AC829CDDC4700A16851 /* ListZones.swift */,
-				B7242ADA29CE03A800A16851 /* ListCreneaux.swift */,
+				6F8152CB29CF2F5900D3ED2D /* Simple */,
+				6F8152C929CF2F4200D3ED2D /* Lists */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -546,7 +562,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,7 +591,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

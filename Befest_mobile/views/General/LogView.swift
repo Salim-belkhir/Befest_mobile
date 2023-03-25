@@ -51,7 +51,7 @@ struct LogView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.red.blur(radius: 12))
             }
-            NavigationStack{
+            NavigationView{
                 VStack{
                     Image("Logo-Befest")
                         .resizable()
