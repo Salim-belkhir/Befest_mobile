@@ -76,4 +76,6 @@ enum JourState: Equatable{
         default:
             return false
         }
-    }}
+    }
+    
+}
