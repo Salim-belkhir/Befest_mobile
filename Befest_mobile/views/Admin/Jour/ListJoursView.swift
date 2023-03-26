@@ -8,18 +8,19 @@
 import SwiftUI
 
 
-/*
-struct ListJoursView: View {
 
-    @State var days: [JourViewModel] = [] // Données de jours à afficher dans la liste
+struct ListJoursView: View {
+    @EnvironmentObject var festivalVM: FestivalViewModel
+    @ObservedObject var listeOfJours: ListJoursVM
+    private var intent: JourListIntent
+    @State var searchText: String = ""
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 SearchBar(text: $searchText) // Recherche des jours
                 List {
-                    ForEach(days.sorted(by: { $0.name < $1.name })) { day in // Tri par ordre alphabétique
-                        NavigationLink(destination: DayDetailView(day: day)) { // Navigation vers la vue détail
+                    ForEach(listeOfJours.listOfJours.sorted(by: { $0.name < $1.name }), id: \.id) { day in // Tri par ordre alphabétique
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(day.name.uppercased())
@@ -27,25 +28,40 @@ struct ListJoursView: View {
                                     HStack {
                                         Image(systemName: "clock")
                                             .foregroundColor(.gray)
-                                        Text("\(day.openingHour) - \(day.closingHour)")
+                                        Text("\(day.heure_ouverture) - \(day.heure_fermeture)")
                                             .foregroundColor(.gray)
                                     }
                                 }
                                 Spacer()
-                                Text("\(day.volunteersCount)")
+                                Text("\(day.number_benevoles)")
                                     .foregroundColor(.gray)
                             }
                             .padding()
+                    }
+                    .onDelete {
+                        indexSet in
+                        Task{
+                            await self.intent.delete(at: indexSet)
                         }
                     }
-                    .onDelete(perform: delete) // Suppression d'un jour
+                    .onMove{
+                        indexSet, index in
+                        self.intent.move(fromOffsets: indexSet, toOffset: index)
+                    }
                 }
             }
             .navigationBarTitle("Festivals") // Titre de la barre de navigation
+            .task{
+                await self.intent.getData(festival: festivalVM.id)
+            }
         }
     }
-
-    private func delete(at offsets: IndexSet) {
-        days.remove(atOffsets: offsets) // Suppression du jour sélectionné
+    
+    init(){
+        let listOfJours = ListJoursVM()
+        self.intent = JourListIntent(listJours: listOfJours)
+        self.listeOfJours = listOfJours
     }
-}*/
+
+    
+}

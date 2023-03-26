@@ -29,6 +29,11 @@
 		6F8152C629CCC2AC00D3ED2D /* JourDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152C529CCC2AC00D3ED2D /* JourDetailsView.swift */; };
 		6F8152C829CCC2BD00D3ED2D /* ListJoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152C729CCC2BD00D3ED2D /* ListJoursView.swift */; };
 		6F8152CD29CF3A1500D3ED2D /* ListDisponibilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152CC29CF3A1500D3ED2D /* ListDisponibilites.swift */; };
+		6F8152CF29CF5EF300D3ED2D /* EditFestivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152CE29CF5EF300D3ED2D /* EditFestivalView.swift */; };
+		6F8152D229D0A77600D3ED2D /* ZoneListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152D129D0A77600D3ED2D /* ZoneListIntent.swift */; };
+		6F8152D429D0AE0500D3ED2D /* ZoneItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152D329D0AE0500D3ED2D /* ZoneItemView.swift */; };
+		6F8152D629D0B4CC00D3ED2D /* TopNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152D529D0B4CC00D3ED2D /* TopNavigationBar.swift */; };
+		6F8152D829D0BB2900D3ED2D /* JourListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152D729D0BB2900D3ED2D /* JourListIntent.swift */; };
 		B7242AC729CDD91200A16851 /* ListJours.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242AC629CDD91200A16851 /* ListJours.swift */; };
 		B7242AC929CDDC4700A16851 /* ListZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242AC829CDDC4700A16851 /* ListZones.swift */; };
 		B7242ACB29CDDE9D00A16851 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242ACA29CDDE9D00A16851 /* SearchBar.swift */; };
@@ -46,7 +51,6 @@
 		B758EEF329CC6F65007051C8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEF229CC6F65007051C8 /* Extensions.swift */; };
 		B758EEF529CCA557007051C8 /* ListBenevoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEF429CCA557007051C8 /* ListBenevoles.swift */; };
 		B758EEF729CCA9F7007051C8 /* ZoneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEF629CCA9F7007051C8 /* ZoneService.swift */; };
-		B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3329C348D000BAE82F /* BenevolesVew.swift */; };
 		B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3629C34CBA00BAE82F /* JSONHelper.swift */; };
 		B7816A3929C3693000BAE82F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3829C3693000BAE82F /* User.swift */; };
 		B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F21429C06E5400D9B784 /* Befest_mobileApp.swift */; };
@@ -79,6 +83,11 @@
 		6F8152C529CCC2AC00D3ED2D /* JourDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourDetailsView.swift; sourceTree = "<group>"; };
 		6F8152C729CCC2BD00D3ED2D /* ListJoursView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListJoursView.swift; sourceTree = "<group>"; };
 		6F8152CC29CF3A1500D3ED2D /* ListDisponibilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDisponibilites.swift; sourceTree = "<group>"; };
+		6F8152CE29CF5EF300D3ED2D /* EditFestivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFestivalView.swift; sourceTree = "<group>"; };
+		6F8152D129D0A77600D3ED2D /* ZoneListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneListIntent.swift; sourceTree = "<group>"; };
+		6F8152D329D0AE0500D3ED2D /* ZoneItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneItemView.swift; sourceTree = "<group>"; };
+		6F8152D529D0B4CC00D3ED2D /* TopNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationBar.swift; sourceTree = "<group>"; };
+		6F8152D729D0BB2900D3ED2D /* JourListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourListIntent.swift; sourceTree = "<group>"; };
 		B7242AC629CDD91200A16851 /* ListJours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListJours.swift; sourceTree = "<group>"; };
 		B7242AC829CDDC4700A16851 /* ListZones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListZones.swift; sourceTree = "<group>"; };
 		B7242ACA29CDDE9D00A16851 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -96,7 +105,6 @@
 		B758EEF229CC6F65007051C8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B758EEF429CCA557007051C8 /* ListBenevoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBenevoles.swift; sourceTree = "<group>"; };
 		B758EEF629CCA9F7007051C8 /* ZoneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneService.swift; sourceTree = "<group>"; };
-		B7816A3329C348D000BAE82F /* BenevolesVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevolesVew.swift; sourceTree = "<group>"; };
 		B7816A3629C34CBA00BAE82F /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B7816A3829C3693000BAE82F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B7A1F21129C06E5400D9B784 /* Befest_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Befest_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +164,8 @@
 				6F52632A29C8E9720000DA28 /* LogIntent.swift */,
 				B758EEEC29CC4BBA007051C8 /* FestivalListIntent.swift */,
 				B7242ACE29CDEB2900A16851 /* FestivalIntent.swift */,
+				6F8152D129D0A77600D3ED2D /* ZoneListIntent.swift */,
+				6F8152D729D0BB2900D3ED2D /* JourListIntent.swift */,
 			);
 			path = intents;
 			sourceTree = "<group>";
@@ -183,7 +193,6 @@
 			children = (
 				6F52633A29C8F7090000DA28 /* Festival */,
 				6F52633529C8EAA70000DA28 /* LogView.swift */,
-				B7242ACA29CDDE9D00A16851 /* SearchBar.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 				6F52633829C8F6850000DA28 /* ListFestivalsView.swift */,
 				6F52633B29C8F7240000DA28 /* FestivalItemView.swift */,
 				B7242ACC29CDE68C00A16851 /* AddFestivalView.swift */,
+				6F8152CE29CF5EF300D3ED2D /* EditFestivalView.swift */,
 			);
 			path = Festival;
 			sourceTree = "<group>";
@@ -202,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				6F8152C229CCC22500D3ED2D /* ListZonesView.swift */,
+				6F8152D329D0AE0500D3ED2D /* ZoneItemView.swift */,
 			);
 			path = Zone;
 			sourceTree = "<group>";
@@ -311,7 +322,8 @@
 				6F52632F29C8E9F10000DA28 /* Benevole */,
 				6F52632E29C8E9E90000DA28 /* Admin */,
 				B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */,
-				B7816A3329C348D000BAE82F /* BenevolesVew.swift */,
+				B7242ACA29CDDE9D00A16851 /* SearchBar.swift */,
+				6F8152D529D0B4CC00D3ED2D /* TopNavigationBar.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -391,10 +403,11 @@
 				6F52632029C8E7EC0000DA28 /* RequestError.swift in Sources */,
 				B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */,
 				B7242ADB29CE03A800A16851 /* ListCreneaux.swift in Sources */,
+				6F8152D229D0A77600D3ED2D /* ZoneListIntent.swift in Sources */,
 				6F52633C29C8F7240000DA28 /* FestivalItemView.swift in Sources */,
+				6F8152D429D0AE0500D3ED2D /* ZoneItemView.swift in Sources */,
 				B7242ACB29CDDE9D00A16851 /* SearchBar.swift in Sources */,
 				6F52632229C8E82D0000DA28 /* UserIntentError.swift in Sources */,
-				B7816A3429C348D000BAE82F /* BenevolesVew.swift in Sources */,
 				6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */,
 				6F52632D29C8E9BB0000DA28 /* EmailValidator.swift in Sources */,
 				6F8152C029CCBF6500D3ED2D /* Creneau.swift in Sources */,
@@ -404,11 +417,13 @@
 				B7816A3929C3693000BAE82F /* User.swift in Sources */,
 				6F8152CD29CF3A1500D3ED2D /* ListDisponibilites.swift in Sources */,
 				B758EEF729CCA9F7007051C8 /* ZoneService.swift in Sources */,
+				6F8152CF29CF5EF300D3ED2D /* EditFestivalView.swift in Sources */,
 				6F52632529C8E88D0000DA28 /* AuthService.swift in Sources */,
 				B758EEF129CC5455007051C8 /* ListFestival.swift in Sources */,
 				B758EEEF29CC4CFD007051C8 /* ObserverProtocol.swift in Sources */,
 				B7242AD129CDEDC200A16851 /* JourService.swift in Sources */,
 				6F52633929C8F6850000DA28 /* ListFestivalsView.swift in Sources */,
+				6F8152D629D0B4CC00D3ED2D /* TopNavigationBar.swift in Sources */,
 				B7242AC729CDD91200A16851 /* ListJours.swift in Sources */,
 				6F8152C629CCC2AC00D3ED2D /* JourDetailsView.swift in Sources */,
 				6F8152C829CCC2BD00D3ED2D /* ListJoursView.swift in Sources */,
@@ -424,6 +439,7 @@
 				6F8152BC29CCBF4900D3ED2D /* Disponibilite.swift in Sources */,
 				6F8152BA29CCBF3B00D3ED2D /* Affectation.swift in Sources */,
 				B758EEF329CC6F65007051C8 /* Extensions.swift in Sources */,
+				6F8152D829D0BB2900D3ED2D /* JourListIntent.swift in Sources */,
 				B7242AC929CDDC4700A16851 /* ListZones.swift in Sources */,
 				B758EEF529CCA557007051C8 /* ListBenevoles.swift in Sources */,
 				6F52633E29C8F7880000DA28 /* Festival.swift in Sources */,

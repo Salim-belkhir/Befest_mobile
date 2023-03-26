@@ -6,11 +6,37 @@
 //
 
 import Foundation
+import SwiftUI
+import CloudKit
 
 
-struct JourDTO: Encodable, Decodable{
+struct GetJourDTO: Encodable, Decodable{
+    static func decodeJour(data: [GetJourDTO]) -> [JourViewModel]?{
+        var jours = [JourViewModel]()
+        for tdata in data{
+            guard(tdata.id != 0) else{
+                return nil
+            }
+            let jour = JourViewModel(id: tdata.id, name: tdata.name, heure_ouverture: tdata.heureOuverture, heure_fermeture: tdata.heureFermeture, number_benevoles: tdata.countBenevoles)
+            jours.append(jour)
+        }
+        return jours
+    }
+    
+    
     var id: Int
     var name: String
+    var heureOuverture: Date
+    var heureFermeture: Date
+    var countBenevoles: Int
+}
+
+struct PostJourDTO: Encodable{
+    var id: Int
+    var name: String
+    var heureOuverture: Date
+    var heureFermeture: Date
+    var festival_jour: Int
 }
 
 

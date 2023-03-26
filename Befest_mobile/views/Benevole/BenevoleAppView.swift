@@ -11,14 +11,14 @@ struct BenevoleAppView: View {
     var body: some View {
         TabView {
             
-            BenevolesVew()
+            Text("Affectations")
                 .tabItem(){
                     NavBarItem(image: "list.dash", description: "Affectations")
                 }
             
             
             
-            BenevolesVew()
+            Text("Mon compte")
                 .tabItem() {
                     NavBarItem(image: "person.crop.circle", description: "Mon compte")
                 }

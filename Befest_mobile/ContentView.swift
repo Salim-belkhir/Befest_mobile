@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var userMV: UserViewModel
+    @ObservedObject var festivalVM: FestivalViewModel
     
     
     var body: some View {
@@ -19,20 +20,29 @@ struct ContentView: View {
                 .environmentObject(userMV)
         }
         else{
-            if(userMV.role == "admin"){
-                AdminAppView()
-                    .environmentObject(userMV)
+            if(festivalVM.id == 0){
+                ListFestivalsView()
+                    .environmentObject(festivalVM)
             }
             else{
-                BenevoleAppView()
-                    .environmentObject(userMV)
+                if(userMV.role == "admin"){
+                    AdminAppView()
+                        .environmentObject(userMV)
+                        .environmentObject(festivalVM)
+                }
+                else{
+                    BenevoleAppView()
+                        .environmentObject(userMV)
+                        .environmentObject(festivalVM)
+                }
             }
         }
     }
     
-    
+    //TODO: Enlever la création de l'admin et créer un utilisateur vide
     init(){
-        self.userMV = UserViewModel()
+        self.userMV = UserViewModel(id: 1, firstname: "admin", lastname: "admin", email: "admin@gmail.com", password: "", role: "admin")
+        self.festivalVM = FestivalViewModel(id: 0, name: "", year: "", nbOfDays: 0, closed: false, numberOfBenevoles: 0)
     }
     
     

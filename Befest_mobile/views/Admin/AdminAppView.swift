@@ -11,32 +11,29 @@ import SwiftUI
 struct AdminAppView: View {
     private var token: String;
     @EnvironmentObject var userMV: UserViewModel
+    @EnvironmentObject var festivalVM: FestivalViewModel
     
     
     var body: some View {
         
         TabView {
 
-            BenevolesVew()
+            ListZonesView()
                 .tabItem() {
                     NavBarItem(image: "map", description: "Zones")
                 }
             
-            BenevolesVew()
+            Text("Rien a signaler ici")
                 .tabItem() {
                     NavBarItem(image: "person.3", description: "Benevoles")
                 }
             
-            VStack{
-                Text("Token")
-                Text(self.token)
-                Text(self.userMV.firstname)
-            }
+            ListJoursView()
                 .tabItem(){
                     NavBarItem(image: "calendar", description: "Jours")
                 }
             
-            ListFestivalsView()
+            EditFestivalView()
                 .tabItem() {
                     NavBarItem(image: "info.circle.fill", description: "festival")
                 }

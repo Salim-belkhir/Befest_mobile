@@ -9,6 +9,18 @@ import Foundation
 
 
 struct ZoneDTO: Decodable, Encodable{
+    static func decodeZone(data: [ZoneDTO]) -> [ZoneViewModel]?{
+        var zones = [ZoneViewModel]()
+        for tdata in data{
+            guard(tdata.id != 0) else{
+                return nil
+            }
+            let zone = ZoneViewModel(id: tdata.id, name: tdata.name, number_benevoles_needed: tdata.nbBenevolesNeeded)
+            zones.append(zone)
+        }
+        return zones
+    }
+    
     var id: Int
     var name: String
     var nbBenevolesNeeded: Int
@@ -22,9 +34,9 @@ struct ZoneDTO: Decodable, Encodable{
 
 
 class ZoneViewModel: ObservableObject{
-    var id: Int
-    var name: String
-    var number_benevoles_needed: Int
+    public var id: Int
+    @Published var name: String
+    @Published var number_benevoles_needed: Int
     var observers: [ZoneVMObserver] = []
     @Published var state: ZoneState = .ready {
         didSet{

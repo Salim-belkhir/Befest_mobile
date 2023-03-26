@@ -33,15 +33,12 @@ struct LogIntent {
     
     func signin() async -> Bool{
         if(self.model.state != .ready){
-            debugPrint("Je peux pas me connecter car le VM n'est pas ready")
             return false
         }
         self.model.state = .loading
         let userDTO : UserDTO = UserDTO(email: self.model.email, id:0, firstname: "", lastname: "", password: self.model.password)
         do{
-            debugPrint("Je lance la requête")
             let userDTO = try await AuthService.signin(user: userDTO)
-            debugPrint(userDTO)
             self.model.state = .success(userDTO)
             self.model.state = .ready
             return true

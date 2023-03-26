@@ -31,13 +31,15 @@ class FestivalService {
     
     //PUT
     static func closeFestival(id: Int) async throws{
-        let request: URLRequest = URLRequest.createRequest(urlStr: "/festivals/" + String(id), method: "PUT")
+        let request: URLRequest = URLRequest.createRequest(urlStr: "/festivals/\(String(id))/close", method: "PUT")
         let (_, response) = try await URLSession.shared.data(for: request)
         let httpResponse = response as! HTTPURLResponse
         
         if(httpResponse.statusCode != 200){
             throw RequestError.requestError("Error \(httpResponse.statusCode): \(HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode))")
         }
+        
+        debugPrint(httpResponse.statusCode)
     }
     
     //POST

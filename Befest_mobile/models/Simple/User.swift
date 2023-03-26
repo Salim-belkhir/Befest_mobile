@@ -29,7 +29,23 @@ struct UserDTO: Decodable, Encodable {
     var password: String?
     var token: String?
     var role: String?
-}
+    
+    init(email: String, id: Int, firstname: String, lastname: String, password: String){
+        self.email = email
+        self.id = id
+        self.firstname = firstname
+        self.lastname = lastname
+        self.password = password
+    }
+    
+    init(email: String, id: Int, firstname: String, lastname: String, password: String, role: String){
+        self.email = email
+        self.id = id
+        self.firstname = firstname
+        self.lastname = lastname
+        self.password = password
+        self.role = role
+    }}
 
 
 struct LogDTO: Decodable{
@@ -57,8 +73,8 @@ class UserViewModel : ObservableObject, Equatable {
                 self.firstname = user.firstname
                 self.email = user.email
                 self.id = user.id
-                self.password = user.password ?? ""
-                self.role = user.role ?? ""
+                self.password = user.password!
+                self.role = user.role!
                 notifyAll()
             case .clearInformations:
                 self.lastname = ""

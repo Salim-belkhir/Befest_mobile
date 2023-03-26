@@ -14,6 +14,7 @@ struct ListFestivalsView: View {
     @State var isLoading: Bool = false
     @State var searchText: String = ""
     @State var create_festival: Bool = false
+    @EnvironmentObject var festivalVM: FestivalViewModel
     
     
     init() {
@@ -27,7 +28,9 @@ struct ListFestivalsView: View {
         
         NavigationView{
             VStack{
+                
                 Spacer()
+                
                 HStack(alignment: .lastTextBaseline){
                     Spacer()
                     
@@ -44,11 +47,6 @@ struct ListFestivalsView: View {
                 
                 SearchBar(text: $searchText)
                 
-                if(isError){
-                    Text("Une erreur s'est produite")
-                }
-                
-                
                 List{
                     Section(header: Text("Festivals existants")){
                         if(isLoading){
@@ -56,7 +54,7 @@ struct ListFestivalsView: View {
                         }
                         
                         ForEach(searchResults, id: \.id){ item in
-                            FestivalItemView(festivalVM: item)
+                            FestivalItemView(festivalVMItem: item)
                         }
                         .onMove{
                             indexSet, index in
@@ -68,7 +66,13 @@ struct ListFestivalsView: View {
                                 await self.intent.delete(at: indexSet)
                             }
                         }
+                        
+                        
                         EditButton()
+                            .foregroundColor(.white)
+                            .padding(5)
+                            .background(Color.blue)
+                            .cornerRadius(5)
                     }
                 }
                 
@@ -77,14 +81,12 @@ struct ListFestivalsView: View {
             NavigationLink(destination: AddFestivalView(), isActive: self.$create_festival){
                 
             }
-        }
-        .toolbar{
-            Button{
-                debugPrint("Pressed")
-            } label: {
-                Image(systemName: "plus.circle.fill")
-                    .frame(width: 100)
-            }
+            
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading){
+                    DisconnectNavBar()
+                }
+            }        
         }
         .onChange(of: self.listFestival.state){
             newValue in

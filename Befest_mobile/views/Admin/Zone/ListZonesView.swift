@@ -8,21 +8,73 @@
 import SwiftUI
 
 struct ListZonesView: View {
+    @EnvironmentObject var festivalVM: FestivalViewModel
     @ObservedObject var listOfZones: ListZoneVM
+    private var intent: ZoneListIntent
+    @State var searchText: String = ""
     
     var body: some View {
-        VStack{
-            
+        NavigationView{
+            VStack{
+                SearchBar(text: $searchText)
+                
+                List{
+                    ForEach(searchResults, id: \.id){  item in
+                        ZoneItemView(zone: item)
+                    }
+                    .onMove{
+                        indexSet, index in
+                        self.intent.move(fromOffsets: indexSet, toOffset: index)
+                    }
+                    .onDelete{
+                        indexSet in
+                        Task{
+                            await self.intent.delete(at: indexSet)
+                        }
+                    }
+                    
+                    EditButton()
+                        .foregroundColor(.white)
+                        .padding(7)
+                        .background(Color.blue)
+                        .cornerRadius(6)
+
+                }
+            }
+            .toolbar{
+                ToolbarItem(placement: .principal){
+                    NameFestivalNavBar()
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    DisconnectNavBar()
+                }
+            }
+        }
+        .task{
+            await self.intent.getData(festival: festivalVM.id)
+        }
+        .onChange(of: self.listOfZones.state){
+            newValue in
+            debugPrint("New state: \(newValue)")
         }
     }
     
     init(){
-        self.listOfZones = ListZoneVM()
+        let listVM: ListZoneVM = ListZoneVM()
+        self.listOfZones = listVM
+        self.intent = ZoneListIntent(listOfZones: listVM)
     }
-}
-
-struct ListZonesView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListZonesView()
+    
+    
+    var searchResults: [ZoneViewModel] {
+        if(searchText.isEmpty) {
+            return self.listOfZones.listOfZones
+        }
+        else{
+            return self.listOfZones.listOfZones.filter {
+                $0.name.contains(searchText)
+            }
+        }
     }
 }

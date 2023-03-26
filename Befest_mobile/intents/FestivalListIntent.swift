@@ -52,7 +52,7 @@ struct FestivalListIntent{
     public func delete(at: IndexSet) async{
         if(self.listOfFestivals.state == .ready){
             do{
-                //try await FestivalService.deleteFestival(id: self.listOfFestivals[at.first!].id)
+                try await FestivalService.deleteFestival(id: self.listOfFestivals[at.first!].id)
                 self.listOfFestivals.state = .deleteFestival(at: at)
                 self.listOfFestivals.state = .ready
             }

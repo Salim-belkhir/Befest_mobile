@@ -8,28 +8,36 @@
 import SwiftUI
 
 struct FestivalItemView: View {
-    @ObservedObject var festivalVM: FestivalViewModel
-    private var color: Color {
-        return (self.festivalVM.closed ? .blue : .red)
+    @EnvironmentObject var festivalVM: FestivalViewModel
+    @ObservedObject var festivalVMItem: FestivalViewModel
+    private var intent: FestivalIntent
+    
+    private var colorBtn: Color {
+        return (self.festivalVMItem.closed ? .blue : .purple)
     }
     
     var body: some View {
         HStack{
             VStack{
-                Text(festivalVM.name)
+                Text(festivalVMItem.name)
                     .foregroundColor(.blue)
-                Text(festivalVM.year)
+                Text(festivalVMItem.year)
             }
+            
+            Text("\(self.festivalVMItem.numberOfBenevoles) participants")
             
             Button("Choisir"){
-                
+                self.intent.changeMainFestival(oldFestival: festivalVM)
             }
-            
+                .padding()
+                .background(colorBtn)
+                .cornerRadius(10)
         }
         
     }
     
-    init(festivalVM: FestivalViewModel) {
-        self.festivalVM = festivalVM
+    init(festivalVMItem: FestivalViewModel) {
+        self.festivalVMItem = festivalVMItem
+        self.intent = FestivalIntent(model: festivalVMItem)
     }
 }
