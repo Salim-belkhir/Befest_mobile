@@ -40,7 +40,6 @@ struct FestivalIntent{
     
     public func createFestival(listFestival: FestivalListVM) async{
         do{
-            debugPrint(self.model.nbOfDays, self.model.name, self.model.year)
             let festivalDTO: FestivalDTO = FestivalDTO(id: 0, name: self.model.name, year: self.model.year, nbOfDays: self.model.nbOfDays, closed: false, countBenevoles: 0)
             try await FestivalService.createFestival(festival: festivalDTO)
             self.model.state = .successCreate

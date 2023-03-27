@@ -19,3 +19,15 @@ struct EmailValidator {
         return emailPredicate.evaluate(with: string)
     }
 }
+
+
+struct TimeFormatter{
+    public static var timeFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.isLenient = false
+        return formatter
+    }
+}

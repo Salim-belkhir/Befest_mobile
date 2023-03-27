@@ -10,10 +10,12 @@ import Foundation
 
 extension URLRequest{
     static func createRequest(urlStr: String, method: String) -> URLRequest {
+        let token: String = UserDefaults.standard.string(forKey: "token")!
         let new_url : URL = URL(string: ConfigAPI.apiUrl + urlStr)!
         var request = URLRequest(url: new_url)
         request.httpMethod = method
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authentication")
         return request
     }
 }

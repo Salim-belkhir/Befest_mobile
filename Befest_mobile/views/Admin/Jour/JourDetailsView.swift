@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct JourDetailsView: View {
+    @ObservedObject var day: JourViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(day.name.uppercased())
+                    .font(.headline)
+                HStack {
+                    Image(systemName: "clock")
+                        .foregroundColor(.gray)
+                    Text("\(day.heure_ouverture) - \(day.heure_fermeture)")
+                        .foregroundColor(.gray)
+                }
+            }
+            Spacer()
+            Text("\(day.number_benevoles)")
+                .foregroundColor(.gray)
+        }
+        .padding()
     }
-}
-
-struct JourDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        JourDetailsView()
+    
+    init(jour: JourViewModel){
+        self.day = jour
     }
 }

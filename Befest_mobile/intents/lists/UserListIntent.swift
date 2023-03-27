@@ -27,7 +27,7 @@ struct UserListIntent{
                 listBenevolesVM.state = .ready
             }
             catch{
-                debugPrint("An error occured")
+                debugPrint(error)
                 listBenevolesVM.state = .error
                 listBenevolesVM.state = .ready
             }

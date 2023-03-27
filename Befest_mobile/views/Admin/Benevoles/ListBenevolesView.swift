@@ -20,9 +20,24 @@ struct ListBenevolesView: View {
                 List{
                     ForEach(searchResults, id: \.id){
                         item in
-                        Text(item.firstname)
+                        NavigationLink(destination: EmptyView()){
+                            BenevoleItemView(benevole: item)
+                        }
                     }
                 }
+            }
+            .navigationTitle(Text("Bénévoles"))
+            .toolbar{
+                ToolbarItem(placement: .principal){
+                    NameFestivalNavBar()
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    DisconnectNavBar()
+                }
+            }
+            .task {
+                await self.intent.getData()
             }
         }
     }

@@ -26,8 +26,8 @@ struct GetCreneauDTO: Decodable, Encodable{
 
 struct PostCreneauDTO: Encodable{
     var id: Int
-    var heureDebut: Date
-    var heureFin: Date
+    var heureDebut: String
+    var heureFin: String
     var jour_creneau: Int
 }
 
