@@ -60,6 +60,9 @@
 		B793B35E29D17D4B0079CAB5 /* ListBenevolesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B35D29D17D4B0079CAB5 /* ListBenevolesView.swift */; };
 		B793B36029D184C80079CAB5 /* DispoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B35F29D184C80079CAB5 /* DispoItemView.swift */; };
 		B793B36229D184F20079CAB5 /* BenevoleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B36129D184F20079CAB5 /* BenevoleItemView.swift */; };
+		B793B36529D185690079CAB5 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B36429D185690079CAB5 /* AccountView.swift */; };
+		B793B36829D185920079CAB5 /* ListAffectationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B36729D185920079CAB5 /* ListAffectationView.swift */; };
+		B793B36A29D185A00079CAB5 /* AffectationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B36929D185A00079CAB5 /* AffectationItemView.swift */; };
 		B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F21429C06E5400D9B784 /* Befest_mobileApp.swift */; };
 		B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F21629C06E5400D9B784 /* ContentView.swift */; };
 		B7A1F21929C06E5500D9B784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A1F21829C06E5500D9B784 /* Assets.xcassets */; };
@@ -121,6 +124,9 @@
 		B793B35D29D17D4B0079CAB5 /* ListBenevolesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBenevolesView.swift; sourceTree = "<group>"; };
 		B793B35F29D184C80079CAB5 /* DispoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispoItemView.swift; sourceTree = "<group>"; };
 		B793B36129D184F20079CAB5 /* BenevoleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleItemView.swift; sourceTree = "<group>"; };
+		B793B36429D185690079CAB5 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		B793B36729D185920079CAB5 /* ListAffectationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAffectationView.swift; sourceTree = "<group>"; };
+		B793B36929D185A00079CAB5 /* AffectationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationItemView.swift; sourceTree = "<group>"; };
 		B7A1F21129C06E5400D9B784 /* Befest_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Befest_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A1F21429C06E5400D9B784 /* Befest_mobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Befest_mobileApp.swift; sourceTree = "<group>"; };
 		B7A1F21629C06E5400D9B784 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		6F52632F29C8E9F10000DA28 /* Benevole */ = {
 			isa = PBXGroup;
 			children = (
+				B793B36329D1853F0079CAB5 /* User */,
 				B793B35129D1786C0079CAB5 /* Dispos */,
 				6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */,
 			);
@@ -204,6 +211,7 @@
 		6F52633029C8E9FE0000DA28 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				B793B36629D1857E0079CAB5 /* Affectation */,
 				6F52633A29C8F7090000DA28 /* Festival */,
 				6F52633529C8EAA70000DA28 /* LogView.swift */,
 			);
@@ -315,6 +323,23 @@
 				B793B36129D184F20079CAB5 /* BenevoleItemView.swift */,
 			);
 			path = Benevoles;
+			sourceTree = "<group>";
+		};
+		B793B36329D1853F0079CAB5 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B793B36429D185690079CAB5 /* AccountView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		B793B36629D1857E0079CAB5 /* Affectation */ = {
+			isa = PBXGroup;
+			children = (
+				B793B36729D185920079CAB5 /* ListAffectationView.swift */,
+				B793B36929D185A00079CAB5 /* AffectationItemView.swift */,
+			);
+			path = Affectation;
 			sourceTree = "<group>";
 		};
 		B7A1F20829C06E5400D9B784 = {
@@ -468,6 +493,7 @@
 				6F8152C029CCBF6500D3ED2D /* Creneau.swift in Sources */,
 				B7242AD329CDEDD100A16851 /* CreneauService.swift in Sources */,
 				B7242AD729CDEE0300A16851 /* AffectationService.swift in Sources */,
+				B793B36829D185920079CAB5 /* ListAffectationView.swift in Sources */,
 				B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */,
 				B7816A3929C3693000BAE82F /* User.swift in Sources */,
 				6F8152CD29CF3A1500D3ED2D /* ListDisponibilites.swift in Sources */,
@@ -481,6 +507,7 @@
 				6F52633929C8F6850000DA28 /* ListFestivalsView.swift in Sources */,
 				6F8152D629D0B4CC00D3ED2D /* TopNavigationBar.swift in Sources */,
 				B7242AC729CDD91200A16851 /* ListJours.swift in Sources */,
+				B793B36A29D185A00079CAB5 /* AffectationItemView.swift in Sources */,
 				6F8152C629CCC2AC00D3ED2D /* JourDetailsView.swift in Sources */,
 				6F8152C829CCC2BD00D3ED2D /* ListJoursView.swift in Sources */,
 				6F52632829C8E8C90000DA28 /* ConfigAPI.swift in Sources */,
@@ -502,6 +529,7 @@
 				B793B35329D178900079CAB5 /* ListDisposView.swift in Sources */,
 				6F52633E29C8F7880000DA28 /* Festival.swift in Sources */,
 				6F52634029C8FD740000DA28 /* FestivalService.swift in Sources */,
+				B793B36529D185690079CAB5 /* AccountView.swift in Sources */,
 				B7242AD929CDEE1C00A16851 /* DisponibiliteService.swift in Sources */,
 				B793B35E29D17D4B0079CAB5 /* ListBenevolesView.swift in Sources */,
 				B7242AD529CDEDDF00A16851 /* UserService.swift in Sources */,
