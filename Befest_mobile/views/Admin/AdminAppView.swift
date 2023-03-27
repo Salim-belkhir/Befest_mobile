@@ -23,7 +23,7 @@ struct AdminAppView: View {
                     NavBarItem(image: "map", description: "Zones")
                 }
             
-            Text("Rien a signaler ici")
+            ListBenevolesView()
                 .tabItem() {
                     NavBarItem(image: "person.3", description: "Benevoles")
                 }

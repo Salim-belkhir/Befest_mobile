@@ -20,23 +20,8 @@ struct ListJoursView: View {
             VStack {
                 SearchBar(text: $searchText) // Recherche des jours
                 List {
-                    ForEach(listeOfJours.listOfJours.sorted(by: { $0.name < $1.name }), id: \.id) { day in // Tri par ordre alphabétique
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(day.name.uppercased())
-                                        .font(.headline)
-                                    HStack {
-                                        Image(systemName: "clock")
-                                            .foregroundColor(.gray)
-                                        Text("\(day.heure_ouverture) - \(day.heure_fermeture)")
-                                            .foregroundColor(.gray)
-                                    }
-                                }
-                                Spacer()
-                                Text("\(day.number_benevoles)")
-                                    .foregroundColor(.gray)
-                            }
-                            .padding()
+                    ForEach(listeOfJours.listOfJours, id: \.id) { day in // Tri par ordre alphabétique
+                        JourDetailsView(jour: day)
                     }
                     .onDelete {
                         indexSet in
@@ -50,9 +35,18 @@ struct ListJoursView: View {
                     }
                 }
             }
-            .navigationBarTitle("Festivals") // Titre de la barre de navigation
+            .navigationBarTitle("Journées")
             .task{
                 await self.intent.getData(festival: festivalVM.id)
+            }
+            .toolbar{
+                ToolbarItem(placement: .principal){
+                    NameFestivalNavBar()
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    DisconnectNavBar()
+                }
             }
         }
     }

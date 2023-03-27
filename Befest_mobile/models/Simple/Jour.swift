@@ -26,16 +26,16 @@ struct GetJourDTO: Encodable, Decodable{
     
     var id: Int
     var name: String
-    var heureOuverture: Date
-    var heureFermeture: Date
+    var heureOuverture: String
+    var heureFermeture: String
     var countBenevoles: Int
 }
 
 struct PostJourDTO: Encodable{
     var id: Int
     var name: String
-    var heureOuverture: Date
-    var heureFermeture: Date
+    var heureOuverture: String
+    var heureFermeture: String
     var festival_jour: Int
 }
 
@@ -44,8 +44,8 @@ struct PostJourDTO: Encodable{
 class JourViewModel: ObservableObject{
     public var id: Int
     @Published var name: String
-    @Published var heure_ouverture: Date
-    @Published var heure_fermeture: Date
+    @Published var heure_ouverture: String
+    @Published var heure_fermeture: String
     @Published var number_benevoles: Int
     @Published var state: JourState = .ready {
         didSet{
@@ -62,7 +62,7 @@ class JourViewModel: ObservableObject{
         }
     }
     
-    init(id: Int, name: String, heure_ouverture: Date, heure_fermeture: Date, number_benevoles: Int){
+    init(id: Int, name: String, heure_ouverture: String, heure_fermeture: String, number_benevoles: Int){
         self.id = id
         self.name = name
         self.heure_ouverture = heure_ouverture
@@ -78,8 +78,8 @@ enum JourState: Equatable{
     case error
     case success(JourViewModel)
     case changeName(String)
-    case changeHeureOuverture(Date)
-    case changeHeureFermeture(Date)
+    case changeHeureOuverture(String)
+    case changeHeureFermeture(String)
     case loading
     
     

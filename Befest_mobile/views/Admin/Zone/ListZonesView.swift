@@ -41,6 +41,7 @@ struct ListZonesView: View {
 
                 }
             }
+            .navigationTitle(Text("Zones"))
             .toolbar{
                 ToolbarItem(placement: .principal){
                     NameFestivalNavBar()

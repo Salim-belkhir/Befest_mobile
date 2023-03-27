@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct BenevoleItemView: View {
+    @ObservedObject var benevole: UserViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("\(benevole.lastname) \(benevole.firstname)")
+                .font(.system(size: 15))
+            Text(benevole.email)
+                .foregroundColor(.blue)
+                .font(.system(size: 11))
+        }
     }
-}
-
-struct BenevoleItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        BenevoleItemView()
+    
+    init(benevole: UserViewModel) {
+        self.benevole = benevole
     }
 }
