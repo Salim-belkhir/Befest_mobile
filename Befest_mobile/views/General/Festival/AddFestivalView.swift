@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddFestivalView: View {
+    @EnvironmentObject var listFestival: FestivalListVM
     @ObservedObject var festivalVM: FestivalViewModel
     private var intent: FestivalIntent
     @State var stepper_value: Int
@@ -32,7 +33,7 @@ struct AddFestivalView: View {
                         
                         HStack{
                             Text("Nombre de jours: \(self.festivalVM.nbOfDays)")
-                            Stepper("", value: $stepper_value, in: 1...100)
+                            Stepper("", value: $stepper_value, in: 2...100)
                                 .onChange(of: stepper_value) {
                                     newValue in
                                     self.intent.changeNbOfDays(number: newValue)
@@ -47,7 +48,7 @@ struct AddFestivalView: View {
                     Spacer()
                     Button(action: {
                         Task{
-                            await self.intent.createFestival()
+                            await self.intent.createFestival(listFestival: listFestival)
                         }
                     }) {
                         Text("Ajouter")
@@ -64,24 +65,25 @@ struct AddFestivalView: View {
                 
             }
             .navigationTitle("Ajouter un festival")
+            .onChange(of: self.festivalVM.state){
+                newValue in
+                debugPrint("New state of the festival create")
+                switch newValue{
+                case .error:
+                    self.titleAlert = "Erreur"
+                    self.messageAlert = "Erreur dans la création du festival"
+                    self.showAlert = true
+                case .successCreate:
+                    self.titleAlert = "Succés"
+                    self.messageAlert = "Festival créé !"
+                    self.showAlert = true
+                default:
+                    break
+                }
+            }
         }
         .alert(isPresented: $showAlert){
             Alert(title: Text(self.titleAlert), message: Text(self.messageAlert))
-        }
-        .onChange(of: self.festivalVM.state){
-            newValue in
-            switch newValue{
-            case .error:
-                self.titleAlert = "Erreur"
-                self.messageAlert = "Erreur dans la création du festival"
-                self.showAlert = true
-            case .successCreate:
-                self.titleAlert = "Succés"
-                self.messageAlert = "Festival créé !"
-                self.showAlert = true
-            default:
-                break
-            }
         }
         
     }
@@ -91,7 +93,7 @@ struct AddFestivalView: View {
         let festival = FestivalViewModel(id: 0, name: "", year: "", nbOfDays: 0, closed: false, numberOfBenevoles: 0)
         self.festivalVM = festival
         self.intent = FestivalIntent(model: festival)
-        self.stepper_value = 0
+        self.stepper_value = 2
     }
 }
 

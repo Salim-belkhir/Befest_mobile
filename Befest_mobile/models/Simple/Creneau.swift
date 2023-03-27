@@ -9,6 +9,15 @@ import Foundation
 
 
 struct GetCreneauDTO: Decodable, Encodable{
+    static func decodeCreneau(data: [GetCreneauDTO]) -> [CreneauViewModel]?{
+        var creneaux: [CreneauViewModel] = []
+        for tdata in data{
+            let creneau : CreneauViewModel = CreneauViewModel(id: tdata.id, heure_debut: tdata.heureDebut, heure_fin: tdata.heureFin)
+            creneaux.append(creneau)
+        }
+        return creneaux
+    }
+    
     var id: Int
     var heureDebut: Date
     var heureFin: Date

@@ -13,7 +13,6 @@ struct ListFestivalsView: View {
     @State var isError: Bool = false
     @State var isLoading: Bool = false
     @State var searchText: String = ""
-    @State var create_festival: Bool = false
     @EnvironmentObject var festivalVM: FestivalViewModel
     
     
@@ -34,13 +33,13 @@ struct ListFestivalsView: View {
                 HStack(alignment: .lastTextBaseline){
                     Spacer()
                     
-                    Button{
-                        self.create_festival = true
-                    } label: {
+                    NavigationLink(destination: AddFestivalView().environmentObject(listFestival)){
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size:40))
                             .padding(10)
+                        
                     }
+                    
                     
                     Spacer().frame(width: 10)
                 }
@@ -77,13 +76,8 @@ struct ListFestivalsView: View {
                 }
                 
             }
-            
-            NavigationLink(destination: AddFestivalView(), isActive: self.$create_festival){
-                
-            }
-            
             .toolbar{
-                ToolbarItem(placement: .navigationBarLeading){
+                ToolbarItem(placement: .navigationBarTrailing){
                     DisconnectNavBar()
                 }
             }        
@@ -123,10 +117,4 @@ struct ListFestivalsView: View {
         }
     }
     
-}
-
-struct ListFestivalsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListFestivalsView()
-    }
 }

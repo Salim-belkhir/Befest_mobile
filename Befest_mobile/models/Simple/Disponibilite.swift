@@ -14,6 +14,15 @@ struct PostDisponibiliteDTO: Encodable{
 }
 
 struct GetDispoUserDTO: Decodable{
+    static func decodeDispo(data: [GetDispoUserDTO]) -> [DisponibiliteViewModel]?{
+        var dispos: [DisponibiliteViewModel] = []
+        for tdata in data{
+            let dispo: DisponibiliteViewModel = DisponibiliteViewModel(dispo_benevole: tdata)
+            dispos.append(dispo)
+        }
+        return dispos
+    }
+    
     var id: Int
     var user_dispo: Int
     var email: String
@@ -22,6 +31,14 @@ struct GetDispoUserDTO: Decodable{
 }
 
 struct GetDispoCreneauDTO: Decodable{
+    static func decodeDispo(data: [GetDispoCreneauDTO]) -> [DisponibiliteViewModel]?{
+        var dispos: [DisponibiliteViewModel] = []
+        for tdata in data{
+            let dispo: DisponibiliteViewModel = DisponibiliteViewModel(dispo_creneau: tdata)
+            dispos.append(dispo)
+        }
+        return dispos
+    }
     var id: Int
     var creneau_dispo: Int
     var heureDebut: Date

@@ -16,8 +16,8 @@ enum TextButton: String{
 
 
 struct LogView: View {
-    @ObservedObject var userMV : UserViewModel
-    private var intent: LogIntent
+    @EnvironmentObject var userMV : UserViewModel
+    @State private var intent: LogIntent?
     
     @State var isError: Bool = false
     
@@ -34,12 +34,6 @@ struct LogView: View {
         return (self.isLoginPage ? TextButton.signin : TextButton.signup)
     }
     
-    
-    init(){
-        let user : UserViewModel = UserViewModel()
-        self.userMV = user
-        self.intent = LogIntent(model: user)
-    }
     
     
     var body: some View {
@@ -82,7 +76,7 @@ struct LogView: View {
                             }
                             else{
                                 self.isEmailValid = false
-                                self.intent.changeEmail(email: "")
+                                self.intent!.changeEmail(email: "")
                             }
                         }
                     })
@@ -115,10 +109,10 @@ struct LogView: View {
                     Button(textButton.rawValue, action: {
                         Task{
                             if(isLoginPage){
-                                if (await self.intent.signin()) { self.navigate = true }
+                                if (await self.intent!.signin()) { self.navigate = true }
                             }
                             else{
-                                if(await self.intent.signup()) { self.isLoginPage = true }
+                                if(await self.intent!.signup()) { self.isLoginPage = true }
                             }
                         }
                     })
@@ -154,13 +148,10 @@ struct LogView: View {
                 .alert(isPresented: $isError){
                     Alert(title: Text("Une erreur s'est produite"), message: Text("Une erreur s'est produite. Veuillez réessayer ultérieurement svp"), dismissButton: .cancel())
                 }
+                .task{
+                    self.intent = LogIntent(model: userMV)
+                }
                 
         
         }
-}
-
-struct LogView_Previews: PreviewProvider {
-    static var previews: some View {
-        LogView()
-    }
 }
