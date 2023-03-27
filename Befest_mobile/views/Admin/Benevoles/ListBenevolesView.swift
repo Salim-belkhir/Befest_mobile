@@ -20,7 +20,7 @@ struct ListBenevolesView: View {
                 List{
                     ForEach(searchResults, id: \.id){
                         item in
-                        NavigationLink(destination: EmptyView()){
+                        NavigationLink(destination: BenevoleDetailView(benevole: item)){
                             BenevoleItemView(benevole: item)
                         }
                     }

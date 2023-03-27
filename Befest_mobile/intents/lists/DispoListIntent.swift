@@ -18,16 +18,17 @@ struct DispoListIntent{
     }
     
     
-    func getDataUser(user: Int) async {
+    func getDataUser(user: Int, festival: Int) async {
         if(listOfDispos.state == .ready){
             listOfDispos.state = .loading
             do{
-                let dispos: [GetDispoUserDTO] = try await DisponibiliteService.getAllDisposUser(user: user) ?? []
+                let dispos: [GetDispoUserDTO] = try await DisponibiliteService.getAllDisposUser(user: user, festival: festival) ?? []
                 let disposVM: [DisponibiliteViewModel] = GetDispoUserDTO.decodeDispo(data: dispos) ?? []
                 listOfDispos.state = .success(dispos: disposVM)
                 listOfDispos.state = .ready
             }
             catch{
+                debugPrint(error)
                 debugPrint("An error occured")
                 listOfDispos.state = .error
                 listOfDispos.state = .ready

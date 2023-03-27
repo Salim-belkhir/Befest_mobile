@@ -10,8 +10,8 @@ import Foundation
 
 class DisponibiliteService{
     //GET
-    static func getAllDisposUser(user: Int) async throws -> [GetDispoUserDTO]?{
-        let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/disponibilites/user/"+String(user))!
+    static func getAllDisposUser(user: Int, festival: Int) async throws -> [GetDispoUserDTO]?{
+        let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/disponibilites/user/"+String(user)+"/festival/"+String(festival))!
         let dispos: [GetDispoUserDTO] = try await URLSession.shared.getJSON(from: urlAPI)
         return dispos
     }

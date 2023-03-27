@@ -41,8 +41,8 @@ struct GetDispoCreneauDTO: Decodable{
     }
     var id: Int
     var creneau_dispo: Int
-    var heureDebut: Date
-    var heureFin: Date
+    var heureDebut: String
+    var heureFin: String
 }
 
 class DisponibiliteViewModel: ObservableObject{

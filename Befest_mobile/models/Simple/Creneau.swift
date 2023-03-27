@@ -19,8 +19,8 @@ struct GetCreneauDTO: Decodable, Encodable{
     }
     
     var id: Int
-    var heureDebut: Date
-    var heureFin: Date
+    var heureDebut: String
+    var heureFin: String
 }
 
 
@@ -34,8 +34,8 @@ struct PostCreneauDTO: Encodable{
 
 class CreneauViewModel: ObservableObject{
     public var id: Int
-    @Published var heure_debut: Date
-    @Published var heure_fin: Date
+    @Published var heure_debut: String
+    @Published var heure_fin: String
     @Published var state: CreneauState = .ready {
         didSet{
             switch state{
@@ -49,7 +49,7 @@ class CreneauViewModel: ObservableObject{
         }
     }
     
-    init(id: Int, heure_debut: Date, heure_fin: Date){
+    init(id: Int, heure_debut: String, heure_fin: String){
         self.id = id
         self.heure_debut = heure_debut
         self.heure_fin = heure_fin
@@ -61,8 +61,8 @@ class CreneauViewModel: ObservableObject{
 enum CreneauState: Equatable{
     case ready
     case creneau
-    case changeHeureDebut(Date)
-    case changeHeureFin(Date)
+    case changeHeureDebut(String)
+    case changeHeureFin(String)
     
     
     
