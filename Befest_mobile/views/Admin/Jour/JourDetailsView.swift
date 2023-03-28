@@ -22,7 +22,7 @@ struct JourDetailsView: View {
                 }
             }
             Spacer()
-            Text("\(day.number_benevoles)")
+            Text("\(day.number_benevoles) bénévoles")
                 .foregroundColor(.gray)
         }
         .padding()

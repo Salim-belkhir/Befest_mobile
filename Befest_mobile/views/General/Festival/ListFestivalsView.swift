@@ -28,8 +28,6 @@ struct ListFestivalsView: View {
         NavigationView{
             VStack{
                 
-                Spacer()
-                
                 HStack(alignment: .lastTextBaseline){
                     Spacer()
                     
@@ -76,6 +74,7 @@ struct ListFestivalsView: View {
                 }
                 
             }
+            .navigationBarTitle(Text("Les fetivaux"))
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing){
                     DisconnectNavBar()

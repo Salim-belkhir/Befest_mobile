@@ -12,7 +12,7 @@
 		6F52632529C8E88D0000DA28 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632429C8E88D0000DA28 /* AuthService.swift */; };
 		6F52632829C8E8C90000DA28 /* ConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632729C8E8C90000DA28 /* ConfigAPI.swift */; };
 		6F52632B29C8E9720000DA28 /* LogIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632A29C8E9720000DA28 /* LogIntent.swift */; };
-		6F52632D29C8E9BB0000DA28 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632C29C8E9BB0000DA28 /* EmailValidator.swift */; };
+		6F52632D29C8E9BB0000DA28 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52632C29C8E9BB0000DA28 /* Validators.swift */; };
 		6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633129C8EA3E0000DA28 /* AdminAppView.swift */; };
 		6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */; };
 		6F52633629C8EAA70000DA28 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52633529C8EAA70000DA28 /* LogView.swift */; };
@@ -34,6 +34,9 @@
 		6F8152D429D0AE0500D3ED2D /* ZoneItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152D329D0AE0500D3ED2D /* ZoneItemView.swift */; };
 		6F8152D629D0B4CC00D3ED2D /* TopNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152D529D0B4CC00D3ED2D /* TopNavigationBar.swift */; };
 		6F8152D829D0BB2900D3ED2D /* JourListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8152D729D0BB2900D3ED2D /* JourListIntent.swift */; };
+		B70D2AEC29D2BF5A00D2CFF1 /* AddZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D2AEB29D2BF5A00D2CFF1 /* AddZoneView.swift */; };
+		B70D2AEE29D2C2A800D2CFF1 /* ZoneIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D2AED29D2C2A800D2CFF1 /* ZoneIntent.swift */; };
+		B70D2AF029D2CE0500D2CFF1 /* EditZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D2AEF29D2CE0500D2CFF1 /* EditZoneView.swift */; };
 		B7242AC729CDD91200A16851 /* ListJours.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242AC629CDD91200A16851 /* ListJours.swift */; };
 		B7242AC929CDDC4700A16851 /* ListZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242AC829CDDC4700A16851 /* ListZones.swift */; };
 		B7242ACB29CDDE9D00A16851 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242ACA29CDDE9D00A16851 /* SearchBar.swift */; };
@@ -77,7 +80,7 @@
 		6F52632429C8E88D0000DA28 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		6F52632729C8E8C90000DA28 /* ConfigAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigAPI.swift; sourceTree = "<group>"; };
 		6F52632A29C8E9720000DA28 /* LogIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIntent.swift; sourceTree = "<group>"; };
-		6F52632C29C8E9BB0000DA28 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		6F52632C29C8E9BB0000DA28 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		6F52633129C8EA3E0000DA28 /* AdminAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAppView.swift; sourceTree = "<group>"; };
 		6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleAppView.swift; sourceTree = "<group>"; };
 		6F52633529C8EAA70000DA28 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -99,6 +102,9 @@
 		6F8152D329D0AE0500D3ED2D /* ZoneItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneItemView.swift; sourceTree = "<group>"; };
 		6F8152D529D0B4CC00D3ED2D /* TopNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationBar.swift; sourceTree = "<group>"; };
 		6F8152D729D0BB2900D3ED2D /* JourListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourListIntent.swift; sourceTree = "<group>"; };
+		B70D2AEB29D2BF5A00D2CFF1 /* AddZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddZoneView.swift; sourceTree = "<group>"; };
+		B70D2AED29D2C2A800D2CFF1 /* ZoneIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneIntent.swift; sourceTree = "<group>"; };
+		B70D2AEF29D2CE0500D2CFF1 /* EditZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditZoneView.swift; sourceTree = "<group>"; };
 		B7242AC629CDD91200A16851 /* ListJours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListJours.swift; sourceTree = "<group>"; };
 		B7242AC829CDDC4700A16851 /* ListZones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListZones.swift; sourceTree = "<group>"; };
 		B7242ACA29CDDE9D00A16851 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -236,6 +242,8 @@
 			children = (
 				6F8152C229CCC22500D3ED2D /* ListZonesView.swift */,
 				6F8152D329D0AE0500D3ED2D /* ZoneItemView.swift */,
+				B70D2AEB29D2BF5A00D2CFF1 /* AddZoneView.swift */,
+				B70D2AEF29D2CE0500D2CFF1 /* EditZoneView.swift */,
 			);
 			path = Zone;
 			sourceTree = "<group>";
@@ -280,7 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				B7816A3629C34CBA00BAE82F /* JSONHelper.swift */,
-				6F52632C29C8E9BB0000DA28 /* EmailValidator.swift */,
+				6F52632C29C8E9BB0000DA28 /* Validators.swift */,
 				B758EEEE29CC4CFD007051C8 /* ObserverProtocol.swift */,
 				B758EEF229CC6F65007051C8 /* Extensions.swift */,
 			);
@@ -314,6 +322,7 @@
 			children = (
 				6F52632A29C8E9720000DA28 /* LogIntent.swift */,
 				B7242ACE29CDEB2900A16851 /* FestivalIntent.swift */,
+				B70D2AED29D2C2A800D2CFF1 /* ZoneIntent.swift */,
 			);
 			path = simple;
 			sourceTree = "<group>";
@@ -482,6 +491,7 @@
 				6F8152BE29CCBF5900D3ED2D /* Jour.swift in Sources */,
 				6F52632B29C8E9720000DA28 /* LogIntent.swift in Sources */,
 				6F52632029C8E7EC0000DA28 /* RequestError.swift in Sources */,
+				B70D2AEC29D2BF5A00D2CFF1 /* AddZoneView.swift in Sources */,
 				B793B36229D184F20079CAB5 /* BenevoleItemView.swift in Sources */,
 				B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */,
 				B7242ADB29CE03A800A16851 /* ListCreneaux.swift in Sources */,
@@ -492,13 +502,14 @@
 				6F52632229C8E82D0000DA28 /* UserIntentError.swift in Sources */,
 				B793B36029D184C80079CAB5 /* DispoItemView.swift in Sources */,
 				6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */,
-				6F52632D29C8E9BB0000DA28 /* EmailValidator.swift in Sources */,
+				6F52632D29C8E9BB0000DA28 /* Validators.swift in Sources */,
 				6F8152C029CCBF6500D3ED2D /* Creneau.swift in Sources */,
 				B7242AD329CDEDD100A16851 /* CreneauService.swift in Sources */,
 				B7242AD729CDEE0300A16851 /* AffectationService.swift in Sources */,
 				B793B36829D185920079CAB5 /* ListAffectationView.swift in Sources */,
 				B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */,
 				B7816A3929C3693000BAE82F /* User.swift in Sources */,
+				B70D2AEE29D2C2A800D2CFF1 /* ZoneIntent.swift in Sources */,
 				6F8152CD29CF3A1500D3ED2D /* ListDisponibilites.swift in Sources */,
 				B758EEF729CCA9F7007051C8 /* ZoneService.swift in Sources */,
 				B793B35929D17D110079CAB5 /* CreneauListIntent.swift in Sources */,
@@ -518,6 +529,7 @@
 				B7242ACD29CDE68C00A16851 /* AddFestivalView.swift in Sources */,
 				B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */,
 				6F8152C329CCC22500D3ED2D /* ListZonesView.swift in Sources */,
+				B70D2AF029D2CE0500D2CFF1 /* EditZoneView.swift in Sources */,
 				B7242ACF29CDEB2900A16851 /* FestivalIntent.swift in Sources */,
 				6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */,
 				B758EEED29CC4BBA007051C8 /* FestivalListIntent.swift in Sources */,

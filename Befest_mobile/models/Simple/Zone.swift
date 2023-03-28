@@ -24,11 +24,13 @@ struct ZoneDTO: Decodable, Encodable{
     var id: Int
     var name: String
     var nbBenevolesNeeded: Int
+    var festival_zone: Int
    
-    init(id: Int, name: String, nbBenevolesNeeded: Int){
+    init(id: Int, name: String, nbBenevolesNeeded: Int, festival_zone: Int){
         self.id = id
         self.name = name
         self.nbBenevolesNeeded = nbBenevolesNeeded
+        self.festival_zone = festival_zone
     }
 }
 
@@ -69,10 +71,30 @@ class ZoneViewModel: ObservableObject{
 
 
 
-enum ZoneState{
+enum ZoneState: Equatable{
     case ready
     case loading
     case error
     case changeName(String)
     case changeNbBenevolesNeeded(Int)
+    case success
+    
+    static func == (lhs: ZoneState, rhs: ZoneState) -> Bool {
+        switch (lhs, rhs){
+        case (.ready, .ready):
+            return true
+        case (.error, .error):
+            return true
+        case (.success, .success):
+            return true
+        case (.changeName(_), .changeName(_)):
+            return true
+        case (.changeNbBenevolesNeeded(_), .changeNbBenevolesNeeded(_)):
+            return true
+        case (.loading, .loading):
+            return true
+        default:
+            return false
+        }
+    }
 }

@@ -16,11 +16,28 @@ struct ListZonesView: View {
     var body: some View {
         NavigationView{
             VStack{
+                
+                HStack(alignment: .lastTextBaseline){
+                    Spacer()
+                    
+                    NavigationLink(destination: AddZoneView().environmentObject(listOfZones)){
+                        Image(systemName: "plus.circle.fill")
+                            .font(.system(size:40))
+                            .padding(10)
+                        
+                    }
+                    
+                    
+                    Spacer().frame(width: 10)
+                }
+                
                 SearchBar(text: $searchText)
                 
                 List{
                     ForEach(searchResults, id: \.id){  item in
-                        ZoneItemView(zone: item)
+                        NavigationLink(destination: EditZoneView(zone: item)){
+                            ZoneItemView(zone: item)
+                        }
                     }
                     .onMove{
                         indexSet, index in
