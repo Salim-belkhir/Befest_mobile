@@ -13,6 +13,7 @@ struct ZoneItemView: View {
     var body: some View {
         HStack{
             Text(zoneVM.name)
+            Spacer()
             Text("Nombre de bénévoles nécessaires : \(zoneVM.number_benevoles_needed)")
         }
     }

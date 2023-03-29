@@ -34,7 +34,7 @@ struct ListFestivalsView: View {
                     NavigationLink(destination: AddFestivalView().environmentObject(listFestival)){
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size:40))
-                            .padding(10)
+                            //.padding(10)
                         
                     }
                     
@@ -75,7 +75,7 @@ struct ListFestivalsView: View {
                 }
                 
             }
-            .navigationBarTitle(Text("Les fetivaux"))
+            .navigationBarTitle(Text("Les festivals"))
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing){
                     DisconnectNavBar()

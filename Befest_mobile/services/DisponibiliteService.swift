@@ -10,16 +10,16 @@ import Foundation
 
 class DisponibiliteService{
     //GET
-    static func getAllDisposUser(user: Int, festival: Int) async throws -> [GetDispoUserDTO]?{
+    static func getAllDisposUser(user: Int, festival: Int) async throws -> [GetDispoCreneauDTO]?{
         let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/disponibilites/user/"+String(user)+"/festival/"+String(festival))!
-        let dispos: [GetDispoUserDTO] = try await URLSession.shared.getJSON(from: urlAPI)
+        let dispos: [GetDispoCreneauDTO] = try await URLSession.shared.getJSON(from: urlAPI)
         return dispos
     }
     
     //GET
-    static func getAllDispoCreneau(creneau: Int) async throws -> [GetDispoCreneauDTO]? {
+    static func getAllDispoCreneau(creneau: Int) async throws -> [GetDispoUserDTO]? {
         let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/disponibilites/creneau/"+String(creneau))!
-        let dispos: [GetDispoCreneauDTO] = try await URLSession.shared.getJSON(from: urlAPI)
+        let dispos: [GetDispoUserDTO] = try await URLSession.shared.getJSON(from: urlAPI)
         return dispos
     }
     

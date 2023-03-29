@@ -18,10 +18,6 @@ struct FestivalItemView: View {
     }
     
     private var textButton: String{
-        //if(self.festivalVMItem.closed && self.userMV.role == "benevole"){
-          //  return "Fermé"
-        //}
-        //return "Choisir"
         return ((self.festivalVMItem.closed && self.userMV.role == "benevole") ? "Fermé" : "Choisir")
     }
     
@@ -58,11 +54,6 @@ struct FestivalItemView: View {
         }
         .padding(10)
         .cornerRadius(10)
-        .onAppear(){
-            debugPrint("Voici le festival : \(self.festivalVMItem.name) et voici si il est fermé ou pas: \(self.festivalVMItem.closed)")
-            
-            debugPrint("Voici le role \(userMV.role == "benevole")")
-        }
         
     }
     

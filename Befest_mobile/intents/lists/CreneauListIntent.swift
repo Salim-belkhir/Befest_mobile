@@ -27,7 +27,7 @@ struct CreneauListIntent{
                 listCreneauVM.state = .ready
             }
             catch{
-                debugPrint("An error occured")
+                debugPrint(error)
                 listCreneauVM.state = .error
                 listCreneauVM.state = .ready
             }

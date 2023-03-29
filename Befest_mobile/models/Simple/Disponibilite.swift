@@ -41,8 +41,9 @@ struct GetDispoCreneauDTO: Decodable{
     }
     var id: Int
     var creneau_dispo: Int
-    var heureDebut: String
-    var heureFin: String
+    var heure_debut: String
+    var heure_fin: String
+    var jour: String
 }
 
 class DisponibiliteViewModel: ObservableObject{
@@ -66,7 +67,7 @@ class DisponibiliteViewModel: ObservableObject{
     
     init(dispo_creneau: GetDispoCreneauDTO){
         self.id = dispo_creneau.id
-        self.creneau = CreneauViewModel(id: dispo_creneau.creneau_dispo, heure_debut: dispo_creneau.heureDebut, heure_fin: dispo_creneau.heureFin)
+        self.creneau = CreneauViewModel(id: dispo_creneau.creneau_dispo, heure_debut: dispo_creneau.heure_debut, heure_fin: dispo_creneau.heure_fin)
     }
     
     

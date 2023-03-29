@@ -22,8 +22,9 @@ struct DispoListIntent{
         if(listOfDispos.state == .ready){
             listOfDispos.state = .loading
             do{
-                let dispos: [GetDispoUserDTO] = try await DisponibiliteService.getAllDisposUser(user: user, festival: festival) ?? []
-                let disposVM: [DisponibiliteViewModel] = GetDispoUserDTO.decodeDispo(data: dispos) ?? []
+                debugPrint("Voici ce que je veux recuperer")
+                let dispos: [GetDispoCreneauDTO] = try await DisponibiliteService.getAllDisposUser(user: user, festival: festival) ?? []
+                let disposVM: [DisponibiliteViewModel] = GetDispoCreneauDTO.decodeDispo(data: dispos) ?? []
                 listOfDispos.state = .success(dispos: disposVM)
                 listOfDispos.state = .ready
             }
@@ -45,13 +46,13 @@ struct DispoListIntent{
         if(listOfDispos.state == .ready){
             listOfDispos.state = .loading
             do{
-                let dispos: [GetDispoCreneauDTO] = try await DisponibiliteService.getAllDispoCreneau(creneau: creneau) ?? []
-                let disposVM: [DisponibiliteViewModel] = GetDispoCreneauDTO.decodeDispo(data: dispos) ?? []
+                let dispos: [GetDispoUserDTO] = try await DisponibiliteService.getAllDispoCreneau(creneau: creneau) ?? []
+                let disposVM: [DisponibiliteViewModel] = GetDispoUserDTO.decodeDispo(data: dispos) ?? []
                 listOfDispos.state = .success(dispos: disposVM)
                 listOfDispos.state = .ready
             }
             catch{
-                debugPrint("An error occured")
+                debugPrint(error)
                 listOfDispos.state = .error
                 listOfDispos.state = .ready
             }

@@ -10,22 +10,22 @@ import SwiftUI
 struct JourDetailsView: View {
     @ObservedObject var day: JourViewModel
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(day.name.uppercased())
-                    .font(.headline)
                 HStack {
-                    Image(systemName: "clock")
-                        .foregroundColor(.gray)
-                    Text("\(day.heure_ouverture) - \(day.heure_fermeture)")
+                    VStack(alignment: .leading) {
+                        Text(day.name.uppercased())
+                            .font(.headline)
+                        HStack {
+                            Image(systemName: "clock")
+                                .foregroundColor(.gray)
+                            Text("\(day.heure_ouverture) - \(day.heure_fermeture)")
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    Spacer()
+                    Text("\(day.number_benevoles) bénévoles")
                         .foregroundColor(.gray)
                 }
-            }
-            Spacer()
-            Text("\(day.number_benevoles) bénévoles")
-                .foregroundColor(.gray)
-        }
-        .padding()
+                .padding()
     }
     
     init(jour: JourViewModel){

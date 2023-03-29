@@ -21,7 +21,9 @@ struct ListJoursView: View {
                 SearchBar(text: $searchText) // Recherche des jours
                 List {
                     ForEach(listeOfJours.listOfJours, id: \.id) { day in // Tri par ordre alphabétique
-                        JourDetailsView(jour: day)
+                        NavigationLink(destination: ListCreneauxView(jour: day.id)){
+                            JourDetailsView(jour: day)
+                        }
                     }
                     .onDelete {
                         indexSet in
