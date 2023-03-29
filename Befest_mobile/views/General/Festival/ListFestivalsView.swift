@@ -49,6 +49,7 @@ struct ListFestivalsView: View {
                         if(isLoading){
                             Text("Loading")
                         }
+    
                         
                         ForEach(searchResults, id: \.id){ item in
                             FestivalItemView(festivalVMItem: item)

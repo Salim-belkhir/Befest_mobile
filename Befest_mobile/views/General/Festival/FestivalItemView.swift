@@ -18,26 +18,50 @@ struct FestivalItemView: View {
     }
     
     private var textButton: String{
-        return (self.festivalVMItem.closed && (self.userMV.role == "benevole") ? "Fermé" : "Choisir")
+        //if(self.festivalVMItem.closed && self.userMV.role == "benevole"){
+          //  return "Fermé"
+        //}
+        //return "Choisir"
+        return ((self.festivalVMItem.closed && self.userMV.role == "benevole") ? "Fermé" : "Choisir")
     }
     
     var body: some View {
         HStack{
-            VStack{
-                Text(festivalVMItem.name)
-                    .foregroundColor(.blue)
-                Text(festivalVMItem.year)
+            VStack(alignment: .leading){
+                HStack{
+                    Text(festivalVMItem.name)
+                        .foregroundColor(.blue)
+                        .font(.system(size: 17))
+                    Spacer()
+                    Text("Année: \(festivalVMItem.year)")
+                        .font(.system(size: 14))
+                }
+                
+                Text("\(self.festivalVMItem.numberOfBenevoles) participants")
+                    .font(.system(size: 12))
+                    .foregroundColor(.gray)
+                
             }
             
-            Text("\(self.festivalVMItem.numberOfBenevoles) participants")
             
-            Button("Choisir"){
+            
+            Spacer()
+            
+            Button(textButton){
                 self.intent.changeMainFestival(oldFestival: festivalVM)
             }
-                .padding(5)
+                .padding(10)
                 .background(colorBtn)
                 .cornerRadius(10)
-                .disabled(self.festivalVMItem.closed)
+                .disabled(self.festivalVMItem.closed && self.userMV.role == "benevole")
+                .frame(width: 100, height: 40)
+        }
+        .padding(10)
+        .cornerRadius(10)
+        .onAppear(){
+            debugPrint("Voici le festival : \(self.festivalVMItem.name) et voici si il est fermé ou pas: \(self.festivalVMItem.closed)")
+            
+            debugPrint("Voici le role \(userMV.role == "benevole")")
         }
         
     }
@@ -45,5 +69,6 @@ struct FestivalItemView: View {
     init(festivalVMItem: FestivalViewModel) {
         self.festivalVMItem = festivalVMItem
         self.intent = FestivalIntent(model: festivalVMItem)
+        
     }
 }

@@ -20,9 +20,9 @@ struct NameFestivalNavBar: View {
                 {
                     Text(festivalVM.name)
                         .foregroundColor(.white)
-                        .padding(4)
+                        .padding(8)
                         .background(.purple)
-                        .cornerRadius(2)
+                        .cornerRadius(4)
                 }
         }
     }
