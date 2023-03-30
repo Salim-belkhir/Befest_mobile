@@ -18,26 +18,28 @@ struct DispoListIntent{
     }
     
     
-    func getDataUser(user: Int, festival: Int) async {
-        if(listOfDispos.state == .ready){
-            listOfDispos.state = .loading
-            do{
-                debugPrint("Voici ce que je veux recuperer")
-                let dispos: [GetDispoCreneauDTO] = try await DisponibiliteService.getAllDisposUser(user: user, festival: festival) ?? []
-                let disposVM: [DisponibiliteViewModel] = GetDispoCreneauDTO.decodeDispo(data: dispos) ?? []
-                listOfDispos.state = .success(dispos: disposVM)
-                listOfDispos.state = .ready
+    func getDataUser(user: Int, festival: Int) {
+        Task{
+            if(listOfDispos.state == .ready){
+                listOfDispos.state = .loading
+                do{
+                    debugPrint("Voici ce que je veux recuperer")
+                    let dispos: [GetDispoCreneauDTO] = try await DisponibiliteService.getAllDisposUser(user: user, festival: festival) ?? []
+                    let disposVM: [DisponibiliteViewModel] = GetDispoCreneauDTO.decodeDispo(data: dispos) ?? []
+                    listOfDispos.state = .success(dispos: disposVM)
+                    listOfDispos.state = .ready
+                }
+                catch{
+                    debugPrint(error)
+                    debugPrint("An error occured")
+                    listOfDispos.state = .error
+                    listOfDispos.state = .ready
+                }
             }
-            catch{
-                debugPrint(error)
-                debugPrint("An error occured")
+            else{
                 listOfDispos.state = .error
                 listOfDispos.state = .ready
             }
-        }
-        else{
-            listOfDispos.state = .error
-            listOfDispos.state = .ready
         }
     }
     

@@ -28,7 +28,7 @@ struct ZoneListIntent{
                     listOfZones.state = .ready
                 }
                 catch{
-                    debugPrint("An error occured")
+                    debugPrint(error)
                     listOfZones.state = .error
                     listOfZones.state = .ready
                 }

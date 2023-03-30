@@ -80,25 +80,26 @@ struct AddFestivalView: View {
                 Spacer()
                 
             }
-            .onChange(of: self.festivalVM.state){
-                newValue in
-                debugPrint("New state of the festival create")
-                switch newValue{
-                case .error:
-                    self.titleAlert = "Erreur"
-                    self.messageAlert = "Erreur dans la création du festival"
-                    self.showAlert = true
-                case .successCreate:
-                    self.titleAlert = "Succés"
-                    self.messageAlert = "Festival créé !"
-                    self.showAlert = true
-                default:
-                    break
-                }
-            }
+            .navigationTitle("Ajouter un festival")
         }
         .alert(isPresented: $showAlert){
             Alert(title: Text(self.titleAlert), message: Text(self.messageAlert))
+        }
+        .onChange(of: self.festivalVM.state){
+            newValue in
+            debugPrint("New state of the festival create")
+            switch newValue{
+            case .error:
+                self.titleAlert = "Erreur"
+                self.messageAlert = "Erreur dans la création du festival"
+                self.showAlert = true
+            case .successCreate:
+                self.titleAlert = "Succés"
+                self.messageAlert = "Festival créé !"
+                self.showAlert = true
+            default:
+                break
+            }
         }
         
     }
