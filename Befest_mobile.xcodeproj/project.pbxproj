@@ -48,6 +48,9 @@
 		B7242AD729CDEE0300A16851 /* AffectationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242AD629CDEE0300A16851 /* AffectationService.swift */; };
 		B7242AD929CDEE1C00A16851 /* DisponibiliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242AD829CDEE1C00A16851 /* DisponibiliteService.swift */; };
 		B7242ADB29CE03A800A16851 /* ListCreneaux.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7242ADA29CE03A800A16851 /* ListCreneaux.swift */; };
+		B74721EA29D58DDD00949B59 /* ItemDispoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74721E929D58DDD00949B59 /* ItemDispoView.swift */; };
+		B74721EC29D58DEF00949B59 /* ListDispoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74721EB29D58DEF00949B59 /* ListDispoView.swift */; };
+		B74721EE29D58E2200949B59 /* DispoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74721ED29D58E2200949B59 /* DispoIntent.swift */; };
 		B758EEED29CC4BBA007051C8 /* FestivalListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEEC29CC4BBA007051C8 /* FestivalListIntent.swift */; };
 		B758EEEF29CC4CFD007051C8 /* ObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEEE29CC4CFD007051C8 /* ObserverProtocol.swift */; };
 		B758EEF129CC5455007051C8 /* ListFestival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEF029CC5455007051C8 /* ListFestival.swift */; };
@@ -118,6 +121,9 @@
 		B7242AD629CDEE0300A16851 /* AffectationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationService.swift; sourceTree = "<group>"; };
 		B7242AD829CDEE1C00A16851 /* DisponibiliteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisponibiliteService.swift; sourceTree = "<group>"; };
 		B7242ADA29CE03A800A16851 /* ListCreneaux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCreneaux.swift; sourceTree = "<group>"; };
+		B74721E929D58DDD00949B59 /* ItemDispoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDispoView.swift; sourceTree = "<group>"; };
+		B74721EB29D58DEF00949B59 /* ListDispoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDispoView.swift; sourceTree = "<group>"; };
+		B74721ED29D58E2200949B59 /* DispoIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispoIntent.swift; sourceTree = "<group>"; };
 		B758EEEC29CC4BBA007051C8 /* FestivalListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalListIntent.swift; sourceTree = "<group>"; };
 		B758EEEE29CC4CFD007051C8 /* ObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverProtocol.swift; sourceTree = "<group>"; };
 		B758EEF029CC5455007051C8 /* ListFestival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFestival.swift; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 		6F52632E29C8E9E90000DA28 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				B74721E829D58DC900949B59 /* Disponibilite */,
 				B793B35C29D17D300079CAB5 /* Benevoles */,
 				6F8152C429CCC28800D3ED2D /* Jour */,
 				6F8152C129CCC20800D3ED2D /* Zone */,
@@ -289,6 +296,15 @@
 			path = Simple;
 			sourceTree = "<group>";
 		};
+		B74721E829D58DC900949B59 /* Disponibilite */ = {
+			isa = PBXGroup;
+			children = (
+				B74721E929D58DDD00949B59 /* ItemDispoView.swift */,
+				B74721EB29D58DEF00949B59 /* ListDispoView.swift */,
+			);
+			path = Disponibilite;
+			sourceTree = "<group>";
+		};
 		B7816A3529C34CA800BAE82F /* utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +353,7 @@
 				6F52632A29C8E9720000DA28 /* LogIntent.swift */,
 				B7242ACE29CDEB2900A16851 /* FestivalIntent.swift */,
 				B70D2AED29D2C2A800D2CFF1 /* ZoneIntent.swift */,
+				B74721ED29D58E2200949B59 /* DispoIntent.swift */,
 			);
 			path = simple;
 			sourceTree = "<group>";
@@ -519,6 +536,7 @@
 				6F52632D29C8E9BB0000DA28 /* Validators.swift in Sources */,
 				6F8152C029CCBF6500D3ED2D /* Creneau.swift in Sources */,
 				B7242AD329CDEDD100A16851 /* CreneauService.swift in Sources */,
+				B74721EC29D58DEF00949B59 /* ListDispoView.swift in Sources */,
 				B7242AD729CDEE0300A16851 /* AffectationService.swift in Sources */,
 				B793B36829D185920079CAB5 /* ListAffectationView.swift in Sources */,
 				B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */,
@@ -555,12 +573,14 @@
 				6F8152BA29CCBF3B00D3ED2D /* Affectation.swift in Sources */,
 				B793B35B29D17D240079CAB5 /* UserListIntent.swift in Sources */,
 				B758EEF329CC6F65007051C8 /* Extensions.swift in Sources */,
+				B74721EA29D58DDD00949B59 /* ItemDispoView.swift in Sources */,
 				6F8152D829D0BB2900D3ED2D /* JourListIntent.swift in Sources */,
 				B7242AC929CDDC4700A16851 /* ListZones.swift in Sources */,
 				B758EEF529CCA557007051C8 /* ListBenevoles.swift in Sources */,
 				B793B35329D178900079CAB5 /* ListDisposView.swift in Sources */,
 				6F52633E29C8F7880000DA28 /* Festival.swift in Sources */,
 				6F52634029C8FD740000DA28 /* FestivalService.swift in Sources */,
+				B74721EE29D58E2200949B59 /* DispoIntent.swift in Sources */,
 				B793B36529D185690079CAB5 /* AccountView.swift in Sources */,
 				B7242AD929CDEE1C00A16851 /* DisponibiliteService.swift in Sources */,
 				B793B35E29D17D4B0079CAB5 /* ListBenevolesView.swift in Sources */,
