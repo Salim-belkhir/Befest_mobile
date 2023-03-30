@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct ListDispoView: View {
+    private let userId: Int
+    @EnvironmentObject var festivalVM: FestivalViewModel
+    @ObservedObject var listDispos: ListDisponibilitesVM
+    private var intent: DispoListIntent
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List{
+            if(listDispos.listOfDisponibilites.isEmpty){
+                Text("Malheuresement il n'existe pas de dispo pour ce festival pour ce bénévole")
+            }
+            ForEach(listDispos.listOfDisponibilites.sorted { ($0.creneau?.jour_name)! < ($1.creneau?.jour_name)!}, id:\.id){
+                dispo in
+                ItemDispoView(dispo: dispo)
+                    .padding(10)
+            }
+        }
+        .onAppear(){
+            self.intent.getDataUser(user: userId, festival: festivalVM.id)
+        }
     }
-}
-
-struct ListDispoView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListDispoView()
+    
+    
+    init(user: Int){
+        self.userId = user
+        let list = ListDisponibilitesVM()
+        self.listDispos = list
+        self.intent = DispoListIntent(listOfDispos: list)
     }
 }
