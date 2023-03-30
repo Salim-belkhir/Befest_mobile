@@ -26,6 +26,8 @@ struct ItemDispoView: View {
                 
                 Spacer()
                 
+                
+                
                 if(!isSelected){
                     Button("Affecter"){
                         self.isSelected = true
