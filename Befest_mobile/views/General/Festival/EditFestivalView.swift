@@ -3,7 +3,7 @@
 //  Befest_mobile
 //
 //  Created by m1 on 25/03/2023.
-//
+
 
 import SwiftUI
 
@@ -12,88 +12,129 @@ struct EditFestivalView: View {
     @EnvironmentObject var festivalVM: FestivalViewModel
     @State var intent: FestivalIntent?
 
-    @State private var isEditing = false
-
     var body: some View {
-        NavigationView{
-            VStack {
-                Section(header: Text("Formulaire")){
-                    HStack {
-                        Text("Nom du festival :")
-                        if isEditing {
-                            TextField("Nom du festival", text: $festivalVM.name)
-                                .frame(width: 50)
-                        } else {
-                            Text(festivalVM.name)
-                                .frame(width: 50)
-                                .onTapGesture {
-                                    isEditing = true
+            NavigationView{
+                VStack {
+                    Section(header:
+                                ZStack {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(Color.gray.opacity(0.1))
+                                            .frame(height: 50)
+                                            .shadow(radius: 1)
+                                        
+                                        Text("Informations du festival")
+                                            .font(.title3)
+                                            .fontWeight(.bold)
+                                    }
+                    ){
+                        VStack(alignment: .leading) {
+                            HStack() {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.gray.opacity(0.1))
+                                    .frame(height: 50)
+                                    .frame(width: 150)
+                                    .shadow(radius: 1)
+                                    Text("Nom du festival")
+                                    .fontWeight(.bold)
                                 }
-                        }
-                    }
-                    
-                    HStack {
-                        Text("Année :")
-                        if isEditing {
-                            TextField("Année", text: $festivalVM.year)
-                        } else {
-                            Text(festivalVM.year)
-                                .onTapGesture {
-                                    isEditing = true
+                                TextField("Nom du festival", text: $festivalVM.name)
+                                .padding(12)
+                                .padding(.horizontal)
+                                .background(
+                                    Color(UIColor.systemGray6)
+                                )
+                                .cornerRadius(10)
+                                .previewLayout(.sizeThatFits)
+                                .fixedSize()
+                                .shadow(radius: 2)
+                            }
+                            .fixedSize()
+                            HStack(spacing: 6) {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.gray.opacity(0.1))
+                                    .frame(height: 50)
+                                    .frame(width:150)
+                                    .shadow(radius: 1)
+                                    Text("Année")
+                                    .fontWeight(.bold)
                                 }
+                                
+                                TextField("Année", text: $festivalVM.year)
+                                .padding(12)
+                                .padding(.horizontal)
+                                .background(
+                                    Color(UIColor.systemGray6)
+                                )
+                                .cornerRadius(10)
+                                .previewLayout(.sizeThatFits)
+                                .fixedSize()
+                                .shadow(radius: 2)
+                            }
+                            .fixedSize()
+                            
+                            HStack(spacing:6){
+                                Button(action: {
+                                    // Enregistrer les changements et quitter la page d'édition
+                                    Task{
+                                        await self.intent!.updateFestival()
+                                    }
+                                }) {
+                                    Text("Enregistrer")
+                                    .foregroundColor(.white)
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                }
+                                .padding(15)
+                                .background(Color.purple)
+                                .cornerRadius(10)
+                                .shadow(radius: 1)
+                                
+                                Button(action: {
+                                    Task{
+                                        await self.intent!.closeFestival()
+                                        debugPrint(festivalVM.closed)
+                                    }
+                                })
+                                {
+                                    Text("Clôturer")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                }
+                                .padding(15)
+                                .background(Color.accentColor)
+                                .cornerRadius(10)
+                                .shadow(radius: 1)
+                            }
+                            .previewLayout(.sizeThatFits)
+                            .fixedSize()
+                            
                         }
                     }
-                }
-                
-                // Ajouter d'autres champs pour les informations du festival
-                
-                HStack{
+                    .padding(.horizontal, 20) // Ajouter du padding horizontal
+                    // Ajouter d'autres champs pour les informations du festival
                     
-                    Button(action: {
-                        // Enregistrer les changements et quitter la page d'édition
-                        Task{
-                            await self.intent!.updateFestival()
-                        }
-                    }) {
-                        Text("Enregistrer")
-                            .foregroundColor(.white)
-                    }
-                    .padding(8)
-                    .background(Color.purple)
-                    .cornerRadius(10)
-                    Button(action: {
-                        Task{
-                            await self.intent!.closeFestival()
-                            debugPrint(festivalVM.closed)
-                        }
-                    })
-                    {
-                        Text("Clôturer")
-                            .foregroundColor(.white)
-                    }
-                    .padding(8)
-                    .background(Color.purple)
-                    .cornerRadius(10)
                     
+                    Spacer()
                 }
-            }
-            .toolbar{
-                ToolbarItem(placement: .principal){
-                    NameFestivalNavBar()
-                }
+
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    DisconnectNavBar()
+                .toolbar{
+                    ToolbarItem(placement: .principal){
+                        NameFestivalNavBar()
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        DisconnectNavBar()
+                    }
                 }
+                        
             }
-            .navigationTitle(Text("Informations"))
-        
-        }
-        .onAppear {
-            self.intent = FestivalIntent(model: festivalVM)
+            .onAppear {
+                self.intent = FestivalIntent(model: festivalVM)
+            }
         }
     }
-        
-    
-}
 
