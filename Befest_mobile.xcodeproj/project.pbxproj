@@ -51,6 +51,7 @@
 		B74721EA29D58DDD00949B59 /* ItemDispoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74721E929D58DDD00949B59 /* ItemDispoView.swift */; };
 		B74721EC29D58DEF00949B59 /* ListDispoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74721EB29D58DEF00949B59 /* ListDispoView.swift */; };
 		B74721EE29D58E2200949B59 /* DispoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74721ED29D58E2200949B59 /* DispoIntent.swift */; };
+		B74721F029D5913500949B59 /* SelectorZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74721EF29D5913500949B59 /* SelectorZoneView.swift */; };
 		B758EEED29CC4BBA007051C8 /* FestivalListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEEC29CC4BBA007051C8 /* FestivalListIntent.swift */; };
 		B758EEEF29CC4CFD007051C8 /* ObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEEE29CC4CFD007051C8 /* ObserverProtocol.swift */; };
 		B758EEF129CC5455007051C8 /* ListFestival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758EEF029CC5455007051C8 /* ListFestival.swift */; };
@@ -124,6 +125,7 @@
 		B74721E929D58DDD00949B59 /* ItemDispoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDispoView.swift; sourceTree = "<group>"; };
 		B74721EB29D58DEF00949B59 /* ListDispoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDispoView.swift; sourceTree = "<group>"; };
 		B74721ED29D58E2200949B59 /* DispoIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispoIntent.swift; sourceTree = "<group>"; };
+		B74721EF29D5913500949B59 /* SelectorZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorZoneView.swift; sourceTree = "<group>"; };
 		B758EEEC29CC4BBA007051C8 /* FestivalListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalListIntent.swift; sourceTree = "<group>"; };
 		B758EEEE29CC4CFD007051C8 /* ObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverProtocol.swift; sourceTree = "<group>"; };
 		B758EEF029CC5455007051C8 /* ListFestival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFestival.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				6F8152D329D0AE0500D3ED2D /* ZoneItemView.swift */,
 				B70D2AEB29D2BF5A00D2CFF1 /* AddZoneView.swift */,
 				B70D2AEF29D2CE0500D2CFF1 /* EditZoneView.swift */,
+				B74721EF29D5913500949B59 /* SelectorZoneView.swift */,
 			);
 			path = Zone;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				B793B36829D185920079CAB5 /* ListAffectationView.swift in Sources */,
 				B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */,
 				B7816A3929C3693000BAE82F /* User.swift in Sources */,
+				B74721F029D5913500949B59 /* SelectorZoneView.swift in Sources */,
 				B70D2AEE29D2C2A800D2CFF1 /* ZoneIntent.swift in Sources */,
 				6F8152CD29CF3A1500D3ED2D /* ListDisponibilites.swift in Sources */,
 				B758EEF729CCA9F7007051C8 /* ZoneService.swift in Sources */,

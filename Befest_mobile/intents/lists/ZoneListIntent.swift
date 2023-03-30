@@ -17,24 +17,26 @@ struct ZoneListIntent{
     }
     
     
-    func getData(festival: Int) async {
-        if(listOfZones.state == .ready){
-            listOfZones.state = .loading
-            do{
-                let zones: [ZoneDTO] = try await ZoneService.getAllZones(festival: festival) ?? []
-                let zonesVM: [ZoneViewModel] = ZoneDTO.decodeZone(data: zones) ?? []
-                listOfZones.state = .success(zones: zonesVM)
-                listOfZones.state = .ready
+    func getData(festival: Int) {
+        Task{
+            if(listOfZones.state == .ready){
+                listOfZones.state = .loading
+                do{
+                    let zones: [ZoneDTO] = try await ZoneService.getAllZones(festival: festival) ?? []
+                    let zonesVM: [ZoneViewModel] = ZoneDTO.decodeZone(data: zones) ?? []
+                    listOfZones.state = .success(zones: zonesVM)
+                    listOfZones.state = .ready
+                }
+                catch{
+                    debugPrint("An error occured")
+                    listOfZones.state = .error
+                    listOfZones.state = .ready
+                }
             }
-            catch{
-                debugPrint("An error occured")
+            else{
                 listOfZones.state = .error
                 listOfZones.state = .ready
             }
-        }
-        else{
-            listOfZones.state = .error
-            listOfZones.state = .ready
         }
     }
     

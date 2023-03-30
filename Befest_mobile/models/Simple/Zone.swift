@@ -35,7 +35,7 @@ struct ZoneDTO: Decodable, Encodable{
 }
 
 
-class ZoneViewModel: ObservableObject{
+class ZoneViewModel: ObservableObject, Hashable, Equatable{
     public var id: Int
     @Published var name: String
     @Published var number_benevoles_needed: Int
@@ -66,6 +66,14 @@ class ZoneViewModel: ObservableObject{
         for o in self.observers{
             o.updated(id: self.id, model: self)
         }
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: ZoneViewModel, rhs: ZoneViewModel) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
