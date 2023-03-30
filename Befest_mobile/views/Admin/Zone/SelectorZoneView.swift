@@ -26,12 +26,13 @@ struct SelectorZoneView: View {
         }
     }
     
-    
+   /*
     init(festival: Int){
         let listZones = ListZoneVM()
         self.listZones = listZones
         self.intent = ZoneListIntent(listOfZones: listZones)
         self.festivalId = festival
     }
+    */
 }
 
