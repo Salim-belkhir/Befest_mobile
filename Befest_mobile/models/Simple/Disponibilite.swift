@@ -67,7 +67,7 @@ class DisponibiliteViewModel: ObservableObject{
     
     init(dispo_creneau: GetDispoCreneauDTO){
         self.id = dispo_creneau.id
-        self.creneau = CreneauViewModel(id: dispo_creneau.creneau_dispo, heure_debut: dispo_creneau.heure_debut, heure_fin: dispo_creneau.heure_fin)
+        self.creneau = CreneauViewModel(id: dispo_creneau.creneau_dispo, heure_debut: dispo_creneau.heure_debut, heure_fin: dispo_creneau.heure_fin, jour_name: dispo_creneau.jour)
     }
     
     

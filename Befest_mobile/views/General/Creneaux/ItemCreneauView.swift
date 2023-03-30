@@ -12,11 +12,15 @@ struct ItemCreneauView: View {
     
     var body: some View {
         HStack{
-            Text("\(creneau.heure_debut) - \(creneau.heure_fin)")
+            Image(systemName: "clock")
+            VStack{
+                Text(creneau.jour_name ?? "")
+                Text("\(creneau.heure_debut) - \(creneau.heure_fin)")
+            }
             
             Spacer()
             
-            Button("Choisir"){
+            Button("Affecter"){
                 
             }
         }

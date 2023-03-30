@@ -47,10 +47,9 @@ struct ListFestivalsView: View {
                 List{
                     Section(header: Text("Festivals existants")){
                         if(isLoading){
-                            Text("Loading")
+                            ProgressView()
                         }
     
-                        
                         ForEach(searchResults, id: \.id){ item in
                             FestivalItemView(festivalVMItem: item)
                         }
@@ -84,14 +83,12 @@ struct ListFestivalsView: View {
         }
         .onChange(of: self.listFestival.state){
             newValue in
-            debugPrint("New state: \(newValue)")
             switch(newValue){
             case .error:
                 self.isError = true
             case .loading:
                 self.isLoading = true
             case .ready:
-                self.isError = false
                 self.isLoading = false
             default:
                 break
