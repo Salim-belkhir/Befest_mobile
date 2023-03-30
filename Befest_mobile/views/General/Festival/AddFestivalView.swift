@@ -21,6 +21,22 @@ struct AddFestivalView: View {
     var body: some View {
         NavigationView{
             VStack {
+                HStack
+                {
+                    Spacer().frame(width:10)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.gray.opacity(0.1))
+                            .frame(height: 40)
+                            .shadow(radius: 1)
+                        Text("Liste des festivals")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                    }
+                    
+                    Spacer().frame(width:10)
+                }
+                                
                 Form {
                     Section(header: Text("Informations sur le festival")) {
                         TextField("Nom du festival", text: $text_name)
@@ -64,7 +80,6 @@ struct AddFestivalView: View {
                 Spacer()
                 
             }
-            .navigationTitle("Ajouter un festival")
             .onChange(of: self.festivalVM.state){
                 newValue in
                 debugPrint("New state of the festival create")
