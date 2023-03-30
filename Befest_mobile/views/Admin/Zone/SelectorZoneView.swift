@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+/*
 struct SelectorZoneView: View {
     @ObservedObject var listZones: ListZoneVM
-    @Binding var zone_selected: ZoneViewModel
+    @Binding var zone_selected: String
     private var intent: ZoneListIntent
-    private var festivalId: Int
+    @EnvironmentObject var festivalVM: FestivalViewModel
     
     var body: some View {
         Group{
@@ -21,17 +22,16 @@ struct SelectorZoneView: View {
                 }
             }
             .onAppear{
-                self.intent.getData(festival: festivalId)
+                self.intent.getData(festival: festivalVM.id)
             }
         }
     }
     
     
-    init(festival: Int){
+    init(){
         let listZones = ListZoneVM()
         self.listZones = listZones
         self.intent = ZoneListIntent(listOfZones: listZones)
-        self.festivalId = festival
     }
 }
-
+*/
