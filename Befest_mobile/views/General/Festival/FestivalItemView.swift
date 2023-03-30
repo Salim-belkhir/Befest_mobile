@@ -27,39 +27,51 @@ struct FestivalItemView: View {
                 HStack{
                     Text(festivalVMItem.name)
                         .foregroundColor(.blue)
+                        .bold()
                         .font(.system(size: 17))
                     Spacer()
                     Text("Année: \(festivalVMItem.year)")
                         .font(.system(size: 14))
+                        .foregroundColor(.gray)
                 }
                 
-                Text("\(self.festivalVMItem.numberOfBenevoles) participants")
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
+                HStack{
+                    Image(systemName: "person.3.fill")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 14))
+                    Text("\(self.festivalVMItem.numberOfBenevoles) participants")
+                        .font(.system(size: 12))
+                        .foregroundColor(.gray)
+                }
                 
             }
             
-            
-            
-            Spacer()
-            
-            Button(textButton){
+            Button(action: {
                 self.intent.changeMainFestival(oldFestival: festivalVM)
-            }
-                .padding(10)
-                .background(colorBtn)
-                .cornerRadius(10)
-                .disabled(self.festivalVMItem.closed && self.userMV.role == "benevole")
-                .frame(width: 100, height: 40)
+            }, label: {
+                Text(textButton)
+                    .font(.system(size: 14))
+                    .foregroundColor(.white)
+                    .bold()
+                    .padding(8)
+                    .background(colorBtn)
+                    .cornerRadius(16)
+                    .frame(width: 80)
+            })
+            .disabled(self.festivalVMItem.closed && self.userMV.role == "benevole")
+            
         }
-        .padding(10)
-        .cornerRadius(10)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 10)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(16)
+        .shadow(color: Color.gray.opacity(0.4),radius: 1)
         
     }
     
     init(festivalVMItem: FestivalViewModel) {
         self.festivalVMItem = festivalVMItem
         self.intent = FestivalIntent(model: festivalVMItem)
-        
     }
 }
+

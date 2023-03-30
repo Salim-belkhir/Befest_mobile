@@ -3,7 +3,7 @@
 //  Befest_mobile
 //
 //  Created by m1 on 25/03/2023.
-//
+
 
 import SwiftUI
 
@@ -27,7 +27,7 @@ struct EditFestivalView: View {
                                             .fontWeight(.bold)
                                     }
                     ){
-                        VStack() {
+                        VStack(alignment: .leading) {
                             HStack() {
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 10)
@@ -35,13 +35,12 @@ struct EditFestivalView: View {
                                     .frame(height: 50)
                                     .frame(width: 150)
                                     .shadow(radius: 1)
-                                    
                                     Text("Nom du festival")
                                     .fontWeight(.bold)
                                 }
                                 TextField("Nom du festival", text: $festivalVM.name)
-                                .padding(.vertical)
-                                .padding(.horizontal, 15)
+                                .padding(12)
+                                .padding(.horizontal)
                                 .background(
                                     Color(UIColor.systemGray6)
                                 )
@@ -51,21 +50,20 @@ struct EditFestivalView: View {
                                 .shadow(radius: 2)
                             }
                             .fixedSize()
-                            HStack() {
+                            HStack(spacing: 6) {
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.gray.opacity(0.1))
                                     .frame(height: 50)
-                                    .frame(width:80)
+                                    .frame(width:150)
                                     .shadow(radius: 1)
-                                    
                                     Text("Année")
                                     .fontWeight(.bold)
                                 }
                                 
                                 TextField("Année", text: $festivalVM.year)
-                                .padding(.vertical)
-                                .padding(.horizontal, 15)
+                                .padding(12)
+                                .padding(.horizontal)
                                 .background(
                                     Color(UIColor.systemGray6)
                                 )
@@ -76,7 +74,7 @@ struct EditFestivalView: View {
                             }
                             .fixedSize()
                             
-                            HStack(alignment: .lastTextBaseline){
+                            HStack(spacing:6){
                                 Button(action: {
                                     // Enregistrer les changements et quitter la page d'édition
                                     Task{
@@ -92,7 +90,6 @@ struct EditFestivalView: View {
                                 .background(Color.purple)
                                 .cornerRadius(10)
                                 .shadow(radius: 1)
-                                
                                 
                                 Button(action: {
                                     Task{

@@ -28,16 +28,29 @@ struct ListFestivalsView: View {
         NavigationView{
             VStack{
                 
+                    Spacer().frame(height:10)
                 HStack(alignment: .lastTextBaseline){
-                    Spacer()
-                    
-                    NavigationLink(destination: AddFestivalView().environmentObject(listFestival)){
-                        Image(systemName: "plus.circle.fill")
-                            .font(.system(size:40))
-                            //.padding(10)
-                        
+                    Spacer().frame(width: 10)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.gray.opacity(0.1))
+                            .frame(height: 40)
+                            .shadow(radius: 1)
+                     
+                        HStack(alignment: .center)
+                            {
+                                Text("Liste des festivals")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                            
+                                NavigationLink(destination: AddFestivalView().environmentObject(listFestival)){
+                                Image(systemName: "plus.circle.fill")
+                                .font(.system(size:30))
+                            
+                            }
+                            
+                        }
                     }
-                    
                     
                     Spacer().frame(width: 10)
                 }
@@ -45,7 +58,10 @@ struct ListFestivalsView: View {
                 SearchBar(text: $searchText)
                 
                 List{
-                    Section(header: Text("Festivals existants")){
+                    Section(header:
+                                Text("Festivals existants")
+                    
+                    ){
                         if(isLoading){
                             ProgressView()
                         }
@@ -67,14 +83,14 @@ struct ListFestivalsView: View {
                         
                         EditButton()
                             .foregroundColor(.white)
-                            .padding(5)
-                            .background(Color.blue)
-                            .cornerRadius(5)
+                            .padding(15)
+                            .background(Color.accentColor)
+                            .cornerRadius(10)
+                            .shadow(radius: 1)
                     }
                 }
                 
             }
-            .navigationBarTitle(Text("Les festivals"))
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing){
                     DisconnectNavBar()
