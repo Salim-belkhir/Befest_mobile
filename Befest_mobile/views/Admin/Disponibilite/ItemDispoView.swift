@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct ItemDispoView: View {
     @State var isSelected: Bool = false
     @ObservedObject var dispoVM: DisponibiliteViewModel
@@ -14,6 +13,10 @@ struct ItemDispoView: View {
     @ObservedObject var listZones: ListZoneVM
     private var intent: ZoneListIntent
     @EnvironmentObject var festivalVM: FestivalViewModel
+    
+    var colors = ["Red", "Green", "Blue", "Tartan"]
+        @State private var selectedColor = "Red"
+
     
     var body: some View {
         VStack{
@@ -26,43 +29,58 @@ struct ItemDispoView: View {
                 
                 Spacer()
                 
-                
-                
                 if(!isSelected){
-                    Button("Affecter"){
+                    Button(action:
+                    {
                         self.isSelected = true
+                    })
+                    {
+                       Text("Affecter")
                     }
+                    .padding(15)
+                    .background(Color.purple)
+                    .cornerRadius(10)
+                    .shadow(radius: 1)
+                    
                 }
-                else{
+                else
+                {
                     Button(action:{
                         self.isSelected = false
                     })
                     {
                         Image(systemName: "arrowtriangle.up.fill")
                     }
+                    .padding(15)
+                    .background(Color.purple)
+                    .cornerRadius(10)
+                    .shadow(radius: 1)
                 }
-                
             }
             
-            if(isSelected){
+            if(isSelected)
+            {
                 
-                Spacer().frame(height: 100)
-                
-                HStack{
-                    Picker("Veuillez choisir une zone", selection: $zone_selected){
-                        ForEach(listZones.listOfZones, id: \.id){ zone in
-                            Text(zone.name)
+                Section(header: Text("jsnqkjdnze"))
+                {
+                    Picker("Choisir une zone", selection: $zone_selected)
+                    {
+                        ForEach(listZones.listOfZones, id: \.self) { item in // 4
+                            Text(item.name) // 5
                         }
+                        .contentShape(Rectangle())
                     }
                     
-                    Button("Valider"){
-                        debugPrint("Cliqué")
-                    }
                 }
-                
-                
-                Text(self.zone_selected.name)
             }
+            
+            Spacer().frame(height: 30)
+            VStack()
+            {
+                
+                Text(zone_selected.name)
+            }
+
         }
         .onAppear(){
             self.intent.getData(festival: festivalVM.id)

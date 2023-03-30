@@ -21,6 +21,7 @@ struct ListDispoView: View {
             ForEach(listDispos.listOfDisponibilites.sorted { ($0.creneau?.jour_name)! < ($1.creneau?.jour_name)!}, id:\.id){
                 dispo in
                 ItemDispoView(dispo: dispo)
+                    .contentShape(Rectangle())
                     .padding(10)
             }
         }
