@@ -14,7 +14,6 @@ class FestivalService {
     static func getAllFestivals() async throws -> [FestivalViewModel]? {
         let urlApi : URL = URL(string: ConfigAPI.apiUrl + "/festivals/")!
         let festivals: [FestivalDTO] = try await URLSession.shared.getJSON(from: urlApi)
-        debugPrint(festivals)
         return FestivalDTO.decodeFestival(data: festivals)
     }
     

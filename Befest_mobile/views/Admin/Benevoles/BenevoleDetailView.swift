@@ -30,7 +30,7 @@ struct BenevoleDetailView: View {
                     }
                     ForEach(listDispos.listOfDisponibilites, id: \.id){
                         dispo in
-                        Text(dispo.creneau?.heure_debut ?? "Pas d'heure de de début")
+                        ItemCreneauView(creneau: dispo.creneau!)
                     }
                 }
                 

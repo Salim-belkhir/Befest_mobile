@@ -36,6 +36,7 @@ class CreneauViewModel: ObservableObject{
     public var id: Int
     @Published var heure_debut: String
     @Published var heure_fin: String
+    @Published var jour_name: String?
     @Published var state: CreneauState = .ready {
         didSet{
             switch state{
@@ -53,6 +54,13 @@ class CreneauViewModel: ObservableObject{
         self.id = id
         self.heure_debut = heure_debut
         self.heure_fin = heure_fin
+    }
+    
+    init(id: Int, heure_debut: String, heure_fin: String, jour_name: String){
+        self.id = id
+        self.heure_debut = heure_debut
+        self.heure_fin = heure_fin
+        self.jour_name = jour_name
     }
 }
 

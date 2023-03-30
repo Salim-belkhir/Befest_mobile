@@ -23,7 +23,6 @@ struct ListZonesView: View {
                     NavigationLink(destination: AddZoneView().environmentObject(listOfZones)){
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size:40))
-                            .padding(10)
                         
                     }
                     

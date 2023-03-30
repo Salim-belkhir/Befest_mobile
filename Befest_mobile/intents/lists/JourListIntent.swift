@@ -22,7 +22,6 @@ struct JourListIntent{
             listOfJours.state = .loading
             do{
                 let jours: [GetJourDTO] = try await JourService.getAllJours(festival: festival) ?? []
-                debugPrint("Je suis la")
                 let joursVM = GetJourDTO.decodeJour(data: jours) ?? []
                 listOfJours.state = .success(jours: joursVM)
                 listOfJours.state = .ready
