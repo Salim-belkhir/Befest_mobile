@@ -73,6 +73,7 @@
 		B793B36829D185920079CAB5 /* ListAffectationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B36729D185920079CAB5 /* ListAffectationView.swift */; };
 		B793B36A29D185A00079CAB5 /* AffectationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B36929D185A00079CAB5 /* AffectationItemView.swift */; };
 		B793B36E29D1A4390079CAB5 /* BenevoleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B36D29D1A4390079CAB5 /* BenevoleDetailView.swift */; };
+		B797DC7729D6C71D00C2D1A5 /* AffecterDispoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797DC7629D6C71D00C2D1A5 /* AffecterDispoView.swift */; };
 		B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F21429C06E5400D9B784 /* Befest_mobileApp.swift */; };
 		B7A1F21729C06E5400D9B784 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F21629C06E5400D9B784 /* ContentView.swift */; };
 		B7A1F21929C06E5500D9B784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A1F21829C06E5500D9B784 /* Assets.xcassets */; };
@@ -147,6 +148,7 @@
 		B793B36729D185920079CAB5 /* ListAffectationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAffectationView.swift; sourceTree = "<group>"; };
 		B793B36929D185A00079CAB5 /* AffectationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationItemView.swift; sourceTree = "<group>"; };
 		B793B36D29D1A4390079CAB5 /* BenevoleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleDetailView.swift; sourceTree = "<group>"; };
+		B797DC7629D6C71D00C2D1A5 /* AffecterDispoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffecterDispoView.swift; sourceTree = "<group>"; };
 		B7A1F21129C06E5400D9B784 /* Befest_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Befest_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A1F21429C06E5400D9B784 /* Befest_mobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Befest_mobileApp.swift; sourceTree = "<group>"; };
 		B7A1F21629C06E5400D9B784 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				B74721E929D58DDD00949B59 /* ItemDispoView.swift */,
 				B74721EB29D58DEF00949B59 /* ListDispoView.swift */,
+				B797DC7629D6C71D00C2D1A5 /* AffecterDispoView.swift */,
 			);
 			path = Disponibilite;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				6F52633229C8EA3E0000DA28 /* AdminAppView.swift in Sources */,
 				6F52632D29C8E9BB0000DA28 /* Validators.swift in Sources */,
 				6F8152C029CCBF6500D3ED2D /* Creneau.swift in Sources */,
+				B797DC7729D6C71D00C2D1A5 /* AffecterDispoView.swift in Sources */,
 				B7242AD329CDEDD100A16851 /* CreneauService.swift in Sources */,
 				B74721EC29D58DEF00949B59 /* ListDispoView.swift in Sources */,
 				B7242AD729CDEE0300A16851 /* AffectationService.swift in Sources */,
