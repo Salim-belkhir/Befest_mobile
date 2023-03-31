@@ -14,14 +14,22 @@ struct ListDispoView: View {
     private var intent: DispoListIntent
     
     var body: some View {
-        List{
-            if(listDispos.listOfDisponibilites.isEmpty){
-                Text("Malheuresement il n'existe pas de dispo pour ce festival pour ce bénévole")
-            }
-            ForEach(listDispos.listOfDisponibilites.sorted { ($0.creneau?.jour_name)! < ($1.creneau?.jour_name)!}, id:\.id){
-                dispo in
-                ItemDispoView(dispo: dispo)
-                    .padding(10)
+        
+        NavigationView()
+        {
+            List{
+                if(listDispos.listOfDisponibilites.isEmpty){
+                    Text("Malheuresement il n'existe pas de dispo pour ce festival pour ce bénévole")
+                }
+                ForEach(listDispos.listOfDisponibilites.sorted { ($0.creneau?.jour_name)! < ($1.creneau?.jour_name)!}, id:\.id){
+                    dispo in
+                    NavigationLink(destination: AffecterDispoView(dispo : dispo))
+                    {
+                        ItemDispoView(dispo: dispo)
+                            .contentShape(Rectangle())
+                            .padding(10)
+                    }
+                }
             }
         }
         .onAppear(){
