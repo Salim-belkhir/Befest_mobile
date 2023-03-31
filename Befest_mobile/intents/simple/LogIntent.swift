@@ -45,7 +45,7 @@ struct LogIntent {
         }
         catch{
             debugPrint(error)
-            self.model.state = .error(.errorLoading)
+            self.model.state = .error
             self.model.state = .ready
             return false
         }
@@ -66,10 +66,32 @@ struct LogIntent {
         }
         catch{
             debugPrint(error)
-            self.model.state = .error(.errorLoading)
+            self.model.state = .error
             self.model.state = .ready
             return false
         }
     }
     
+    
+    public func updateUser() {
+        Task
+        {
+            if(self.model.state == .ready){
+                self.model.state = .update
+                do{
+                    let userDTO: UserDTO = UserDTO(email: self.model.email , id : self.model.id, firstname: self.model.firstname, lastname: self.model.lastname, password: "salim", role: self.model.role)
+                    try await UserService.updateUser(user: userDTO)
+                    self.model.state = .ready
+                }
+                catch{
+                    let errorRequest = error as! RequestError
+                    debugPrint(errorRequest.description)
+                    self.model.state = .error
+                    self.model.state = .ready
+                }
+            }
+        }
+        
+    }
+
 }
