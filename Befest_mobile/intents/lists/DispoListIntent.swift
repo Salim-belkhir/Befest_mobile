@@ -23,7 +23,6 @@ struct DispoListIntent{
             if(listOfDispos.state == .ready){
                 listOfDispos.state = .loading
                 do{
-                    debugPrint("Voici ce que je veux recuperer")
                     let dispos: [GetDispoCreneauDTO] = try await DisponibiliteService.getAllDisposUser(user: user, festival: festival) ?? []
                     let disposVM: [DisponibiliteViewModel] = GetDispoCreneauDTO.decodeDispo(data: dispos) ?? []
                     listOfDispos.state = .success(dispos: disposVM)
@@ -31,7 +30,6 @@ struct DispoListIntent{
                 }
                 catch{
                     debugPrint(error)
-                    debugPrint("An error occured")
                     listOfDispos.state = .error
                     listOfDispos.state = .ready
                 }

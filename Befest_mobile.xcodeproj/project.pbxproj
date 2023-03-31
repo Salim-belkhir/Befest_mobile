@@ -80,6 +80,9 @@
 		B7A1F21C29C06E5500D9B784 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A1F21B29C06E5500D9B784 /* Preview Assets.xcassets */; };
 		B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */; };
 		B7AEE77B29D6E1D40060AF8E /* CreneauxZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AEE77A29D6E1D40060AF8E /* CreneauxZoneView.swift */; };
+		B7AEE77E29D713F00060AF8E /* ItemAffectationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AEE77D29D713F00060AF8E /* ItemAffectationView.swift */; };
+		B7AEE78029D714060060AF8E /* AffectationPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AEE77F29D714060060AF8E /* AffectationPageView.swift */; };
+		B7AEE78229D714760060AF8E /* AddDispoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AEE78129D714760060AF8E /* AddDispoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +160,9 @@
 		B7A1F21B29C06E5500D9B784 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarItem.swift; sourceTree = "<group>"; };
 		B7AEE77A29D6E1D40060AF8E /* CreneauxZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreneauxZoneView.swift; sourceTree = "<group>"; };
+		B7AEE77D29D713F00060AF8E /* ItemAffectationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAffectationView.swift; sourceTree = "<group>"; };
+		B7AEE77F29D714060060AF8E /* AffectationPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationPageView.swift; sourceTree = "<group>"; };
+		B7AEE78129D714760060AF8E /* AddDispoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDispoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +232,7 @@
 		6F52632F29C8E9F10000DA28 /* Benevole */ = {
 			isa = PBXGroup;
 			children = (
+				B7AEE77C29D713D10060AF8E /* Affectations */,
 				B793B36329D1853F0079CAB5 /* User */,
 				B793B35129D1786C0079CAB5 /* Dispos */,
 				6F52633329C8EA6A0000DA28 /* BenevoleAppView.swift */,
@@ -339,6 +346,7 @@
 			children = (
 				B793B35229D178900079CAB5 /* ListDisposView.swift */,
 				B793B35F29D184C80079CAB5 /* DispoItemView.swift */,
+				B7AEE78129D714760060AF8E /* AddDispoView.swift */,
 			);
 			path = Dispos;
 			sourceTree = "<group>";
@@ -458,6 +466,15 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		B7AEE77C29D713D10060AF8E /* Affectations */ = {
+			isa = PBXGroup;
+			children = (
+				B7AEE77D29D713F00060AF8E /* ItemAffectationView.swift */,
+				B7AEE77F29D714060060AF8E /* AffectationPageView.swift */,
+			);
+			path = Affectations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -533,6 +550,7 @@
 				6F52632029C8E7EC0000DA28 /* RequestError.swift in Sources */,
 				B70D2AEC29D2BF5A00D2CFF1 /* AddZoneView.swift in Sources */,
 				B793B36229D184F20079CAB5 /* BenevoleItemView.swift in Sources */,
+				B7AEE78029D714060060AF8E /* AffectationPageView.swift in Sources */,
 				B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */,
 				B7242ADB29CE03A800A16851 /* ListCreneaux.swift in Sources */,
 				6F8152D229D0A77600D3ED2D /* ZoneListIntent.swift in Sources */,
@@ -559,6 +577,7 @@
 				6F8152CF29CF5EF300D3ED2D /* EditFestivalView.swift in Sources */,
 				6F52632529C8E88D0000DA28 /* AuthService.swift in Sources */,
 				B758EEF129CC5455007051C8 /* ListFestival.swift in Sources */,
+				B7AEE78229D714760060AF8E /* AddDispoView.swift in Sources */,
 				B758EEEF29CC4CFD007051C8 /* ObserverProtocol.swift in Sources */,
 				B78D6E7829D48896008E4E9A /* ItemCreneauView.swift in Sources */,
 				B7242AD129CDEDC200A16851 /* JourService.swift in Sources */,
@@ -578,6 +597,7 @@
 				B7AEE77B29D6E1D40060AF8E /* CreneauxZoneView.swift in Sources */,
 				B7242ACF29CDEB2900A16851 /* FestivalIntent.swift in Sources */,
 				6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */,
+				B7AEE77E29D713F00060AF8E /* ItemAffectationView.swift in Sources */,
 				B758EEED29CC4BBA007051C8 /* FestivalListIntent.swift in Sources */,
 				6F52633629C8EAA70000DA28 /* LogView.swift in Sources */,
 				B7A1F21529C06E5400D9B784 /* Befest_mobileApp.swift in Sources */,
