@@ -138,7 +138,7 @@ struct LogView: View {
                 .onChange(of: self.userMV.state){
                     newValue in
                     switch newValue{
-                    case .error(_):
+                    case .error:
                         debugPrint("Erreur sur le Model View")
                         self.isError = true
                     default:
