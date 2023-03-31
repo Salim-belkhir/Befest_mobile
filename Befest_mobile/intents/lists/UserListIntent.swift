@@ -17,24 +17,26 @@ struct UserListIntent{
     }
     
     
-    func getData() async {
-        if(listBenevolesVM.state == .ready){
-            listBenevolesVM.state = .loading
-            do{
-                let benevoles: [UserDTO] = try await UserService.getAllBenevoles() ?? []
-                let benevolesVM: [UserViewModel] = UserDTO.decodeUser(data: benevoles) ?? []
-                listBenevolesVM.state = .success(benevoles: benevolesVM)
-                listBenevolesVM.state = .ready
+    func getData() {
+        Task{
+            if(listBenevolesVM.state == .ready){
+                listBenevolesVM.state = .loading
+                do{
+                    let benevoles: [UserDTO] = try await UserService.getAllBenevoles() ?? []
+                    let benevolesVM: [UserViewModel] = UserDTO.decodeUser(data: benevoles) ?? []
+                    listBenevolesVM.state = .success(benevoles: benevolesVM)
+                    listBenevolesVM.state = .ready
+                }
+                catch{
+                    debugPrint(error)
+                    listBenevolesVM.state = .error
+                    listBenevolesVM.state = .ready
+                }
             }
-            catch{
-                debugPrint(error)
+            else{
                 listBenevolesVM.state = .error
                 listBenevolesVM.state = .ready
             }
-        }
-        else{
-            listBenevolesVM.state = .error
-            listBenevolesVM.state = .ready
         }
     }
     

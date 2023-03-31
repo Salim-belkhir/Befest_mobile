@@ -17,24 +17,26 @@ struct CreneauListIntent{
     }
     
     
-    func getData(jour: Int) async {
-        if(listCreneauVM.state == .ready){
-            listCreneauVM.state = .loading
-            do{
-                let creneaux: [GetCreneauDTO] = try await CreneauService.getAllCreneaux(jour: jour) ?? []
-                let creneauxVM: [CreneauViewModel] = GetCreneauDTO.decodeCreneau(data: creneaux) ?? []
-                listCreneauVM.state = .success(creneaux: creneauxVM)
-                listCreneauVM.state = .ready
+    func getData(jour: Int) {
+        Task{
+            if(listCreneauVM.state == .ready){
+                listCreneauVM.state = .loading
+                do{
+                    let creneaux: [GetCreneauDTO] = try await CreneauService.getAllCreneaux(jour: jour) ?? []
+                    let creneauxVM: [CreneauViewModel] = GetCreneauDTO.decodeCreneau(data: creneaux) ?? []
+                    listCreneauVM.state = .success(creneaux: creneauxVM)
+                    listCreneauVM.state = .ready
+                }
+                catch{
+                    debugPrint(error)
+                    listCreneauVM.state = .error
+                    listCreneauVM.state = .ready
+                }
             }
-            catch{
-                debugPrint(error)
+            else{
                 listCreneauVM.state = .error
                 listCreneauVM.state = .ready
             }
-        }
-        else{
-            listCreneauVM.state = .error
-            listCreneauVM.state = .ready
         }
     }
     
@@ -47,19 +49,21 @@ struct CreneauListIntent{
     }
         
      
-    //TODO: décommenter la ligne pour réellement supprimer les données
-    public func delete(at: IndexSet) async{
-        if(self.listCreneauVM.state == .ready){
-            do{
-                try await CreneauService.deleteCreneau(id: self.listCreneauVM[at.first!].id)
-                self.listCreneauVM.state = .deleteCreneau(at: at)
-                self.listCreneauVM.state = .ready
+
+    public func delete(at: IndexSet){
+        Task{
+            if(self.listCreneauVM.state == .ready){
+                do{
+                    try await CreneauService.deleteCreneau(id: self.listCreneauVM[at.first!].id)
+                    self.listCreneauVM.state = .deleteCreneau(at: at)
+                    self.listCreneauVM.state = .ready
+                }
+                catch{
+                    self.listCreneauVM.state = .error
+                    self.listCreneauVM.state = .ready
+                }
+                
             }
-            catch{
-                self.listCreneauVM.state = .error
-                self.listCreneauVM.state = .ready
-            }
-            
         }
     }
 }

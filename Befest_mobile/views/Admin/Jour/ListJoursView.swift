@@ -38,8 +38,8 @@ struct ListJoursView: View {
                 }
             }
             .navigationBarTitle("Journées")
-            .task{
-                await self.intent.getData(festival: festivalVM.id)
+            .onAppear(){
+                self.intent.getData(festival: festivalVM.id)
             }
             .toolbar{
                 ToolbarItem(placement: .principal){

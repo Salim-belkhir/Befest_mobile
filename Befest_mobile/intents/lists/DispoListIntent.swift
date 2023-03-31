@@ -42,24 +42,26 @@ struct DispoListIntent{
     }
     
     
-    func getDataCreneau(creneau: Int) async {
-        if(listOfDispos.state == .ready){
-            listOfDispos.state = .loading
-            do{
-                let dispos: [GetDispoUserDTO] = try await DisponibiliteService.getAllDispoCreneau(creneau: creneau) ?? []
-                let disposVM: [DisponibiliteViewModel] = GetDispoUserDTO.decodeDispo(data: dispos) ?? []
-                listOfDispos.state = .success(dispos: disposVM)
-                listOfDispos.state = .ready
+    func getDataCreneau(creneau: Int){
+        Task{
+            if(listOfDispos.state == .ready){
+                listOfDispos.state = .loading
+                do{
+                    let dispos: [GetDispoUserDTO] = try await DisponibiliteService.getAllDispoCreneau(creneau: creneau) ?? []
+                    let disposVM: [DisponibiliteViewModel] = GetDispoUserDTO.decodeDispo(data: dispos) ?? []
+                    listOfDispos.state = .success(dispos: disposVM)
+                    listOfDispos.state = .ready
+                }
+                catch{
+                    debugPrint(error)
+                    listOfDispos.state = .error
+                    listOfDispos.state = .ready
+                }
             }
-            catch{
-                debugPrint(error)
+            else{
                 listOfDispos.state = .error
                 listOfDispos.state = .ready
             }
-        }
-        else{
-            listOfDispos.state = .error
-            listOfDispos.state = .ready
         }
     }
     
@@ -73,18 +75,20 @@ struct DispoListIntent{
         
      
     //TODO: décommenter la ligne pour réellement supprimer les données
-    public func delete(at: IndexSet) async{
-        if(self.listOfDispos.state == .ready){
-            do{
-                try await DisponibiliteService.deleteDispo(id: self.listOfDispos[at.first!].id)
-                self.listOfDispos.state = .deleteDispo(at: at)
-                self.listOfDispos.state = .ready
+    public func delete(at: IndexSet){
+        Task{
+            if(self.listOfDispos.state == .ready){
+                do{
+                    try await DisponibiliteService.deleteDispo(id: self.listOfDispos[at.first!].id)
+                    self.listOfDispos.state = .deleteDispo(at: at)
+                    self.listOfDispos.state = .ready
+                }
+                catch{
+                    self.listOfDispos.state = .error
+                    self.listOfDispos.state = .ready
+                }
+                
             }
-            catch{
-                self.listOfDispos.state = .error
-                self.listOfDispos.state = .ready
-            }
-            
         }
     }
 }

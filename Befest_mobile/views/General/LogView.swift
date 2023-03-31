@@ -46,6 +46,8 @@ struct LogView: View {
                     
                     Text("Welcome to Befest!")
                     
+                    
+                    
                     if(!isLoginPage){
                         TextField("Nom...", text: $userMV.lastname)
                             .font(.headline)
@@ -139,7 +141,6 @@ struct LogView: View {
                     newValue in
                     switch newValue{
                     case .error(_):
-                        debugPrint("Erreur sur le Model View")
                         self.isError = true
                     default:
                         break

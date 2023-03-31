@@ -12,16 +12,23 @@ struct ListBenevolesView: View {
     private var intent: UserListIntent
     @State var searchText: String = ""
     
+    @State var isLoading: Bool = false
+    
     var body: some View {
         NavigationView{
             VStack{
                 SearchBar(text: $searchText)
                 
                 List{
-                    ForEach(searchResults, id: \.id){
-                        item in
-                        NavigationLink(destination: BenevoleDetailView(benevole: item)){
-                            BenevoleItemView(benevole: item)
+                    if(isLoading){
+                        ProgressView()
+                    }
+                    else{
+                        ForEach(searchResults, id: \.id){
+                            item in
+                            NavigationLink(destination: BenevoleDetailView(benevole: item)){
+                                BenevoleItemView(benevole: item)
+                            }
                         }
                     }
                 }
@@ -36,8 +43,19 @@ struct ListBenevolesView: View {
                     DisconnectNavBar()
                 }
             }
-            .task {
-                await self.intent.getData()
+            .onAppear() {
+                self.intent.getData()
+            }
+            .onChange(of: self.listBenevolesVM.state){
+                newValue in
+                switch newValue{
+                case .loading:
+                    self.isLoading = true
+                case .ready:
+                    self.isLoading = false
+                default:
+                    break
+                }
             }
         }
     }
