@@ -13,11 +13,29 @@ struct ItemCreneauView: View {
     @ObservedObject var zoneList: ListZoneVM
     private var zoneListIntent: ZoneListIntent
     
+    @State var showZones: Bool = false
+    
     var body: some View {
-        VStack{
-            Section(header: Text("Creneau \(creneau.heure_debut)-\(creneau.heure_fin)")){
-                
+        HStack{
+            Text("Creneau \(creneau.heure_debut)-\(creneau.heure_fin)")
+            Spacer()
+            if(!showZones){
+                Button(action:{
+                    self.showZones = true
+                })
+                {
+                    Image(systemName: "arrowtriangle.right.fill")
+                }
             }
+            else{
+                Button(action: {
+                    self.showZones = false
+                })
+                {
+                    Image(systemName: "arrowtriangle.up.fill")
+                }
+            }
+            
         }
     }
     

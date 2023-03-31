@@ -11,15 +11,17 @@ import Foundation
 class AffectationService{
     
     //GET
-    static func getAllAffectationsOfUser(user: Int) async throws -> [GetAffectationDTO]?{
+    static func getAllAffectationsOfUser(user: Int) async throws -> [GetAffectationUserDTO]?{
         let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/affectations/user/"+String(user))!
-        let affectations: [GetAffectationDTO] = try await URLSession.shared.getJSON(from: urlAPI)
+        let affectations: [GetAffectationUserDTO] = try await URLSession.shared.getJSON(from: urlAPI)
         return affectations
     }
     
     
     static func getAllAffectationOfZoneForCreneau(zone: Int, creneau: Int) async throws -> [GetAffectationUserDTO] {
-        
+        let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/affectations/zone/"+String(zone)+"/creneau/"+String(creneau))!
+        let affectationsUsers: [GetAffectationUserDTO] = try await URLSession.shared.getJSON(from: urlAPI)
+        return affectationsUsers
     }
     
     //POST
