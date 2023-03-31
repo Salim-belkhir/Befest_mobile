@@ -13,6 +13,8 @@ class PostAffectationDTO: Encodable, Decodable{
     var id_user: Int
     var id_zone: Int
     var id_creneau: Int
+    
+    
 }
 
 class GetAffectationUserDTO: Decodable{
