@@ -78,6 +78,7 @@ enum DispoState: Equatable{
     case ready
     case loading
     case error
+    case success
     
     static func == (lhs: DispoState, rhs: DispoState) -> Bool{
         switch(rhs, lhs){
@@ -86,6 +87,8 @@ enum DispoState: Equatable{
         case (.loading, .loading):
             return true
         case (.error, .error):
+            return true
+        case (.success, .success):
             return true
         default:
             return false
