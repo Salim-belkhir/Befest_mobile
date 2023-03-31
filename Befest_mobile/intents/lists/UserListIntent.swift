@@ -38,6 +38,26 @@ struct UserListIntent{
         }
     }
     
+    func getDataForCreneauForZone(zone: Int, creneau: Int){
+        Task{
+            if(listBenevolesVM.state == .ready){
+                listBenevolesVM.state = .loading
+                do{
+                    let benevolesDTO: [GetAffectationUserDTO] = try await AffectationService.getAllAffectationOfZoneForCreneau(zone: zone, creneau: creneau) ?? []
+                    
+                    let benevoles = GetAffectationUserDTO.decodeUser(data: benevolesDTO) ?? []
+                    listBenevolesVM.state = .success(benevoles: benevoles)
+                    listBenevolesVM.state = .ready
+                }
+                catch{
+                    debugPrint(error)
+                    listBenevolesVM.state = .error
+                    listBenevolesVM.state = .ready
+                }
+            }
+        }
+    }
+    
     
     public func move(fromOffsets: IndexSet, toOffset: Int){
         if(self.listBenevolesVM.state == .ready){

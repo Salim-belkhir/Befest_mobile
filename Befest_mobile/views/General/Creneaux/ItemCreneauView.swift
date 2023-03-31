@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ItemCreneauView: View {
+    @EnvironmentObject var festivalVM: FestivalViewModel
+    
     @ObservedObject var creneau: CreneauViewModel
     
     @ObservedObject var zoneList: ListZoneVM
@@ -16,26 +18,40 @@ struct ItemCreneauView: View {
     @State var showZones: Bool = false
     
     var body: some View {
-        HStack{
-            Text("Creneau \(creneau.heure_debut)-\(creneau.heure_fin)")
-            Spacer()
-            if(!showZones){
-                Button(action:{
-                    self.showZones = true
-                })
-                {
-                    Image(systemName: "arrowtriangle.right.fill")
+        VStack{
+            HStack{
+                Text("Creneau \(creneau.heure_debut)-\(creneau.heure_fin)")
+                    .padding(10)
+                Spacer()
+                if(!showZones){
+                    Button(action:{
+                        self.showZones = true
+                    })
+                    {
+                        Image(systemName: "arrowtriangle.right.fill")
+                    }
                 }
-            }
-            else{
-                Button(action: {
-                    self.showZones = false
-                })
-                {
-                    Image(systemName: "arrowtriangle.up.fill")
+                else{
+                    Button(action: {
+                        self.showZones = false
+                    })
+                    {
+                        Image(systemName: "arrowtriangle.up.fill")
+                    }
                 }
+                
             }
             
+            if(showZones){
+                ScrollView{
+                    ForEach(zoneList.listOfZones, id: \.id){ zone in
+                        CreneauxZoneView(zone: zone, idCreneau: self.creneau.id)
+                    }
+                }
+                .onAppear(){
+                    self.zoneListIntent.getData(festival: festivalVM.id)
+                }
+            }
         }
     }
     
