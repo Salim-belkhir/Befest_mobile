@@ -16,7 +16,6 @@ struct ItemDispoView: View {
                     Text(dispoVM.creneau?.jour_name ?? "")
                     Text("\(dispoVM.creneau?.heure_debut ?? "") - \(dispoVM.creneau?.heure_fin ?? "")")
                 }
-                
                 Spacer()
             }
         }

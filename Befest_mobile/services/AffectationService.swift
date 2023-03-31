@@ -18,7 +18,7 @@ class AffectationService{
     }
     
     //POST
-    static func createZone(zone: ZoneDTO) async throws{
+    static func createAffectation(zone: ZoneDTO) async throws{
         let request = URLRequest.createRequest(urlStr: "/zones/", method: "POST")
         guard let encoded = await JSONHelper.encode(data: zone) else {
             throw RequestError.encodageProblem
