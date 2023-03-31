@@ -11,10 +11,11 @@ struct ZoneItemView: View {
     @ObservedObject var zoneVM: ZoneViewModel
     
     var body: some View {
-        HStack{
+        VStack(alignment: .leading){
             Text(zoneVM.name)
-            Spacer()
+            Spacer().frame(height: 5)
             Text("Nombre de bénévoles nécessaires : \(zoneVM.number_benevoles_needed)")
+                .font(.system(size: 12))
         }
     }
     

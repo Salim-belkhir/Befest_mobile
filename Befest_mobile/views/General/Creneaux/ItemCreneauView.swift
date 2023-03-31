@@ -10,17 +10,12 @@ import SwiftUI
 struct ItemCreneauView: View {
     @ObservedObject var creneau: CreneauViewModel
     
+    @ObservedObject var zoneList: ListZoneVM
+    private var zoneListIntent: ZoneListIntent
+    
     var body: some View {
-        HStack{
-            Image(systemName: "clock")
-            VStack{
-                Text(creneau.jour_name ?? "")
-                Text("\(creneau.heure_debut) - \(creneau.heure_fin)")
-            }
-            
-            Spacer()
-            
-            Button("Affecter"){
+        VStack{
+            Section(header: Text("Creneau \(creneau.heure_debut)-\(creneau.heure_fin)")){
                 
             }
         }
@@ -28,5 +23,8 @@ struct ItemCreneauView: View {
     
     init(creneau: CreneauViewModel) {
         self.creneau = creneau
+        let listOfZones = ListZoneVM()
+        self.zoneList = listOfZones
+        self.zoneListIntent = ZoneListIntent(listOfZones: listOfZones)
     }
 }

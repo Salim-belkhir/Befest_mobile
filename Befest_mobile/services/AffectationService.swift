@@ -17,6 +17,11 @@ class AffectationService{
         return affectations
     }
     
+    
+    static func getAllAffectationOfZoneForCreneau(zone: Int, creneau: Int) async throws -> [GetAffectationUserDTO] {
+        
+    }
+    
     //POST
     static func createZone(zone: ZoneDTO) async throws{
         let request = URLRequest.createRequest(urlStr: "/zones/", method: "POST")
