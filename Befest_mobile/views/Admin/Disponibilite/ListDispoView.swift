@@ -23,7 +23,7 @@ struct ListDispoView: View {
                 }
                 ForEach(listDispos.listOfDisponibilites.sorted { ($0.creneau?.jour_name)! < ($1.creneau?.jour_name)!}, id:\.id){
                     dispo in
-                    NavigationLink(destination: AffecterDispoView(dispo : dispo))
+                    NavigationLink(destination: AffecterDispoView(dispo : dispo, userid : userId))
                     {
                         ItemDispoView(dispo: dispo)
                             .contentShape(Rectangle())

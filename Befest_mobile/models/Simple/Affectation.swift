@@ -14,7 +14,12 @@ class PostAffectationDTO: Encodable, Decodable{
     var id_zone: Int
     var id_creneau: Int
     
-    
+    init(idUser: Int, idZone:Int, idCreneau :Int)
+    {
+        self.id_user = idUser
+        self.id_creneau = idCreneau
+        self.id_zone = idZone
+    }
 }
 
 class GetAffectationUserDTO: Decodable{

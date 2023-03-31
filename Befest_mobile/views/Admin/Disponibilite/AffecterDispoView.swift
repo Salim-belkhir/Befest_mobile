@@ -12,8 +12,10 @@ struct AffecterDispoView: View {
     @ObservedObject var dispoVM: DisponibiliteViewModel
     @State var zoneSelected: ZoneViewModel = ZoneViewModel(id: 0, name: "Vide", number_benevoles_needed: 2)
     @ObservedObject var listZones: ListZoneVM
-    private var intent: ZoneListIntent
+    private var intentZoneList: ZoneListIntent
     @EnvironmentObject var festivalVM: FestivalViewModel
+    private var userid: Int
+    private var intentDispo : DispoIntent
     
     var body: some View {
         VStack (alignment: .center, spacing: 10 ) {
@@ -52,6 +54,7 @@ struct AffecterDispoView: View {
                     
                     
                     Picker("Choisir une zone", selection: $zoneSelected) {
+                        Text("Aucune Zone")
                         ForEach(listZones.listOfZones, id: \.self) { item in
                             Text(item.name)
                         }
@@ -62,7 +65,12 @@ struct AffecterDispoView: View {
                 
                 Button(action: {
                     // action à exécuter lors du clic sur le bouton
-                    
+                    if(zoneSelected.id == 0)
+                    {
+                        return
+                    }
+                        
+                    self.intentDispo.createAffectation(idUser: userid,idZone: zoneSelected.id)
                 }) {
                     Text("Affecter")
                         .font(.headline)
@@ -80,15 +88,17 @@ struct AffecterDispoView: View {
             
         }
         .onAppear() {
-            self.intent.getData(festival: festivalVM.id)
+            self.intentZoneList.getData(festival: festivalVM.id)
         }
     }
     
-    init(dispo: DisponibiliteViewModel) {
+    init(dispo: DisponibiliteViewModel, userid: Int) {
         self.dispoVM = dispo
         let listZones = ListZoneVM()
         self.listZones = listZones
-        self.intent = ZoneListIntent(listOfZones: listZones)
+        self.intentZoneList = ZoneListIntent(listOfZones: listZones)
+        self.intentDispo = DispoIntent(model: dispo)
+        self.userid = userid
     }
 }
 

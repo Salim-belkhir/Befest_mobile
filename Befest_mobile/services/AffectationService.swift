@@ -25,17 +25,24 @@ class AffectationService{
     }
     
     //POST
-    static func createAffectation(zone: ZoneDTO) async throws{
-        let request = URLRequest.createRequest(urlStr: "/zones/", method: "POST")
-        guard let encoded = await JSONHelper.encode(data: zone) else {
+    static func createAffectation(affectation: PostAffectationDTO) async throws{
+        debugPrint(affectation.id_zone)
+        debugPrint(affectation.id_user)
+        debugPrint(affectation.id_creneau)
+        
+        let request = URLRequest.createRequest(urlStr: "/affectations/", method: "POST")
+        guard let encoded = await JSONHelper.encode(data: affectation) else {
             throw RequestError.encodageProblem
         }
         
         let (_, response) = try await URLSession.shared.upload(for: request, from: encoded)
         let httpResponse = response as! HTTPURLResponse
         
-        if httpResponse.statusCode != 201{
+        if httpResponse.statusCode != 200{
+            /*
             throw RequestError.requestError("Error \(httpResponse.statusCode): \(HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode))")
+             */
+            debugPrint(httpResponse)
         }
     }
     
