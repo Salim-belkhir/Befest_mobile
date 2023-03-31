@@ -79,6 +79,7 @@
 		B7A1F21929C06E5500D9B784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A1F21829C06E5500D9B784 /* Assets.xcassets */; };
 		B7A1F21C29C06E5500D9B784 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A1F21B29C06E5500D9B784 /* Preview Assets.xcassets */; };
 		B7A1F22B29C07DED00D9B784 /* NavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */; };
+		B7AEE77B29D6E1D40060AF8E /* CreneauxZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AEE77A29D6E1D40060AF8E /* CreneauxZoneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +156,7 @@
 		B7A1F21829C06E5500D9B784 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7A1F21B29C06E5500D9B784 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarItem.swift; sourceTree = "<group>"; };
+		B7AEE77A29D6E1D40060AF8E /* CreneauxZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreneauxZoneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 				B70D2AEB29D2BF5A00D2CFF1 /* AddZoneView.swift */,
 				B70D2AEF29D2CE0500D2CFF1 /* EditZoneView.swift */,
 				B74721EF29D5913500949B59 /* SelectorZoneView.swift */,
+				B7AEE77A29D6E1D40060AF8E /* CreneauxZoneView.swift */,
 			);
 			path = Zone;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				B7816A3729C34CBA00BAE82F /* JSONHelper.swift in Sources */,
 				6F8152C329CCC22500D3ED2D /* ListZonesView.swift in Sources */,
 				B70D2AF029D2CE0500D2CFF1 /* EditZoneView.swift in Sources */,
+				B7AEE77B29D6E1D40060AF8E /* CreneauxZoneView.swift in Sources */,
 				B7242ACF29CDEB2900A16851 /* FestivalIntent.swift in Sources */,
 				6F52633429C8EA6A0000DA28 /* BenevoleAppView.swift in Sources */,
 				B758EEED29CC4BBA007051C8 /* FestivalListIntent.swift in Sources */,

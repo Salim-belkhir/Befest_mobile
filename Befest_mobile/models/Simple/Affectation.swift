@@ -19,7 +19,10 @@ class PostAffectationDTO: Encodable, Decodable{
 
 class GetAffectationUserDTO: Decodable{
     var id: Int
-    var 
+    var id_user: Int
+    var firstname: String
+    var lastname: String
+    var email: String
 }
 
 

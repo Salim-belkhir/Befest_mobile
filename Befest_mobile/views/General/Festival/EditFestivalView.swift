@@ -116,10 +116,9 @@ struct EditFestivalView: View {
                     .padding(.horizontal, 20) // Ajouter du padding horizontal
                     // Ajouter d'autres champs pour les informations du festival
                     
-                    
                     Spacer()
                 }
-
+                
                 
                 .toolbar{
                     ToolbarItem(placement: .principal){
