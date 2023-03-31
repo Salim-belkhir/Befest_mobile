@@ -48,12 +48,17 @@ struct CreneauxZoneView: View {
             
             if(showBenevoles){
                 ScrollView{
-                    if(listBenevoles.listOfBenevoles.count == 0){
-                        Text("Pas d'affectations existantes")
+                    if(listBenevoles.state == .loading){
+                        ProgressView()
                     }
                     else{
-                        ForEach(listBenevoles.listOfBenevoles, id: \.id){ benevole in
-                            BenevoleItemView(benevole: benevole)
+                        if(listBenevoles.listOfBenevoles.count == 0){
+                            Text("Pas d'affectations existantes")
+                        }
+                        else{
+                            ForEach(listBenevoles.listOfBenevoles, id: \.id){ benevole in
+                                BenevoleItemView(benevole: benevole)
+                            }
                         }
                     }
                 }
