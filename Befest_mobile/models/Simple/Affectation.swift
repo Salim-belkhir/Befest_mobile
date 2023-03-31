@@ -18,6 +18,15 @@ class PostAffectationDTO: Encodable, Decodable{
 }
 
 class GetAffectationUserDTO: Decodable{
+    static func decodeUser(data: [GetAffectationUserDTO]) -> [UserViewModel]?{
+        var benevoles = [UserViewModel]()
+        for tdata in data{
+            let benevole = UserViewModel(id: tdata.id_user, firstname: tdata.firstname, lastname: tdata.lastname, email: tdata.email, password: "", role: "")
+            benevoles.append(benevole)
+        }
+        return benevoles
+    }
+    
     var id: Int
     var id_user: Int
     var firstname: String

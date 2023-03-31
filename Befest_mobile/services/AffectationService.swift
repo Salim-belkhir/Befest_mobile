@@ -18,7 +18,7 @@ class AffectationService{
     }
     
     
-    static func getAllAffectationOfZoneForCreneau(zone: Int, creneau: Int) async throws -> [GetAffectationUserDTO] {
+    static func getAllAffectationOfZoneForCreneau(zone: Int, creneau: Int) async throws -> [GetAffectationUserDTO]? {
         let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/affectations/zone/"+String(zone)+"/creneau/"+String(creneau))!
         let affectationsUsers: [GetAffectationUserDTO] = try await URLSession.shared.getJSON(from: urlAPI)
         return affectationsUsers
