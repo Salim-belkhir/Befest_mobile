@@ -16,6 +16,12 @@ class JourService{
         return jours
     }
     
+    static func getAllJoursBen(festival: Int,user: Int) async throws -> [GetJourDTO]?{
+        let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/jours/festival/"+String(festival)+"/user/"+String(user))!
+        let jours: [GetJourDTO] = try await URLSession.shared.getJSON(from: urlAPI)
+        return jours
+    }
+    
     //POST
     static func createJour(jour: GetJourDTO) async throws{
         let request = URLRequest.createRequest(urlStr: "/jours/", method: "POST")

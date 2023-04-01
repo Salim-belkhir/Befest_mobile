@@ -17,15 +17,12 @@ struct BenevoleAppView: View {
                     NavBarItem(image: "calendar", description: "Disponibilites")
                 }
             
-            
-            Text("Affectations")
+            AffectationPageView()
                 .tabItem(){
                     NavBarItem(image: "list.dash", description: "Affectations")
                 }
-            
-            
-            
             AccountView()
+            
                 .tabItem() {
                     NavBarItem(image: "person.crop.circle", description: "Mon compte")
                 }

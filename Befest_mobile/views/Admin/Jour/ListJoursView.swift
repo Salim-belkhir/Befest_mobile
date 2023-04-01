@@ -14,7 +14,9 @@ struct ListJoursView: View {
     @ObservedObject var listeOfJours: ListJoursVM
     private var intent: JourListIntent
     @State var searchText: String = ""
-
+    @EnvironmentObject var userVM : UserViewModel
+    
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -39,7 +41,12 @@ struct ListJoursView: View {
             }
             .navigationBarTitle("Journées")
             .onAppear(){
-                self.intent.getData(festival: festivalVM.id)
+                if(userVM.role == "admin")
+                {
+                    self.intent.getData(festival: festivalVM.id)
+                } else{
+                    self.intent.getDataBen(festival: festivalVM.id, user : userVM.id)
+                }
             }
             .toolbar{
                 ToolbarItem(placement: .principal){
@@ -58,6 +65,4 @@ struct ListJoursView: View {
         self.intent = JourListIntent(listJours: listOfJours)
         self.listeOfJours = listOfJours
     }
-
-    
 }

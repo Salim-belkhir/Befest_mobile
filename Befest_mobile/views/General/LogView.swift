@@ -140,8 +140,7 @@ struct LogView: View {
                 .onChange(of: self.userMV.state){
                     newValue in
                     switch newValue{
-                    case .error(_):
-
+                    case .error:
                         self.isError = true
                     default:
                         break

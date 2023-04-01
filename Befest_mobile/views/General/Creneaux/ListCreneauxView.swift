@@ -12,8 +12,7 @@ struct ListCreneauxView: View {
     @ObservedObject var listCreneaux: ListCreneauxVM
     private var intent: CreneauListIntent
     
-    
-    var body: some View {
+    var body: some View{
         NavigationView(){
             VStack{
                 Section(header: Text("Créneaux")){
