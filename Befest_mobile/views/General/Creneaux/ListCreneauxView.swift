@@ -32,7 +32,7 @@ struct ListCreneauxView: View {
                 {
                     self.intent.getData(jour: idJour)
                 } else {
-                    await self.intent.getDataBen(jour: idJour, user : userVM.id)
+                    self.intent.getDataBen(jour: idJour, user : userVM.id)
                 }
             }
         }
