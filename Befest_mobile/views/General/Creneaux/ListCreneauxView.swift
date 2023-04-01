@@ -11,6 +11,8 @@ struct ListCreneauxView: View {
     private var idJour: Int
     @ObservedObject var listCreneaux: ListCreneauxVM
     private var intent: CreneauListIntent
+    @EnvironmentObject var userVM : UserViewModel
+
     
     var body: some View{
         NavigationView(){
@@ -26,7 +28,12 @@ struct ListCreneauxView: View {
                 .navigationTitle(Text("Créneaux existants"))
             }
             .task {
-                await self.intent.getData(jour: idJour)
+                if(userVM.role == "admin")
+                {
+                    self.intent.getData(jour: idJour)
+                } else {
+                    await self.intent.getDataBen(jour: idJour, user : userVM.id)
+                }
             }
         }
     }

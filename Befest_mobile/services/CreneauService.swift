@@ -17,6 +17,12 @@ class CreneauService{
         return creneaux
     }
     
+    static func getAllCreneauxBen(jour: Int,user:Int) async throws -> [GetCreneauDTO]?{
+        let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/creneaux/jour/"+String(jour)+"/user/"+String(user))!
+        let creneaux: [GetCreneauDTO] = try await URLSession.shared.getJSON(from: urlAPI)
+        return creneaux
+    }
+    
     //POST
     static func createCreneau(creneau: PostCreneauDTO) async throws{
         let request = URLRequest.createRequest(urlStr: "/creneaux/", method: "POST")
