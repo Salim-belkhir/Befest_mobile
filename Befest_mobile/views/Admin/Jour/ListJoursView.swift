@@ -44,7 +44,7 @@ struct ListJoursView: View {
                 if(userVM.role == "admin")
                 {
                     self.intent.getData(festival: festivalVM.id)
-                } else{
+                } else {
                     self.intent.getDataBen(festival: festivalVM.id, user : userVM.id)
                 }
             }
