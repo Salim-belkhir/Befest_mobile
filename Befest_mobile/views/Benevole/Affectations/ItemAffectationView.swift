@@ -13,8 +13,3 @@ struct ItemAffectationView: View {
     }
 }
 
-struct ItemAffectationView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemAffectationView()
-    }
-}

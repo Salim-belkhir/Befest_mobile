@@ -38,7 +38,6 @@ struct ItemCreneauView: View {
                     {
                         Image(systemName: "arrowtriangle.up.fill")
                     }
-                }
                 
             }
             
@@ -54,7 +53,8 @@ struct ItemCreneauView: View {
             }
         }
     }
-    
+}
+
     init(creneau: CreneauViewModel) {
         self.creneau = creneau
         let listOfZones = ListZoneVM()

@@ -18,28 +18,49 @@ struct JourListIntent{
     
     
     func getData(festival: Int) {
-        Task{
-            if(listOfJours.state == .ready){
-                listOfJours.state = .loading
-                do{
-                    let jours: [GetJourDTO] = try await JourService.getAllJours(festival: festival) ?? []
-                    let joursVM = GetJourDTO.decodeJour(data: jours) ?? []
-                    listOfJours.state = .success(jours: joursVM)
-                    listOfJours.state = .ready
+            Task{
+                if(listOfJours.state == .ready){
+                    listOfJours.state = .loading
+                    do{
+                        let jours: [GetJourDTO] = try await JourService.getAllJours(festival: festival) ?? []
+                        let joursVM = GetJourDTO.decodeJour(data: jours) ?? []
+                        listOfJours.state = .success(jours: joursVM)
+                        listOfJours.state = .ready
+                    }
+                    catch{
+                        debugPrint(error)
+                        listOfJours.state = .error
+                        listOfJours.state = .ready
+                    }
                 }
-                catch{
-                    debugPrint(error)
+                else{
                     listOfJours.state = .error
                     listOfJours.state = .ready
                 }
             }
-            else{
-                listOfJours.state = .error
-                listOfJours.state = .ready
+        }
+    func getDataBen(festival: Int, user : Int) {
+            Task{
+                if(listOfJours.state == .ready){
+                    listOfJours.state = .loading
+                    do{
+                        let jours: [GetJourDTO] = try await JourService.getAllJoursBen(festival: festival, user : user) ?? []
+                        let joursVM = GetJourDTO.decodeJour(data: jours) ?? []
+                        listOfJours.state = .success(jours: joursVM)
+                        listOfJours.state = .ready
+                    }
+                    catch{
+                        debugPrint(error)
+                        listOfJours.state = .error
+                        listOfJours.state = .ready
+                    }
+                }
+                else{
+                    listOfJours.state = .error
+                    listOfJours.state = .ready
+                }
             }
         }
-    }
-    
     
     public func move(fromOffsets: IndexSet, toOffset: Int){
         if(self.listOfJours.state == .ready){

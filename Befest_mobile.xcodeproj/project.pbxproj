@@ -225,6 +225,7 @@
 				6F8152C429CCC28800D3ED2D /* Jour */,
 				6F8152C129CCC20800D3ED2D /* Zone */,
 				6F52633129C8EA3E0000DA28 /* AdminAppView.swift */,
+				B7242ACA29CDDE9D00A16851 /* SearchBar.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -460,7 +461,6 @@
 				6F52632F29C8E9F10000DA28 /* Benevole */,
 				6F52632E29C8E9E90000DA28 /* Admin */,
 				B7A1F22A29C07DED00D9B784 /* NavBarItem.swift */,
-				B7242ACA29CDDE9D00A16851 /* SearchBar.swift */,
 				6F8152D529D0B4CC00D3ED2D /* TopNavigationBar.swift */,
 			);
 			path = views;
