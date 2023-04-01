@@ -25,7 +25,7 @@ struct BenevoleAppView: View {
             
             
             
-            Text("Mon compte")
+            AccountView()
                 .tabItem() {
                     NavBarItem(image: "person.crop.circle", description: "Mon compte")
                 }

@@ -121,9 +121,10 @@ enum UserState: Equatable {
     case ready
     case loading
     case success(UserDTO)
-    case error(UserIntentError)
+    case error
     case changeEmail(String)
     case clearInformations
+    case update
     
     
     static func == (lhs: UserState, rhs: UserState) -> Bool {
@@ -134,11 +135,13 @@ enum UserState: Equatable {
             return true
         case (.success(_), .success(_)):
             return true
-        case (.error(_), .error(_)):
-            return true
         case (.changeEmail(_), .changeEmail(_)):
             return true
         case (.clearInformations, .clearInformations):
+            return true
+        case (.update, .update) :
+            return true
+        case (.error,.error) :
             return true
         default:
             return false

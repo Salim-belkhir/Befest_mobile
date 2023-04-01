@@ -141,6 +141,7 @@ struct LogView: View {
                     newValue in
                     switch newValue{
                     case .error(_):
+
                         self.isError = true
                     default:
                         break
