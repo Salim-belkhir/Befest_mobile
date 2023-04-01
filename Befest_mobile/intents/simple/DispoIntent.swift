@@ -33,6 +33,17 @@ struct DispoIntent{
         }
     }
     
+    func createDispo(dispo: PostDisponibiliteDTO){
+        Task{
+            do{
+                try await DisponibiliteService.createDispo(dispo: dispo)
+            }
+            catch{
+                debugPrint(error)
+            }
+        }
+    }
+    
     init(model: DisponibiliteViewModel){
         self.model = model
     }

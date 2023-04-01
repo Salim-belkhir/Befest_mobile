@@ -13,6 +13,8 @@ struct ListZonesView: View {
     private var intent: ZoneListIntent
     @State var searchText: String = ""
     
+    @State var isLoading: Bool = false
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -33,27 +35,32 @@ struct ListZonesView: View {
                 SearchBar(text: $searchText)
                 
                 List{
-                    ForEach(searchResults, id: \.id){  item in
-                        NavigationLink(destination: EditZoneView(zone: item)){
-                            ZoneItemView(zone: item)
+                    if(isLoading){
+                        ProgressView()
+                    }
+                    else{
+                        ForEach(searchResults, id: \.id){  item in
+                            NavigationLink(destination: EditZoneView(zone: item)){
+                                ZoneItemView(zone: item)
+                            }
                         }
-                    }
-                    .onMove{
-                        indexSet, index in
-                        self.intent.move(fromOffsets: indexSet, toOffset: index)
-                    }
-                    .onDelete{
-                        indexSet in
-                        Task{
-                            await self.intent.delete(at: indexSet)
+                        .onMove{
+                            indexSet, index in
+                            self.intent.move(fromOffsets: indexSet, toOffset: index)
                         }
+                        .onDelete{
+                            indexSet in
+                            Task{
+                                await self.intent.delete(at: indexSet)
+                            }
+                        }
+                        
+                        EditButton()
+                            .foregroundColor(.white)
+                            .padding(7)
+                            .background(Color.blue)
+                            .cornerRadius(6)
                     }
-                    
-                    EditButton()
-                        .foregroundColor(.white)
-                        .padding(7)
-                        .background(Color.blue)
-                        .cornerRadius(6)
 
                 }
             }
@@ -69,11 +76,18 @@ struct ListZonesView: View {
             }
         }
         .task{
-            await self.intent.getData(festival: festivalVM.id)
+            self.intent.getData(festival: festivalVM.id)
         }
         .onChange(of: self.listOfZones.state){
             newValue in
-            debugPrint("New state: \(newValue)")
+            switch newValue{
+            case .loading:
+                self.isLoading = true
+            case .ready:
+                self.isLoading = false
+            default:
+                break
+            }
         }
     }
     

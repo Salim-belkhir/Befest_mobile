@@ -62,7 +62,7 @@
 		B7816A3929C3693000BAE82F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7816A3829C3693000BAE82F /* User.swift */; };
 		B78D6E7629D4859A008E4E9A /* ListCreneauxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D6E7529D4859A008E4E9A /* ListCreneauxView.swift */; };
 		B78D6E7829D48896008E4E9A /* ItemCreneauView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D6E7729D48896008E4E9A /* ItemCreneauView.swift */; };
-		B793B35329D178900079CAB5 /* ListDisposView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B35229D178900079CAB5 /* ListDisposView.swift */; };
+		B793B35329D178900079CAB5 /* DispoBenevoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B35229D178900079CAB5 /* DispoBenevoleView.swift */; };
 		B793B35529D179230079CAB5 /* DispoListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B35429D179230079CAB5 /* DispoListIntent.swift */; };
 		B793B35929D17D110079CAB5 /* CreneauListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B35829D17D110079CAB5 /* CreneauListIntent.swift */; };
 		B793B35B29D17D240079CAB5 /* UserListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B793B35A29D17D240079CAB5 /* UserListIntent.swift */; };
@@ -141,7 +141,7 @@
 		B7816A3829C3693000BAE82F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B78D6E7529D4859A008E4E9A /* ListCreneauxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCreneauxView.swift; sourceTree = "<group>"; };
 		B78D6E7729D48896008E4E9A /* ItemCreneauView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCreneauView.swift; sourceTree = "<group>"; };
-		B793B35229D178900079CAB5 /* ListDisposView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDisposView.swift; sourceTree = "<group>"; };
+		B793B35229D178900079CAB5 /* DispoBenevoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispoBenevoleView.swift; sourceTree = "<group>"; };
 		B793B35429D179230079CAB5 /* DispoListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispoListIntent.swift; sourceTree = "<group>"; };
 		B793B35829D17D110079CAB5 /* CreneauListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreneauListIntent.swift; sourceTree = "<group>"; };
 		B793B35A29D17D240079CAB5 /* UserListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListIntent.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 		B793B35129D1786C0079CAB5 /* Dispos */ = {
 			isa = PBXGroup;
 			children = (
-				B793B35229D178900079CAB5 /* ListDisposView.swift */,
+				B793B35229D178900079CAB5 /* DispoBenevoleView.swift */,
 				B793B35F29D184C80079CAB5 /* DispoItemView.swift */,
 				B7AEE78129D714760060AF8E /* AddDispoView.swift */,
 			);
@@ -609,7 +609,7 @@
 				6F8152D829D0BB2900D3ED2D /* JourListIntent.swift in Sources */,
 				B7242AC929CDDC4700A16851 /* ListZones.swift in Sources */,
 				B758EEF529CCA557007051C8 /* ListBenevoles.swift in Sources */,
-				B793B35329D178900079CAB5 /* ListDisposView.swift in Sources */,
+				B793B35329D178900079CAB5 /* DispoBenevoleView.swift in Sources */,
 				6F52633E29C8F7880000DA28 /* Festival.swift in Sources */,
 				6F52634029C8FD740000DA28 /* FestivalService.swift in Sources */,
 				B74721EE29D58E2200949B59 /* DispoIntent.swift in Sources */,

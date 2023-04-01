@@ -11,6 +11,13 @@ struct BenevoleAppView: View {
     var body: some View {
         TabView {
             
+            
+            DispoBenevoleView()
+                .tabItem(){
+                    NavBarItem(image: "calendar", description: "Disponibilites")
+                }
+            
+            
             Text("Affectations")
                 .tabItem(){
                     NavBarItem(image: "list.dash", description: "Affectations")
