@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 
+// On crée une enum pour gérer les différents textes des boutons
 enum TextButton: String{
     case signin = "Se connecter"
     case signup = "S'inscrire"
@@ -16,20 +17,22 @@ enum TextButton: String{
 
 
 struct LogView: View {
+    // On crée une variable qui va contenir le viewModel de l'utilisateur
+    // Celui-ci va nous permettre de récupérer les données de l'utilisateur qui est connecté
     @EnvironmentObject var userMV : UserViewModel
+    // On crée une variable qui va contenir l'intent de l'utilisateur
     @State private var intent: LogIntent?
-    
+
+    // Variables qui vont nous permettre de gérer l'affichage des erreurs et l'etat de la page
     @State var isError: Bool = false
-    
     @State var isEmailValid: Bool = true
     @State var isLoginPage : Bool = true
     @State var navigate : Bool = false
     
+    // permet de naviguer vers la page d'inscription ou de connexion
     var texteBas : String {
         return (self.isLoginPage ? "Pas encore inscrit ?\nVous pouvez vous inscrire en cliquant en bas" : "Déjà inscrit(e) ?\nClique ci-bas pour te connecter")
     }
-    
-    //Allows to manage the state of the page to know if it's a login page or a
     var textButton: TextButton {
         return (self.isLoginPage ? TextButton.signin : TextButton.signup)
     }
@@ -38,16 +41,16 @@ struct LogView: View {
     
     var body: some View {
                 VStack{
+                    //  le logo de l'application
                     Image("Logo-Befest")
                         .resizable()
                         .scaledToFit()
                         .frame(width:150)
                     
-                    
+                    // le titre de l'application
                     Text("Welcome to Befest!")
                     
-                    
-                    
+                    // Si on est dans la page d'incription, on affiche les champs pour le nom et le prénom et lemail 
                     if(!isLoginPage){
                         TextField("Nom...", text: $userMV.lastname)
                             .font(.headline)
@@ -70,7 +73,7 @@ struct LogView: View {
                     }
                     
                     
-                    
+                    // On affiche le champ de l'email
                     TextField("Email...", text: $userMV.email, onEditingChanged: {(isChanged) in
                         if(!isChanged){
                             if(EmailValidator.isEmailValid(self.userMV.email)){
@@ -90,14 +93,14 @@ struct LogView: View {
                     .cornerRadius(10)
                     .autocapitalization(.none)
                     
-                    
+                    // Si l'email n'est pas valide, on affiche un message d'erreur
                     if (!self.isEmailValid) {
                         Text("Email is Not Valid")
                             .font(.callout)
                             .foregroundColor(Color.red)
                     }
                     
-                    
+                    // On affiche le champ du mot de passe
                     SecureField("Mot de passe...", text: $userMV.password)
                         .font(.headline)
                         .padding(10)
@@ -107,7 +110,7 @@ struct LogView: View {
                         .cornerRadius(10)
                         .autocapitalization(.none)
                     
-                    
+                    // On affiche le bouton de connexion ou d'inscription
                     Button(textButton.rawValue, action: {
                         Task{
                             if(isLoginPage){
@@ -152,7 +155,5 @@ struct LogView: View {
                 .task{
                     self.intent = LogIntent(model: userMV)
                 }
-                
-        
         }
 }

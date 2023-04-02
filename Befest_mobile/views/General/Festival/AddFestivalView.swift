@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct AddFestivalView: View {
-    @EnvironmentObject var listFestival: FestivalListVM
-    @ObservedObject var festivalVM: FestivalViewModel
-    private var intent: FestivalIntent
+    // Variables d'état pour stocker les valeurs entrées par l'utilisateur
     @State var stepper_value: Int
     @State var text_name: String = ""
     @State var text_year: String = ""
@@ -18,9 +16,16 @@ struct AddFestivalView: View {
     @State var messageAlert: String = ""
     @State var titleAlert: String = ""
 
+    // Variables d'environnement et d'observation pour communiquer avec le modèle de données
+    @EnvironmentObject var listFestival: FestivalListVM
+    @ObservedObject var festivalVM: FestivalViewModel
+    private var intent: FestivalIntent
+    
+    // Corps de la vue
     var body: some View {
         NavigationView{
             VStack {
+                // Entête de la vue
                 HStack
                 {
                     Spacer().frame(width:10)
@@ -37,6 +42,7 @@ struct AddFestivalView: View {
                     Spacer().frame(width:10)
                 }
                                 
+                // Formulaire pour entrer les informations sur le festival
                 Form {
                     Section(header: Text("Informations sur le festival")) {
                         TextField("Nom du festival", text: $text_name)
@@ -46,7 +52,7 @@ struct AddFestivalView: View {
                             
                         TextField("Année", text: self.$festivalVM.year)
                         
-                        
+                        // Stepper pour entrer le nombre de jours du festival
                         HStack{
                             Text("Nombre de jours: \(self.festivalVM.nbOfDays)")
                             Stepper("", value: $stepper_value, in: 2...100)
@@ -60,6 +66,7 @@ struct AddFestivalView: View {
                 
                 Spacer()
                 
+                // Bouton pour ajouter le festival
                 HStack(alignment: .lastTextBaseline) {
                     Spacer()
                     Button(action: {
@@ -82,9 +89,11 @@ struct AddFestivalView: View {
             }
             .navigationTitle("Ajouter un festival")
         }
+        // Alert pour afficher les messages de succès ou d'erreur
         .alert(isPresented: $showAlert){
             Alert(title: Text(self.titleAlert), message: Text(self.messageAlert))
         }
+        // Observer le changement d'état du festival créé pour afficher le message approprié
         .onChange(of: self.festivalVM.state){
             newValue in
             debugPrint("New state of the festival create")

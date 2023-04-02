@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ListFestivalsView: View {
+    // On crée une variable qui va contenir le viewModel de la liste des festivals
     @ObservedObject var listFestival : FestivalListVM
+    // On crée une variable qui va contenir l'intent du festival
     private var intent: FestivalListIntent
+    // Gestion d'etat
     @State var isError: Bool = false
     @State var isLoading: Bool = false
     @State var searchText: String = ""
+    // On crée une variable qui va contenir le viewModel du festival
     @EnvironmentObject var festivalVM: FestivalViewModel
     
-    
+    // initailisation
     init() {
         let festivals: FestivalListVM = FestivalListVM()
         self.listFestival = festivals
@@ -27,8 +31,8 @@ struct ListFestivalsView: View {
         
         NavigationView{
             VStack{
-                
-                    Spacer().frame(height:10)
+                // On affiche le titre de la page
+                Spacer().frame(height:10)
                 HStack(alignment: .lastTextBaseline){
                     Spacer().frame(width: 10)
                     ZStack {
@@ -42,7 +46,7 @@ struct ListFestivalsView: View {
                                 Text("Liste des festivals")
                                 .font(.title3)
                                 .fontWeight(.bold)
-                            
+                                // On affiche le bouton pour ajouter un festival
                                 NavigationLink(destination: AddFestivalView().environmentObject(listFestival)){
                                 Image(systemName: "plus.circle.fill")
                                 .font(.system(size:30))
@@ -51,12 +55,12 @@ struct ListFestivalsView: View {
                             
                         }
                     }
-                    
                     Spacer().frame(width: 10)
                 }
-                
+                // La barre de recherche
                 SearchBar(text: $searchText)
                 
+                // On affiche la liste des festivals existants
                 List{
                     Section(header:
                                 Text("Festivals existants")
@@ -118,7 +122,8 @@ struct ListFestivalsView: View {
         }
         
     }
-    
+
+    // Gestion de la bare de recherche     
     var searchResults: [FestivalViewModel] {
         if(searchText.isEmpty) {
             return self.listFestival.listOfFestivals
