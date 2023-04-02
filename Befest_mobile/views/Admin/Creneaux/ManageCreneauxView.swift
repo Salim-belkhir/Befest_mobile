@@ -14,6 +14,7 @@ struct ManageCreneauxView: View {
     private var intentListCreneaux: CreneauListIntent
     
     @State var isError: Bool = false
+    @State var issuccess: Bool = false
     
     @State private var creneauxToDelete: [Int] = []
     
@@ -86,6 +87,7 @@ struct ManageCreneauxView: View {
                         Button("Enregistrer"){
                             if(verifyInformations() && verifyValidity()){
                                 self.updateCreneaux()
+                                self.issuccess = true
                             }
                             else{
                                 isError = true
@@ -103,6 +105,9 @@ struct ManageCreneauxView: View {
             }
             .alert(isPresented: $isError){
                 Alert(title: Text("Une erreur s'est produite"), message: Text("Vous avez mal mis en place les heures"))
+            }
+            .alert(isPresented: $issuccess){
+                Alert(title: Text("Succés !"), message: Text("Les créneaux ont bien été mis à jour"))
             }
         }
     }
