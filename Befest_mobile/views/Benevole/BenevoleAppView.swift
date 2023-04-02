@@ -11,16 +11,17 @@ struct BenevoleAppView: View {
     var body: some View {
         TabView {
             
-            
+            // On affiche la page des disponibilités du bénévole
             DispoBenevoleView()
                 .tabItem(){
                     NavBarItem(image: "calendar", description: "Disponibilites")
                 }
-            
+            // On affiche la page des affectations du bénévole
             AffectationPageView()
                 .tabItem(){
                     NavBarItem(image: "list.dash", description: "Affectations")
                 }
+            // On affiche la page des informations du bénévole
             AccountView()
             
                 .tabItem() {
