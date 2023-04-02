@@ -23,21 +23,35 @@ struct ManageCreneauxView: View {
             ScrollView{
                 VStack{
                     Text(jour.name)
+                        .font(.system(size: 20))
+                        .fontWeight(.bold)
                     
-                    Text("Heure d'ouverture : \(jour.heure_ouverture)   Heure de fermeture : \(jour.heure_fermeture)")
+                    Text("Heure d'ouverture : \(jour.heure_ouverture)")
+
+                    Text("Heure de fermeture : \(jour.heure_fermeture)")
+                    
+                    Spacer().frame(height:20)
                     
                     if(listCreneaux.listOfCreneaux.isEmpty){
                         Text("Pas de créneaux existants pour cette journée.\nCréez-en un!")
                         Spacer().frame(height: 50)
-                        Button("Ajouter"){
+                        Button("Ajouter un créneau"){
                             self.createFirstCreneau()
                         }
+                        .foregroundColor(.white)
+                        .padding(10)
+                        .background(.blue)
+                        .cornerRadius(10)
                     }
                     else{
                         if(isPossibleToAddFirst()){
-                            Button("Ajouter"){
+                            Button("Ajouter un créneau"){
                                 self.listCreneaux.listOfCreneaux.insert(CreneauViewModel(id: 0, heure_debut: jour.heure_ouverture, heure_fin: self.sortedCreneaux[0].heure_debut), at: 0)
                             }
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(.blue)
+                            .cornerRadius(10)
                         }
                         ForEach(sortedCreneaux, id: \.uuid){
                             creneau in
@@ -52,12 +66,21 @@ struct ManageCreneauxView: View {
                                         intentListCreneaux.deleteElement(uuid: creneau.uuid)
                                     }
                                 }
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(.red)
+                                .cornerRadius(10)
                             }
+                            .padding(10)
                         }
                         if(isPossibleToAddEnd()){
-                            Button("Ajouter"){
+                            Button("Ajouter un créneau"){
                                 self.listCreneaux.listOfCreneaux.append(CreneauViewModel(id: 0, heure_debut: self.sortedCreneaux[sortedCreneaux.count-1].heure_fin, heure_fin: jour.heure_fermeture))
                             }
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(.blue)
+                            .cornerRadius(10)
                         }
                         
                         Button("Enregistrer"){
@@ -68,6 +91,10 @@ struct ManageCreneauxView: View {
                                 isError = true
                             }
                         }
+                        .foregroundColor(.white)
+                        .padding(10)
+                        .background(.purple)
+                        .cornerRadius(10)
                     }
                 }
                 .onAppear(){

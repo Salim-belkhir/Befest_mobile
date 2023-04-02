@@ -46,7 +46,7 @@ class CreneauService{
         }
         let (_, response) = try await URLSession.shared.upload(for: request, from: encoded)
         let httpResponse = response as! HTTPURLResponse
-        if httpResponse.statusCode != 201{
+        if httpResponse.statusCode != 200{
             throw RequestError.requestError("Error \(httpResponse.statusCode): \(HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode))")
         }
     }

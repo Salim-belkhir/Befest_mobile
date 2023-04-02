@@ -40,20 +40,21 @@ struct ItemCreneauView: View {
                     }
                 
                 }
+            }
             
-                //Affiche la liste des zones pour le créneau courant
-                if(showZones){
-                    ScrollView{
-                        ForEach(zoneList.listOfZones, id: \.id){ zone in
-                            CreneauxZoneView(zone: zone, idCreneau: self.creneau.id)
-                        }
-                    }
-                    //Charge les zones associées au festival courant lors de l'apparition de la vue
-                    .onAppear(){
-                        self.zoneListIntent.getData(festival: festivalVM.id)
+            //Affiche la liste des zones pour le créneau courant
+            if(showZones){
+                ScrollView{
+                    ForEach(zoneList.listOfZones, id: \.id){ zone in
+                        CreneauxZoneView(zone: zone, idCreneau: self.creneau.id)
                     }
                 }
+                //Charge les zones associées au festival courant lors de l'apparition de la vue
+                .onAppear(){
+                    self.zoneListIntent.getData(festival: festivalVM.id)
+                }
             }
+            
         }
     }
 

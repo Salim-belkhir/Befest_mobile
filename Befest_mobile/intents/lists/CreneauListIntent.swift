@@ -67,7 +67,9 @@ struct CreneauListIntent{
         Task{
             for creneau in listCreneauVM.listOfCreneaux{
                 do{
-                    let creneauDTO: PostCreneauDTO = PostCreneauDTO(id: 0, heureDebut: creneau.heure_debut, heureFin: creneau.heure_fin, jour_creneau: jour)
+                    let creneauDTO: PostCreneauDTO = PostCreneauDTO(id: creneau.id, heureDebut: creneau.heure_debut, heureFin: creneau.heure_fin, jour_creneau: jour)
+                    debugPrint(creneauDTO.heureDebut)
+                    debugPrint(creneauDTO.id)
                     if creneau.id == 0{
                         try await CreneauService.createCreneau(creneau: creneauDTO)
                     }
