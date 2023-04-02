@@ -1,4 +1,4 @@
-/ Ce fichier correspond à la vue de gestion du compte utilisateur.
+// Ce fichier correspond à la vue de gestion du compte utilisateur.
 // Il permet à l'utilisateur de consulter, modifier et enregistrer ses informations personnelles.
 //
 // Import de la bibliothèque SwiftUI pour la création d'interfaces utilisateur.
@@ -23,12 +23,7 @@ struct AccountView: View {
         NavigationView {
             // Empilement vertical des différents éléments de la vue.
             VStack(alignment: .center, spacing: 20) {
-                // Titre de la vue.
-                Text("Mon compte")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(color)
-                    .padding()
+                
                 
                 // Image représentant l'utilisateur connecté.
                 Image(systemName: "person.crop.circle.fill")
@@ -162,6 +157,7 @@ struct AccountView: View {
                     DisconnectNavBar()
                 }
             }
+            .navigationTitle(Text("Mon compte"))
         }
     }
 }

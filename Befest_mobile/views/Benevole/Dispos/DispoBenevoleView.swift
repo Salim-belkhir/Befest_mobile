@@ -21,38 +21,20 @@ struct DispoBenevoleView: View {
         NavigationView{
             VStack{
                 HStack{
-                    Spacer().frame(width:10)
+                    Spacer()
                     // Titre de la liste des festivals avec bouton pour ajouter une disponibilité
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.gray.opacity(0.1))
-                            .frame(height: 40)
-                            .shadow(radius: 1)
-                        HStack{
-                            Text("Liste des festivals")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                            
-                            NavigationLink(destination: AddDispoView()){
-                                Image(systemName: "plus.circle.fill")
-                                    .font(.system(size:30))
-                            }
-                        }
+                    NavigationLink(destination: AddDispoView()){
+                        Image(systemName: "plus")
+                            .font(.system(size:30))
                     }
                     
-                    Spacer().frame(width:10)
+                    Spacer().frame(width:20)
                 }
-                Text("Boutton ajouter à mettre là") // TODO: À compléter avec le bouton d'ajout de festival
-                
-                Text("Liste des dispos") // Titre de la liste des disponibilités du bénévole
                 
                 List{
                     ForEach(listDisposVM.listOfDisponibilites, id: \.id){
                         dispo in
-                        VStack{
-                            Text(dispo.creneau?.jour_name ?? "Pas de nom") // Jour de la disponibilité
-                            Text(dispo.creneau?.heure_debut ?? "Pas de heure de debut") // Heure de début de la disponibilité
-                        }
+                        DispoItemView(disponibiliteVM: dispo)
                     }
                     .onDelete{ // Bouton de suppression d'une disponibilité
                         indexSet in
@@ -78,6 +60,7 @@ struct DispoBenevoleView: View {
                     DisconnectNavBar() // Bouton de déconnexion en haut à droite de la barre d'outils
                 }
             }
+            .navigationTitle(Text("Mes disponibilités"))
         }
     }
 

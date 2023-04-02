@@ -20,7 +20,9 @@ class ListCreneauxVM: ObservableObject, CreneauVMObserver, IteratorProtocol {
             case .moveCreneau(fromOffsets: let indexSet, toOffset: let index):
                 self.move(fromOffsets: indexSet, toOffset: index)
             case .success(creneaux: let creneaux):
+                subscribeToCreneaux(creneaux: creneaux)
                 self.listOfCreneaux = creneaux
+                subscribeToCreneaux(creneaux: creneaux)
             default:
                 break
             }
@@ -29,6 +31,13 @@ class ListCreneauxVM: ObservableObject, CreneauVMObserver, IteratorProtocol {
     
     init(creneaux: [CreneauViewModel]){
         self.listOfCreneaux = creneaux
+        subscribeToCreneaux(creneaux: creneaux)
+    }
+    
+    func subscribeToCreneaux(creneaux:[CreneauViewModel]){
+        for o in listOfCreneaux{
+            o.observers.append(self)
+        }
     }
     
     init() { }
@@ -45,9 +54,9 @@ class ListCreneauxVM: ObservableObject, CreneauVMObserver, IteratorProtocol {
     
     
     
-    func updated(id: Int, model: CreneauViewModel) {
+    func updated(uuid: UUID, model: CreneauViewModel) {
         for i in 0..<self.listOfCreneaux.count{
-            if(self.listOfCreneaux[i].id == id){
+            if(self.listOfCreneaux[i].uuid == uuid){
                 self.listOfCreneaux[i] = model
             }
         }

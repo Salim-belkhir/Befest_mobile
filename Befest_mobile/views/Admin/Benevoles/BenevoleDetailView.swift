@@ -22,8 +22,6 @@ struct BenevoleDetailView: View {
                 Section(header: Text("Ses disponibilités")){
                     ListDispoView(user: benevole.id)
                 }
-                
-                
             }
             .navigationTitle("Détails")
         }

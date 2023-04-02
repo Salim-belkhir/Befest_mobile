@@ -13,13 +13,13 @@ struct DispoIntent{
     @ObservedObject var model: DisponibiliteViewModel
 
     
-    func createAffectation(idUser: Int,idZone: Int)
+    func createAffectation(idUser: Int,idZone: Int, idCreneau: Int)
     {
         Task{
             if(self.model.state == .ready){
                 self.model.state = .loading
                 do{
-                    let affectationDTO = PostAffectationDTO(idUser: idUser, idZone: idZone, idCreneau: model.creneau!.id)
+                    let affectationDTO = PostAffectationDTO(idUser: idUser, idZone: idZone, idCreneau: idCreneau)
                     try await AffectationService.createAffectation(affectation: affectationDTO)
                     self.model.state = .success
                     self.model.state = .ready

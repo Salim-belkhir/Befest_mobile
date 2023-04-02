@@ -18,77 +18,79 @@ struct AffecterDispoView: View {
     private var intentDispo : DispoIntent
     
     var body: some View {
-        VStack (alignment: .center, spacing: 10 ) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray.opacity(0.1))
-                    .frame(height: 50)
-                    .shadow(radius: 1)
-                
-                Text("Affectation du bénévole")
-                    .font(.title3)
-                    .fontWeight(.bold)
-            }
-            
-            VStack(alignment: .center, spacing: 10) {
-                HStack(alignment: .center, spacing: 10) {
-                    Image(systemName: "clock")
-                        .font(.title2)
-                        .foregroundColor(.purple)
+        ScrollView{
+            VStack (alignment: .center, spacing: 10 ) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.gray.opacity(0.1))
+                        .frame(height: 50)
+                        .shadow(radius: 1)
                     
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(dispoVM.creneau?.jour_name ?? "")
-                            .font(.headline)
-                        
-                        Text("\(dispoVM.creneau?.heure_debut ?? "") - \(dispoVM.creneau?.heure_fin ?? "")")
-                            .font(.subheadline)
-                    }
-                    .foregroundColor(.secondary)
-                }
-                
-                VStack(alignment: .center, spacing: 5) {
-                    Text("Choisir une zone")
-                        .foregroundColor(Color.purple)
+                    Text("Affectation du bénévole")
                         .font(.title3)
                         .fontWeight(.bold)
-                    
-                    
-                    Picker("Choisir une zone", selection: $zoneSelected) {
-                        Text("Aucune Zone")
-                        ForEach(listZones.listOfZones, id: \.self) { item in
-                            Text(item.name)
-                        }
-                    }
-                    .frame(maxWidth: 300)
-                    .pickerStyle(WheelPickerStyle())
                 }
                 
-                Button(action: {
-                    // action à exécuter lors du clic sur le bouton
-                    if(zoneSelected.id == 0)
-                    {
-                        return
-                    }
+                VStack(alignment: .center, spacing: 10) {
+                    HStack(alignment: .center, spacing: 10) {
+                        Image(systemName: "clock")
+                            .font(.title2)
+                            .foregroundColor(.purple)
                         
-                    self.intentDispo.createAffectation(idUser: userid,idZone: zoneSelected.id)
-                }) {
-                    Text("Affecter")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.purple)
-                        .cornerRadius(10)
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(dispoVM.creneau?.jour_name ?? "")
+                                .font(.headline)
+                            
+                            Text("\(dispoVM.creneau?.heure_debut ?? "") - \(dispoVM.creneau?.heure_fin ?? "")")
+                                .font(.subheadline)
+                        }
+                        .foregroundColor(.secondary)
+                    }
+                    
+                    VStack(alignment: .center, spacing: 5) {
+                        Text("Choisir une zone")
+                            .foregroundColor(Color.purple)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                        
+                        
+                        Picker("Choisir une zone", selection: $zoneSelected) {
+                            Text("Aucune Zone")
+                            ForEach(listZones.listOfZones, id: \.self) { item in
+                                Text(item.name)
+                            }
+                        }
+                        .frame(maxWidth: 300)
+                        .pickerStyle(WheelPickerStyle())
+                    }
+                    
+                    Button(action: {
+                        // action à exécuter lors du clic sur le bouton
+                        if(zoneSelected.id == 0)
+                        {
+                            return
+                        }
+                            
+                        self.intentDispo.createAffectation(idUser: userid,idZone: zoneSelected.id, idCreneau: dispoVM.creneau?.id ?? 0)
+                    }) {
+                        Text("Affecter")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.purple)
+                            .cornerRadius(10)
+                    }
+                    .shadow(radius: 5)
+                    .fixedSize()
                 }
-                .shadow(radius: 5)
-                .fixedSize()
+                .padding(.horizontal, 30)
+                .padding(.vertical, 40)
+                
             }
-            .padding(.horizontal, 30)
-            .padding(.vertical, 40)
-            
-        }
-        .onAppear() {
-            self.intentZoneList.getData(festival: festivalVM.id)
+            .onAppear() {
+                self.intentZoneList.getData(festival: festivalVM.id)
+            }
         }
     }
     

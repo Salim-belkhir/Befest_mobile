@@ -84,6 +84,7 @@ struct DispoListIntent{
                     self.listOfDispos.state = .ready
                 }
                 catch{
+                    debugPrint(error)
                     self.listOfDispos.state = .error
                     self.listOfDispos.state = .ready
                 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct JourDetailsView: View {
+struct ItemJourView: View {
     @ObservedObject var day: JourViewModel
     var body: some View {
                 HStack {

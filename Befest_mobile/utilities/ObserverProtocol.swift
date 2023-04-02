@@ -30,7 +30,7 @@ protocol ZoneVMObserver{
 
 
 protocol CreneauVMObserver{
-    func updated(id: Int, model: CreneauViewModel)
+    func updated(uuid: UUID, model: CreneauViewModel)
 }
 
 

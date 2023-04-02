@@ -63,6 +63,28 @@ struct CreneauListIntent{
         }
     }
     
+    public func updateList(jour: Int){
+        Task{
+            for creneau in listCreneauVM.listOfCreneaux{
+                do{
+                    let creneauDTO: PostCreneauDTO = PostCreneauDTO(id: 0, heureDebut: creneau.heure_debut, heureFin: creneau.heure_fin, jour_creneau: jour)
+                    if creneau.id == 0{
+                        try await CreneauService.createCreneau(creneau: creneauDTO)
+                    }
+                    else{
+                        try await CreneauService.updateCreneau(creneau: creneauDTO)
+                    }
+                }
+                catch{
+                    debugPrint(error)
+                    self.listCreneauVM.state = .error
+                    self.listCreneauVM.state = .ready
+                }
+            }
+            
+        }
+    }
+    
     
     public func move(fromOffsets: IndexSet, toOffset: Int){
         if(self.listCreneauVM.state == .ready){
@@ -86,6 +108,29 @@ struct CreneauListIntent{
                     self.listCreneauVM.state = .ready
                 }
                 
+            }
+        }
+    }
+    
+    
+    public func deleteElement(uuid: UUID){
+        for i in 0..<listCreneauVM.listOfCreneaux.count{
+            if(listCreneauVM.listOfCreneaux[i].uuid == uuid){
+                listCreneauVM.listOfCreneaux.remove(at: i)
+                break
+            }
+        }
+    }
+    
+    
+    public func deleteCreneau(id: Int){
+        Task{
+            do{
+                try await CreneauService.deleteCreneau(id: id)
+            }
+            catch{
+                self.listCreneauVM.state = .error
+                self.listCreneauVM.state = .ready
             }
         }
     }

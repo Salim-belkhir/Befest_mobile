@@ -8,6 +8,7 @@
 import SwiftUI
 struct ItemDispoView: View {
     @ObservedObject var dispoVM: DisponibiliteViewModel
+    
     var body: some View {
         VStack{
             HStack{

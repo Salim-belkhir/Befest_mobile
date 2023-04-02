@@ -12,8 +12,6 @@ struct AddZoneView: View {
     @ObservedObject var zoneVM: ZoneViewModel // Vue modèle pour la zone à ajouter
     private var intent: ZoneIntent // Intention pour ajouter la zone
 
-    less
-    Copy code
     @State var name: String = "" // Nom de la zone
     @State var stepper_value: Int = 1 // Nombre de bénévoles nécessaires
 

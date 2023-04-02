@@ -42,7 +42,7 @@ struct ContentView: View {
     
     //TODO: Enlever la création de l'admin et créer un utilisateur vide
     init(){
-        self.userMV = UserViewModel(id: 3, firstname: "Ayoub", lastname: "Hakemi", email: "ayoub@gmail.com", password: "benevole", role: "benevole")
+        self.userMV = UserViewModel(id: 3, firstname: "Ayoub", lastname: "Hakemi", email: "ayoub@gmail.com", password: "benevole", role: "admin")
         self.festivalVM = FestivalViewModel(id: 0, name: "", year: "", nbOfDays: 0, closed: false, numberOfBenevoles: 0)
     }
     
@@ -50,8 +50,3 @@ struct ContentView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

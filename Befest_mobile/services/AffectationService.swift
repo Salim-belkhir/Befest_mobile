@@ -11,9 +11,9 @@ import Foundation
 class AffectationService{
     
     //GET
-    static func getAllAffectationsOfUser(user: Int) async throws -> [GetAffectationUserDTO]?{
-        let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/affectations/user/"+String(user))!
-        let affectations: [GetAffectationUserDTO] = try await URLSession.shared.getJSON(from: urlAPI)
+    static func getAllAffectationsOfUser(user: Int, festival: Int) async throws -> [GetAffectationCreneauDTO]?{
+        let urlAPI: URL = URL(string: ConfigAPI.apiUrl+"/affectations/user/"+String(user)+"/festival/"+String(festival))!
+        let affectations: [GetAffectationCreneauDTO] = try await URLSession.shared.getJSON(from: urlAPI)
         return affectations
     }
     
@@ -39,17 +39,14 @@ class AffectationService{
         let httpResponse = response as! HTTPURLResponse
         
         if httpResponse.statusCode != 200{
-            /*
             throw RequestError.requestError("Error \(httpResponse.statusCode): \(HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode))")
-             */
-            debugPrint(httpResponse)
         }
     }
     
     //PUT
-    static func updateZone(zone: ZoneDTO) async throws{
-        let request = URLRequest.createRequest(urlStr: "/zones/"+String(zone.id), method: "PUT")
-        guard let encoded = await JSONHelper.encode(data: zone) else {
+    static func updateAffectation(affectation: PostAffectationDTO) async throws{
+        let request = URLRequest.createRequest(urlStr: "/affectations/"+String(affectation.id), method: "PUT")
+        guard let encoded = await JSONHelper.encode(data: affectation) else {
             throw RequestError.encodageProblem
         }
         let (_, response) = try await URLSession.shared.upload(for: request, from: encoded)
@@ -60,8 +57,8 @@ class AffectationService{
     }
     
     //DELETE
-    static func deleteZone(id: Int) async throws{
-        let request = URLRequest.createRequest(urlStr: "/zones/"+String(id), method: "DELETE")
+    static func deleteAffectation(id: Int) async throws{
+        let request = URLRequest.createRequest(urlStr: "/affectations/"+String(id), method: "DELETE")
         let (_, response) = try await URLSession.shared.data(for: request)
         let httpResponse = response as! HTTPURLResponse
         if httpResponse.statusCode != 200{

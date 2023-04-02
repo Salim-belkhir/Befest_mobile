@@ -33,6 +33,7 @@ struct PostCreneauDTO: Encodable{
 
 
 class CreneauViewModel: ObservableObject{
+    public var uuid = UUID()
     public var id: Int
     @Published var heure_debut: String
     @Published var heure_fin: String
@@ -42,13 +43,18 @@ class CreneauViewModel: ObservableObject{
             switch state{
             case .changeHeureDebut(let heure):
                 self.heure_debut = heure
+                notifyAll()
             case .changeHeureFin(let heure):
                 self.heure_fin = heure
+                debugPrint("Voila les observers que je connais en tant que creneaux : \(observers.count)")
+                notifyAll()
             default:
                 break
             }
         }
     }
+    
+    public var observers: [CreneauVMObserver] = []
     
     init(id: Int, heure_debut: String, heure_fin: String){
         self.id = id
@@ -61,6 +67,13 @@ class CreneauViewModel: ObservableObject{
         self.heure_debut = heure_debut
         self.heure_fin = heure_fin
         self.jour_name = jour_name
+    }
+    
+    
+    func notifyAll(){
+        for o in observers{
+            o.updated(uuid: self.uuid, model: self)
+        }
     }
 }
 
